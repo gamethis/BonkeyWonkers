@@ -35,6 +35,8 @@
     ENTRYPOINT ["python3", "/app/main.py"]
     ```
 
+## Step 3
+
 Build a container:
   + Using the newly created Dockerfile, build a container named `hello`.
 
