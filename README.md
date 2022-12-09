@@ -16,8 +16,6 @@
   ls -ltra
   ```
 
-
-
 + Run `Terraform` again 
   + Expected contents of resulting `Dockerfile`:
 
