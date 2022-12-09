@@ -17,7 +17,7 @@ ls -ltra
 
 + You should do this by adding a single variable (that is not just a simple string) to the module that is propgated to the `Dockerfile`.
 
-Expected contents out resulting `Dockerfile`:
+Expected contents of resulting `Dockerfile`:
 
 ```
 FROM dahicks/sample:latest as build
