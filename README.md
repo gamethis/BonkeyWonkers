@@ -34,13 +34,13 @@ RUN cd /app && \
 ENTRYPOINT ["python3", "/app/main.py"]
 ```
 
-Build the container:
-`docker build . -t hello`
+Build a container:
+  + Using the newly created Dockerfile, build a container named `hello`.
 
-To run the app run:
-`docker run hello`
+Run the docker app:
+  + run the container named `hello`
 
-
-To enter the container:
-`docker run -it --entrypoint /bin/bash hello`
+Enter the container:
+  + Interactively run the container.
+  + Use the  entrypoint `/bin/bash hello`
 
