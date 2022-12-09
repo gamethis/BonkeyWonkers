@@ -18,30 +18,27 @@ You should do this by adding a single variable (that is not just a simple string
 Expected contents out resulting `Dockerfile`:
 
 ```
-FROM golang:1.19 as build
-
+FROM dahicks/sample:latest as build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
-COPY helloworld.go /app/main.go
+COPY helloworld.py /app/main.py
 
 RUN cd /app && \
- whoami && \
- pwd && \
- ls -ltra && \
- go mod init app && \
- go mod tidy && \
- CGO_ENABLED=0 go build -o /go/bin/app . && \
- chmod +x /go/bin/app
+  whoami && \
+  pwd && \
+  ls -ltra && \
+  chmod +x /app/main.py && \
+ pip install Flask-RESTful Flask
 
-FROM gcr.io/distroless/static-debian11:latest
-
-COPY --from=build /go/bin/app /
-
-ENTRYPOINT ["/app"]
+ENTRYPOINT ["python3", "/app/main.py"]
 ```
 
+Build the container:
+`docker build . -t hello`
+
 To run the app run:
+`docker run hello`
 
-`docker run -it hello --entrypoint /bin/bash`
 
-To enter the container
+To enter the container:
+`docker run -it --entrypoint /bin/bash hello`
+
