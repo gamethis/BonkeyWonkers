@@ -1,11 +1,13 @@
 # BonkeyWonkers Questions
 
 ## Step 1
+
 Run the current terraform configuration to create an initial `Dockerfile` and ensure it works.
 
 
 ## Step 2
-Update the `Dockerfile` so that it also runs the below commands inside the image as part of the run statement.
+
+Using Terraform update the `Dockerfile.tpl` file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.
 
 ```
 whoami
@@ -13,7 +15,7 @@ pwd
 ls -ltra
 ```
 
-You should do this by adding a single variable (that is not just a simple string) to the module that is propgated to the `Dockerfile`.
++ You should do this by adding a single variable (that is not just a simple string) to the module that is propgated to the `Dockerfile`.
 
 Expected contents out resulting `Dockerfile`:
 
