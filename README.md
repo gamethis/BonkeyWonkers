@@ -7,7 +7,7 @@
 
 ## Step 2
 
-+ Update the Terraform  template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.
++ Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.
 
   ```
   whoami
@@ -47,7 +47,7 @@ Enter the container:
   + Interactively run the container.
   + Use the  entrypoint `/bin/bash hello`
 
-## step 4
+## Step 4
 
-Run docker compose and hit the `/hello` endpoint on both containers fixing any errors you encounter.
++ Run docker compose and hit the `/hello` endpoint on both containers fixing any errors you encounter.
 
