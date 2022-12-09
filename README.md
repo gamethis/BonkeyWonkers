@@ -8,6 +8,7 @@
 ## Step 2
 
 + Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.
++ This must be completed without a using something other than a simple string variable.
 
   ```
   whoami
@@ -15,7 +16,7 @@
   ls -ltra
   ```
 
-+ You should do this by adding a single variable (that is not just a simple string) to the module that is propgated to the `Dockerfile`.
+
 
 + Run `Terraform` again 
   + Expected contents of resulting `Dockerfile`:
