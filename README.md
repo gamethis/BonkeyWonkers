@@ -47,3 +47,7 @@ Enter the container:
   + Interactively run the container.
   + Use the  entrypoint `/bin/bash hello`
 
+## step 4
+
+Run docker compose and hit the `/hello` endpoint on both containers fixing any errors you encounter.
+
