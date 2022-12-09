@@ -2,7 +2,8 @@
 
 ## Step 1
 
-Run the current terraform configuration to create an initial `Dockerfile` and ensure it works.
++ Run the Terraform configuration in the directory to create an initial `Dockerfile`. 
++ Run the Dockerfile and ensure it works.
 
 
 ## Step 2
