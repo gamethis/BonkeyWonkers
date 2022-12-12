@@ -40,7 +40,7 @@ Build a container:
   + Using the newly created Dockerfile, build a container named `hello`.
 
 Run the docker app:
-  + run the container named `hello`
+  + run the container named `hello` in detached state.
 
 Enter the container:
   + Interactively run the container.
