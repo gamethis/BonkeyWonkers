@@ -1,7 +1,6 @@
 # BonkeyWonkers Questions
 
-## Step 1
-
+## Step 1 Initialize Workspace
 + Initialize, Plan, and Execute the Terraform configuration in the directory to create an initial `Dockerfile`. 
   + Docker file contents should be:
     ```Dockerfile
@@ -30,7 +29,7 @@
        * Debugger PIN: 267-445-398
     ```
 
-## Step 2
+## Step 2 Modify Terraform Module, Update Docker file
 
 + Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.  
 **This must be completed using something other than a simple string variable**.
@@ -59,7 +58,7 @@
     ENTRYPOINT ["python3", "/app/main.py"]
     ```
 
-## Step 3
+## Step 3 Build/Execute/Run Image
 
 Build a container:
   + Using the newly created Dockerfile, build a container named `hello`.
@@ -73,7 +72,7 @@ Run the docker image:
       ```
    
 
-## Step 4
+## Step 4 Docker Compose debug, execute, and test
 
 + Run docker compose and fix any errors you encounter.
 + Curl the `/hello` endpoint on both containers.
