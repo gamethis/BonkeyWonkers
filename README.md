@@ -64,7 +64,7 @@
 Build a container:
   + Using the newly created Dockerfile, build a container named `hello`.
 
-Run the docker app:
+Run the docker image:
   + Interactively run the container named `hello`.
     + Using the entrypoint flag `--entrypoint '/bin/bash'` to interactively login to the terminal of the container.
       + You should see something like
