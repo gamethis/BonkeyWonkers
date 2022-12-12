@@ -43,8 +43,8 @@ Run the docker app:
   + run the container named `hello` in detached state.
 
 Enter the container:
-  + Interactively run the container.
-  + Use the  entrypoint `/bin/bash hello`
+  + Interactively run the container named `hello`.
+    + overide the entrypoint with `/bin/bash`
 
 ## Step 4
 
