@@ -41,7 +41,11 @@ Build a container:
 
 Run the docker app:
   + Interactively run the container named `hello`.
-    + Use the entrypoint `/bin/bash`.
+    + Using the entrypoint flag `--entrypoint '/bin/bash'` to interactively login to the terminal of the container.
+      + You should see something like
+      ```shell
+        root@c0700134dc42:/exercises#
+      ```
    
 
 ## Step 4
