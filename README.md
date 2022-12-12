@@ -46,5 +46,13 @@ Run the docker app:
 
 ## Step 4
 
-+ Run docker compose and hit the `/hello` endpoint on both containers fixing any errors you encounter.
++ Run docker compose and fix any errors you encounter.
++ Curl the `/hello` endpoint on both containers.
+  + output should look like follows
+
+    ```shell
+    {
+      "data": "Hello World"
+    }
+    ```
 
