@@ -40,11 +40,9 @@ Build a container:
   + Using the newly created Dockerfile, build a container named `hello`.
 
 Run the docker app:
-  + run the container named `hello` in detached state.
-
-Enter the container:
   + Interactively run the container named `hello`.
-    + overide the entrypoint with `/bin/bash`
+    + Use the entrypoint `/bin/bash`.
+   
 
 ## Step 4
 
