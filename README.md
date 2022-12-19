@@ -32,9 +32,12 @@
 ## Step 2 Modify Terraform Module, Update Docker file
 
 + Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.  
-**This must be completed using something other than a simple string variable**.
 
-    ```
+  **This must completed using terraform logic and variable, not just adding the following lines to the `Dockerfile.tpl`.**
+
+  **This must be completed using variables.tf with the list below, a simple string variable is an incorrect answer.**
+  
+    ```shell
     whoami
     pwd
     ls -ltra
