@@ -58,14 +58,13 @@
     ENTRYPOINT ["python3", "/app/main.py"]
     ```
 
-## Step 3 Build/Execute/Run Image
+## Step 3 Build/Execute/Run Image and Validate New image.
 
 Build a container:
   + Using the newly created Dockerfile, build a container named `hello`.
 
 Run the docker image:
   + Interactively run the container named `hello`.
-    + Using the entrypoint flag `--entrypoint '/bin/bash'` to interactively login to the terminal of the container.
       + You should see something like
       ```shell
         root@c0700134dc42:/exercises#
