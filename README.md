@@ -33,9 +33,7 @@
 
 + Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.  
 
-  **This must completed using terraform logic and variable, not just adding the following lines to the `Dockerfile.tpl`.**
-
-  **This must be completed using variables.tf with the list below, a simple string variable is an incorrect answer.**
++ **NOTE:** The purpose of this exercise is to test your knowledge of terraform variables and templates.  To complete this step, you should make use of a list that is iterated through using Terraform's templating to render the final `Dockerfile`
   
     ```shell
     whoami
