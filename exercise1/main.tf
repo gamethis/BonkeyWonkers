@@ -1,5 +1,5 @@
 module service_config {
-    source = "./modules"
+    source = "../modules/helloworld"
     source_file = "helloworld.py"
 }
 
