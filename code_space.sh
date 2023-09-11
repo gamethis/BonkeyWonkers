@@ -33,5 +33,8 @@ echo "========================="
 echo "install pre-commit"
 pip install pre-commit
 pre-commit install
+curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+pre-commit run --all
 echo "Done install pre-commit."
 echo "========================="
