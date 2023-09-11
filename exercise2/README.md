@@ -5,8 +5,13 @@ This exercise is meant to test your ability to run basic terraform commands and 
 The actual outcome of this excersize is purely to ensure you can run basic terraform commands, and a simple test to see if you understand templating in terraform.  DON'T OVER THINK IT!
 
 ## Step 1 Initialize Workspace
-+ Initialize, Plan, and Execute the Terraform configuration in the directory to create an initial `Dockerfile`.
-  + Docker file contents should be:
+Initialize, Plan, and Execute the Terraform configuration in the directory to create an initial `Dockerfile`.
+
+  <details>
+  <summary>
+  Docker file contents
+  </summary>
+
     ```Dockerfile
     FROM dahicks/sample:latest as build
     SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -18,8 +23,16 @@ The actual outcome of this excersize is purely to ensure you can run basic terra
 
     ENTRYPOINT ["python3", "/app/main.py"]
     ```
-+ Build and Run the Dockerfile and ensure it works.
-  + Output should be:
+  </details>
+  </p>
+
+Build and Run the Dockerfile and ensure it works.
+  
+  <details>
+  <summary>
+  Expected Output
+  </summary>
+
     ```shell
        * Serving Flask app 'main'
        * Debug mode: on
@@ -32,12 +45,13 @@ The actual outcome of this excersize is purely to ensure you can run basic terra
        * Debugger is active!
        * Debugger PIN: 267-445-398
     ```
+  </details>
 
 ## Step 2 Modify Terraform Module, Update Docker file
 
-+ Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.
+Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.
 
-+ **NOTE:** The purpose of this exercise is to test your knowledge of terraform variables and templates.  To complete this step, you should make use of a list that is iterated through using Terraform's templating to render the final `Dockerfile`
+> **NOTE:** The purpose of this exercise is to test your knowledge of terraform variables and templates.  To complete this step, you should make use of a list that is iterated through using Terraform's templating to render the final `Dockerfile`
 
     ```shell
     whoami
@@ -46,7 +60,10 @@ The actual outcome of this excersize is purely to ensure you can run basic terra
     ```
 
 + Run `Terraform` again
-  + Expected contents of resulting `Dockerfile`:
+  <details>
+  <summary>
+  Expected Output
+  </summary>
 
     ```DockerFile
     FROM dahicks/sample:latest as build
@@ -62,6 +79,7 @@ The actual outcome of this excersize is purely to ensure you can run basic terra
 
     ENTRYPOINT ["python3", "/app/main.py"]
     ```
+  </details>
 
 ## Step 3 Build/Execute/Run Image and Validate New image.
 
