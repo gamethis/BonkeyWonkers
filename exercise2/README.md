@@ -1,29 +1,89 @@
-# Exercise 2
+# Exercise 1
 
-## Step 1: Initialize and apply existing TF resources
+This exercise is meant to test your ability to run basic terraform commands and make a modification to a terraform module.
 
-Init, plan, and apply the current terraform code in this directory.  This should create 3 separate text files in the current directory.
+The actual outcome of this excersize is purely to ensure you can run basic terraform commands, and a simple test to see if you understand templating in terraform.  DON'T OVER THINK IT!
 
-## Step 2: Move resource from one module to another
+## Step 1 Initialize Workspace
++ Initialize, Plan, and Execute the Terraform configuration in the directory to create an initial `Dockerfile`.
+  + Docker file contents should be:
+    ```Dockerfile
+    FROM dahicks/sample:latest as build
+    SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+    COPY helloworld.py /app/main.py
 
-Move the `file2` resource from [module 1](../modules/module1/) to [module 2](../modules/module2/).  Do this in a way that when you run terraform apply again you DO NOT recreate any files or anything.
+    RUN cd /app && \
+      chmod +x /app/main.py && \
+      pip install Flask-RESTful Flask
 
-## Step 3: Run TF Plan and validate no changes
+    ENTRYPOINT ["python3", "/app/main.py"]
+    ```
++ Build and Run the Dockerfile and ensure it works.
+  + Output should be:
+    ```shell
+       * Serving Flask app 'main'
+       * Debug mode: on
+      WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+       * Running on all addresses (0.0.0.0)
+       * Running on http://127.0.0.1:80
+       * Running on http://172.17.0.2:80
+      Press CTRL+C to quit
+       * Restarting with stat
+       * Debugger is active!
+       * Debugger PIN: 267-445-398
+    ```
 
-When you re-run your terraform plan, the 3 files should remain untouched but we should be able to see that `file2.txt` is now created via module 2.
+## Step 2 Modify Terraform Module, Update Docker file
 
-Expected output:
++ Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.
 
-```bash
-terraform apply
-module.m2.local_file.file2: Refreshing state... [id=6a23b0a0be4741283159cdf45b6814073415c47c]
-module.m1.local_file.file1: Refreshing state... [id=bcaa1563249780a80f62de4264a2347dec98ec48]
-module.m2.local_file.file3: Refreshing state... [id=41e5c0166e1d0a452b06bb7341ae669fea1a714b]
++ **NOTE:** The purpose of this exercise is to test your knowledge of terraform variables and templates.  To complete this step, you should make use of a list that is iterated through using Terraform's templating to render the final `Dockerfile`
 
-No changes. Your infrastructure matches the configuration.
+    ```shell
+    whoami
+    pwd
+    ls -ltra
+    ```
 
-Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
++ Run `Terraform` again
+  + Expected contents of resulting `Dockerfile`:
 
-Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+    ```DockerFile
+    FROM dahicks/sample:latest as build
+    SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+    COPY helloworld.py /app/main.py
 
-```
+    RUN cd /app && \
+      whoami && \
+      pwd && \
+      ls -ltra && \
+      chmod +x /app/main.py && \
+     pip install Flask-RESTful Flask
+
+    ENTRYPOINT ["python3", "/app/main.py"]
+    ```
+
+## Step 3 Build/Execute/Run Image and Validate New image.
+
+Build a container:
+  + Using the newly created Dockerfile, build a container named `hello`.
+
+Run the docker image:
+  + Interactively run the container named `hello`.
+      + You should see something like
+      ```shell
+        root@c0700134dc42:/exercises#
+      ```
+
+
+## Step 4 Docker Compose debug, execute, and test
+
++ Run docker compose and fix any errors you encounter.
++ Curl the `/hello` endpoint on both containers.
+  + output should look like follows
+
+    ```shell
+    {
+      "data": "Hello World"
+    }
+    ```
