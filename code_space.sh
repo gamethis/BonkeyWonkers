@@ -24,13 +24,3 @@ cd ~
 wget "https://releases.hashicorp.com/terraform/"$VERSION"/terraform_"$VERSION"_linux_amd64.zip"
 unzip "terraform_"$VERSION"_linux_amd64.zip"
 sudo install terraform /usr/local/bin/
-
-
-echo "Adding Extensions"
-code --install-extension DavidAnson.vscode-markdownlint
-code --install-extension GitHub.codespaces
-code --install-extension GitHub.github-vscode-theme
-code --install-extension GitHub.vscode-pull-request-github
-code --install-extension hashicorp.terraform
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension redhat.vscode-yaml

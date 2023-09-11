@@ -1,3 +1,16 @@
 {
-    "postCreateCommand": "./code_space.sh"
+    "postCreateCommand": "./code_space.sh",
+    "customizations": {
+        "vscode": {
+          "extensions": [
+            "DavidAnson.vscode-markdownlint",
+            "GitHub.codespaces",
+            "GitHub.github-vscode-theme",
+            "GitHub.vscode-pull-request-github",
+            "hashicorp.terraform",
+            "ms-azuretools.vscode-docker",
+            "redhat.vscode-yaml"
+          ]
+        }
+      }
 }
