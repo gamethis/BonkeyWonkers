@@ -27,7 +27,7 @@ The actual outcome of this excersize is purely to ensure you can run basic terra
   </p>
 
 + Build and Run the Dockerfile and ensure it works.
-  
+
   <details>
   <summary>
   Expected Output
@@ -52,7 +52,7 @@ The actual outcome of this excersize is purely to ensure you can run basic terra
 + Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.
 
     > **NOTE:** The purpose of this exercise is to test your knowledge of terraform variables and templates.  To complete this step, you should make use of a list that is iterated through using Terraform's templating to render the final `Dockerfile`
-  
+
     ```shell
     whoami
     pwd

@@ -32,5 +32,6 @@ echo "========================="
 
 echo "install pre-commit"
 pip install pre-commit
+pre-commit install
 echo "Done install pre-commit."
 echo "========================="

@@ -5,4 +5,3 @@ module m1 {
 module m2 {
     source = "../modules/module2"
 }
-

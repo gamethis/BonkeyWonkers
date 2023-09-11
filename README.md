@@ -7,6 +7,3 @@
 ## Exercise 2
 
 [This exercise](./exercise2/README.md) will be used to test your basic knowledge of executing a terraform plan as well as basic templating.
-
-
-
