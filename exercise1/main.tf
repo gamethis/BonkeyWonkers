@@ -1,7 +1,7 @@
-module m1 {
-    source = "../modules/module1"
+module "m1" {
+  source = "../modules/module1"
 }
 
-module m2 {
-    source = "../modules/module2"
+module "m2" {
+  source = "../modules/module2"
 }
