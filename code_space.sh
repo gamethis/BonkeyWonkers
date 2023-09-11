@@ -35,3 +35,8 @@ pip install pre-commit
 pre-commit install
 echo "Done install pre-commit."
 echo "========================="
+
+echo "Install tflint"
+curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+echo "Done install tflint"
+echo "========================="
