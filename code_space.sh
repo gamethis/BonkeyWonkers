@@ -18,9 +18,19 @@ function getLatestVersion() {
   echo -n "$LATEST"
 }
 
+echo "Install Terraform"
+
 VERSION=$(getLatestVersion)
 
 cd ~
 wget "https://releases.hashicorp.com/terraform/"$VERSION"/terraform_"$VERSION"_linux_amd64.zip"
 unzip "terraform_"$VERSION"_linux_amd64.zip"
 sudo install terraform /usr/local/bin/
+
+echo "Done Installing Terraform"
+echo "========================="
+
+echo "install pre-commit"
+pip install pre-commit
+echo "Done install pre-commit."
+echo "========================="
