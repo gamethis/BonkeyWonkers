@@ -1,0 +1,3 @@
+{
+    "postCreateCommand": "./code_space.sh"
+}
