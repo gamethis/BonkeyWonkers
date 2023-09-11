@@ -43,6 +43,6 @@ echo "Done install tflint and tfsec"
 echo "========================="
 
 echo "run pre-commit"
-pre-commit run --all
+pre-commit run --all-files
 echo "Done running pre-commit"
 echo "========================="
