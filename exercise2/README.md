@@ -5,7 +5,7 @@ This exercise is meant to test your ability to run basic terraform commands and 
 The actual outcome of this excersize is purely to ensure you can run basic terraform commands, and a simple test to see if you understand templating in terraform.  DON'T OVER THINK IT!
 
 ## Step 1 Initialize Workspace
-Initialize, Plan, and Execute the Terraform configuration in the directory to create an initial `Dockerfile`.
++ Initialize, Plan, and Execute the Terraform configuration in the directory to create an initial `Dockerfile`.
 
   <details>
   <summary>
@@ -26,7 +26,7 @@ Initialize, Plan, and Execute the Terraform configuration in the directory to cr
   </details>
   </p>
 
-Build and Run the Dockerfile and ensure it works.
++ Build and Run the Dockerfile and ensure it works.
   
   <details>
   <summary>
@@ -49,10 +49,10 @@ Build and Run the Dockerfile and ensure it works.
 
 ## Step 2 Modify Terraform Module, Update Docker file
 
-Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.
++ Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile` also runs the below commands inside the image as part of the run statement.
 
-> **NOTE:** The purpose of this exercise is to test your knowledge of terraform variables and templates.  To complete this step, you should make use of a list that is iterated through using Terraform's templating to render the final `Dockerfile`
-
+    > **NOTE:** The purpose of this exercise is to test your knowledge of terraform variables and templates.  To complete this step, you should make use of a list that is iterated through using Terraform's templating to render the final `Dockerfile`
+  
     ```shell
     whoami
     pwd
@@ -83,10 +83,10 @@ Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dock
 
 ## Step 3 Build/Execute/Run Image and Validate New image.
 
-Build a container:
++ Build a container:
   + Using the newly created Dockerfile, build a container named `hello`.
 
-Run the docker image:
++ Run the docker image:
   + Interactively run the container named `hello`.
       + You should see something like
       ```shell
