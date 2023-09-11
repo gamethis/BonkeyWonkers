@@ -1,4 +1,4 @@
-# Exercise 1
+# Exercise 2
 
 This exercise is meant to test your ability to run basic terraform commands and make a modification to a terraform module.
 

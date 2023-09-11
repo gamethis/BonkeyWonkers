@@ -1,4 +1,4 @@
-# Exercise 2
+# Exercise 1
 
 ## Step 1: Initialize and apply existing TF resources
 
