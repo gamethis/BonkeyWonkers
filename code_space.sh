@@ -33,8 +33,16 @@ echo "========================="
 echo "install pre-commit"
 pip install pre-commit
 pre-commit install
+echo "Done install pre-commit."
+echo "========================="
+
+echo "Install tflint and tfsec"
 curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
 curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+echo "Done install tflint and tfsec"
+echo "========================="
+
+echo "run pre-commit"
 pre-commit run --all
-echo "Done install pre-commit."
+echo "Done running pre-commit"
 echo "========================="
