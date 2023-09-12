@@ -57,7 +57,7 @@ The actual outcome of this excersize is purely to ensure you can run
 
 ## Step 2 Modify Terraform Module, Update Docker file
 
-+ Update the Terraform template(`Dockerfile.tpl`) file so that the resulting `Dockerfile`
++ Update the Terraform template(`Dockerfile.tftpl`) file so that the resulting `Dockerfile`
   also runs the below commands inside the image as part of the run statement.
 
     > **NOTE:** The purpose of this exercise is to test your knowledge of
@@ -100,9 +100,10 @@ The actual outcome of this excersize is purely to ensure you can run
 + Build a container:
   + Using the newly created Dockerfile, build a container named `hello`.
 
-+ Run the docker image:
-  + Interactively run the container named `hello`.
-    + You should see something like
++ Run the docker image
+
++ Interactively get an interactive `/bin/bash` shell in the running container.
+  + You should see something like
 
       ```shell
         root@c0700134dc42:/exercises#
