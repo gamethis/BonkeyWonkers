@@ -9,13 +9,15 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-    - name: setup checkout
+    - name: Clone repo
       uses: actions/checkout@v3
     - name: setup setup-python
       uses: actions/setup-python@v3
-    - name: setup tflint
-      uses: terraform-linters/setup-tflint@v3
-    - name: setup tfsec
-      uses: aquasecurity/tfsec-action@v1.0.0
+    - name: install tflint
+      run: |
+        curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+    - name: install tfsec
+      run: |
+        curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
     - name: run pre-commit
       uses: pre-commit/action@v3.0.0
