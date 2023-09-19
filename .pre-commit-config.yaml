@@ -19,6 +19,12 @@ repos:
     -   id: terraform_tfsec
         args:
         - --args=--config-file=.tfsec.yaml
+- repo: https://github.com/python-jsonschema/check-jsonschema
+  rev: 0.26.3
+  hooks:
+    - id: check-github-workflows
+    - id: check-github-actions
+    - id: check-dependabot
 - repo: https://github.com/igorshubovych/markdownlint-cli
   rev: v0.36.0
   hooks:
