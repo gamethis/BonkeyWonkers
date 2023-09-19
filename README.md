@@ -1,5 +1,7 @@
 # BonkeyWonkers Questions
 
+[![pre-commit](https://github.com/gamethis/BonkeyWonkers/actions/workflows/pre-commit.yaml/badge.svg)](https://github.com/gamethis/BonkeyWonkers/actions/workflows/pre-commit.yaml)
+
 <p align="center">
   <img src="./BonkeyWonkers.png" width="256" height="256" />
 </p>
