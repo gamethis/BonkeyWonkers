@@ -36,10 +36,26 @@ pre-commit install
 echo "Done install pre-commit."
 echo "========================="
 
-echo "Install tflint and tfsec"
-curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
-curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
-echo "Done install tflint and tfsec"
+echo "Install tflint"
+TFLINT_VERSION="0.48.0"
+INSTALL_PATH="/usr/local/bin"
+platform=$(uname -s | tr '[:upper:]' '[:lower:]')
+arch=$(uname -m)
+if [ "$arch" == "x86_64" ]; then
+            arch="amd64"
+        fi
+filename="tflint_${platform}_${arch}.zip"
+curl -s -LO "https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/${filename}"
+sudo unzip $filename -d "${INSTALL_PATH}"
+
+echo "Done installing tflint"
+echo "========================="
+
+echo "install trivy"
+TRIVY_VERSION="0.47.0"
+curl --retry 3 --retry-delay 5 -sSL "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" | sudo tar xz -C /usr/local/bin --overwrite
+
+echo "Done install trivy"
 echo "========================="
 
 echo "run pre-commit"
