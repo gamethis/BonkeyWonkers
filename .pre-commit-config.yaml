@@ -16,9 +16,22 @@ repos:
     -   id: terraform_fmt
     -   id: terraform_tflint
     -   id: terraform_validate
-    -   id: terraform_tfsec
-        args:
-        - --args=--config-file=.tfsec.yaml
+- repo: https://github.com/terraform-docs/terraform-docs
+  rev: v0.16.0
+  hooks:
+  - id: terraform-docs-go
+    args: ["markdown", "table","--output-file", "README.md", "."]
+
+- repo: local
+  hooks:
+  - id: trivy
+    name: Trivy security scan
+    description: "Scan Repository with Trivy"
+    language: script
+    entry: ./trivy.sh
+    pass_filenames: false
+    always_run: true
+
 - repo: https://github.com/python-jsonschema/check-jsonschema
   rev: 0.26.3
   hooks:

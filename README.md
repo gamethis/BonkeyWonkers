@@ -16,3 +16,29 @@ module to another without modifying the actual state of the resource.
 
 [This exercise](./exercise2/README.md) will be used to test your basic
 knowledge of executing a terraform plan as well as basic templating.
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+No requirements.
+
+## Providers
+
+No providers.
+
+## Modules
+
+No modules.
+
+## Resources
+
+No resources.
+
+## Inputs
+
+No inputs.
+
+## Outputs
+
+No outputs.
+<!-- END_TF_DOCS -->
