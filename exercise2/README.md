@@ -18,15 +18,20 @@ The actual outcome of this excersize is purely to ensure you can run
   </summary>
 
     ```Dockerfile
-    FROM dahicks/sample:latest as build
-    SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-    COPY helloworld.py /app/main.py
+      FROM dahicks/sample:latest as build
 
-    RUN cd /app && \
+      SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+      RUN useradd --no-log-init -r -g root bonkey
+
+      COPY ${source_file} /app/main.py
+
+      RUN cd /app && \
       chmod +x /app/main.py && \
       pip install Flask-RESTful Flask
 
-    ENTRYPOINT ["python3", "/app/main.py"]
+      ENTRYPOINT ["python3", "/app/main.py"]
+
+      USER bonkey
     ```
 
   </details>
@@ -81,6 +86,7 @@ The actual outcome of this excersize is purely to ensure you can run
     ```DockerFile
     FROM dahicks/sample:latest as build
     SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+    RUN useradd --no-log-init -r -g root bonkey
     COPY helloworld.py /app/main.py
 
     RUN cd /app && \
@@ -91,6 +97,7 @@ The actual outcome of this excersize is purely to ensure you can run
      pip install Flask-RESTful Flask
 
     ENTRYPOINT ["python3", "/app/main.py"]
+    USER bonkey
     ```
 
   </details>
