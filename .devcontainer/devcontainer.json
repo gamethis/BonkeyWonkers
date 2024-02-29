@@ -4,7 +4,7 @@
     "cpus": 4
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "docker volume create grafana-storage && docker run -d -p 3000:3000 --name=grafana  --volume grafana-storage:/var/lib/grafana  grafana/grafana-enterprise",
+  "updateContentCommand": "",
   "postCreateCommand": "./code_space.sh",
   "postAttachCommand": {
   },
@@ -28,7 +28,7 @@
   },
   "portsAttributes": {
     "3000": {
-      "label": "Application",
+      "label": "Grafana",
       "onAutoForward": "openPreview"
     }
   },

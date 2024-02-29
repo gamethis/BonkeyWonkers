@@ -65,4 +65,4 @@ echo "========================="
 
 echo installing grafana
 docker volume create grafana-storage
-docker run -d -p 3001:3000 --name=grafana  --volume grafana-storage:/var/lib/grafana  grafana/grafana-enterprise
+docker run -d -p 3000:3000 --name=grafana  --volume grafana-storage:/var/lib/grafana  grafana/grafana-enterprise
