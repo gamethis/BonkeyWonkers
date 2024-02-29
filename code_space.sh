@@ -52,7 +52,7 @@ echo "Done installing tflint"
 echo "========================="
 
 echo "install trivy"
-TRIVY_VERSION="0.47.0"
+TRIVY_VERSION="0.49.0"
 curl --retry 3 --retry-delay 5 -sSL "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" | sudo tar xz -C /usr/local/bin --overwrite
 
 echo "Done install trivy"

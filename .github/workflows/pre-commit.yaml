@@ -36,7 +36,7 @@ jobs:
 
     - name: Install Trivy
       env:
-       TRIVY_VERSION: 0.47.0
+       TRIVY_VERSION: 0.49.0
       run: |
         set -euo pipefail
         curl --retry 3 --retry-delay 5 -sSL "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" | tar xz -C /usr/local/bin --overwrite

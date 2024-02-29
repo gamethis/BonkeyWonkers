@@ -7,4 +7,4 @@ then
     exit 1
 fi
 
-trivy fs --format table --exit-code 1 --ignore-unfixed --scanners vuln,secret,config --severity CRITICAL,HIGH --no-progress ./
+trivy fs --format table --exit-code 1 --ignore-unfixed --scanners vuln,secret,misconfig --severity CRITICAL,HIGH --no-progress ./
