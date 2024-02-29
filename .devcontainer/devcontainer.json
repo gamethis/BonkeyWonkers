@@ -1,21 +1,37 @@
 {
-    "postCreateCommand": "./code_space.sh",
-    "customizations": {
-        "vscode": {
-          "extensions": [
-            "DavidAnson.vscode-markdownlint",
-            "GitHub.codespaces",
-            "GitHub.github-vscode-theme",
-            "GitHub.vscode-pull-request-github",
-            "hashicorp.terraform",
-            "ms-azuretools.vscode-docker",
-            "redhat.vscode-yaml"
-          ]
-        }
-      },
-    "postAttachCommand": {
-      "forwardedPorts": [
-        3000
-      ]
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "hostRequirements": {
+    "cpus": 4
+  },
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "npm install && npm run build",
+  "postCreateCommand": "./code_space.sh",
+  "postAttachCommand": {
+    "server": "npm run dev"
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "README.md"
+      ],
+      "vscode": {
+        "extensions": [
+          "DavidAnson.vscode-markdownlint",
+          "GitHub.codespaces",
+          "GitHub.github-vscode-theme",
+          "GitHub.vscode-pull-request-github",
+          "hashicorp.terraform",
+          "ms-azuretools.vscode-docker",
+          "redhat.vscode-yaml"
+        ]
+      }
     }
+  },
+  "portsAttributes": {
+    "3000": {
+      "label": "Application",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "forwardPorts": [3000,3001]
 }
