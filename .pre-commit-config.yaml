@@ -28,7 +28,7 @@ repos:
     always_run: true
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.26.3
+  rev: 0.28.0
   hooks:
     - id: check-github-workflows
     - id: check-github-actions

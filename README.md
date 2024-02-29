@@ -16,3 +16,8 @@ module to another without modifying the actual state of the resource.
 
 [This exercise](./exercise2/README.md) will be used to test your basic
 knowledge of executing a terraform plan as well as basic templating.
+
+## Exercise 3
+
+[This exercise](./exercise3/README.md) will be used to test your basic
+knowledge of scripting.

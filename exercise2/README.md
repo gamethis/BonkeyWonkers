@@ -109,7 +109,7 @@ The actual outcome of this excersize is purely to ensure you can run
 
 + Run the docker image
 
-+ Interactively get an interactive `/bin/bash` shell in the running container.
++ Enter the running container with with an interactive `/bin/bash` shell.
   + You should see something like
 
       ```shell
