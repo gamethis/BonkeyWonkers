@@ -12,5 +12,10 @@
             "redhat.vscode-yaml"
           ]
         }
-      }
+      },
+    "postAttachCommand": {
+      "forwardedPorts": [
+        3000
+      ]
+    }
 }

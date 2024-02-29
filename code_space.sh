@@ -62,3 +62,7 @@ echo "run pre-commit"
 pre-commit run --all-files
 echo "Done running pre-commit"
 echo "========================="
+
+echo installing grafana
+docker volume create grafana-storage
+docker run -d -p 3000:3000 --name=grafana  --volume grafana-storage:/var/lib/grafana  grafana/grafana-enterprise
