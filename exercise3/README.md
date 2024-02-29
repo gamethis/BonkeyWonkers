@@ -18,5 +18,13 @@ This excercise is meant to test your basic abilities at problem solving by scrip
 
 ### Complete Scripting Excercises
 
+All the tools, commands, and libraries are present to complete the
+excercies using `Python` or `bash`` inside the container.
+
+Alternatively you may install depencies to complete with language of
+your choice but time is limited.
+
+You have 15 minutes to complete both of the following excercies.
+
 1. Complete Excercise 1.
 1. Complete Excercise 2.
