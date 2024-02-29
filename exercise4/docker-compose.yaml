@@ -15,3 +15,4 @@ volumes:
   grafana_storage: {}
 
 # https://<your-github-handle>-<a-codespaces-id-which-combines-a-words-and-random-characters>-<your-port-number>.preview.app.github.dev/.
+https://gamethis-orange-doodle-vqpq7w9j4x2pprx-3001-preview.app.github.dev/

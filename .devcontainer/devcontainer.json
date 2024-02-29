@@ -4,10 +4,9 @@
     "cpus": 4
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "npm install && npm run build",
+  "updateContentCommand": "docker volume create grafana-storage && docker run -d -p 3000:3000 --name=grafana  --volume grafana-storage:/var/lib/grafana  grafana/grafana-enterprise",
   "postCreateCommand": "./code_space.sh",
   "postAttachCommand": {
-    "server": "npm run dev"
   },
   "customizations": {
     "codespaces": {
@@ -33,5 +32,5 @@
       "onAutoForward": "openPreview"
     }
   },
-  "forwardPorts": [3000,3001]
+  "forwardPorts": [3000]
 }
