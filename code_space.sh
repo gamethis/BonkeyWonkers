@@ -66,3 +66,5 @@ echo "========================="
 echo "installing grafana"
 docker volume create grafana-storage
 docker run -d -p 3000:3000 --name=grafana -e "GF_INSTALL_PLUGINS=grafana-clock-panel" --volume grafana-storage:/var/lib/grafana  grafana/grafana-enterprise
+docker volume create prometheus-data
+docker run -p 9090:9090 -v /exercise4/prometheus.yaml:/etc/prometheus/ -v prometheus-data:/prometheus prom/prometheus
