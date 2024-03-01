@@ -63,5 +63,4 @@ pre-commit run --all-files
 echo "Done running pre-commit"
 echo "========================="
 
-cd exercise4
-docker-compose up -d
+cd exercise4 && docker-compose up -d && cd ..
