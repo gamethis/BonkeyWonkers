@@ -63,4 +63,13 @@ pre-commit run --all-files
 echo "Done running pre-commit"
 echo "========================="
 
+echo "Setup Grafana"
 cd /workspaces/BonkeyWonkers/exercise4 && docker-compose up -d
+echo "============"
+
+echo "Get stress test"
+docker pull progrium/stress
+echo "============"
+
+echo "Completed Setup"
+exit 0
