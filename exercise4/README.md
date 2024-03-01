@@ -41,7 +41,8 @@ Create an alert for 60% or more Memory Utilization
 Execute the following command:
 
 ```shell
-docker run --rm -it progrium/stress --cpu 2 --io 1 --vm 2 --vm-bytes 128M --timeout 10s
+docker run --rm -it progrium/stress --cpu 2 \
+  --io 1 --vm 2 --vm-bytes 128M --timeout 10s
 ```
 
 ## Demonstrate that alert fired
