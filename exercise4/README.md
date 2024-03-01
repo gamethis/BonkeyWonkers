@@ -6,7 +6,7 @@ This exercise will test you skills with grafana
 
 From your computer :
 
-1. go to localhost:3000 in your browser
+1. go to `localhost:3000` in your browser
 
 If on codespaces:
 
