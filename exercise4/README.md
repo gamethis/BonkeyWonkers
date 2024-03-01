@@ -21,3 +21,7 @@ use admin
 
 ## Create a board
 
+import prometheus data source
+the url will be 
+http://prometheus:9090
+
