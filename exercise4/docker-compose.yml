@@ -27,7 +27,7 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
     depends_on:
       - cadvisor
-    expose: 
+    expose:
       - 9090
 
   cadvisor:
@@ -51,7 +51,7 @@ services:
     container_name: redis
     ports:
     - 6379:6379
-  
+
   grafana:
     image: grafana/grafana-enterprise
     ports:
@@ -59,7 +59,7 @@ services:
     environment:
      - GF_INSTALL_PLUGINS=grafana-clock-panel
     volumes:
-    - grafana-storage:/var/lib/grafana  
-  
+    - grafana-storage:/var/lib/grafana
+
 volumes:
   grafana-storage: {}

@@ -23,5 +23,6 @@ knowledge of executing a terraform plan as well as basic templating.
 knowledge of scripting.
 
 # Exercise 4
+
 [This exercise](./exercise4/README.md) will be used to test your basic
 knowledge of grafana.

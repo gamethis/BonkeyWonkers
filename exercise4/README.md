@@ -5,10 +5,12 @@ This exercise will test you skills with grafana
 ## Launch Grafana
 
 From your computer :
+
 1. go to localhost:3000 in your browser
 
 If on codespaces:
-1. click ports 
+
+1. click ports
 1. hover over forwarded address
 1. click middle icon
 
@@ -22,6 +24,5 @@ use admin
 ## Create a board
 
 import prometheus data source
-the url will be 
-http://prometheus:9090
-
+the url will be
+<http://prometheus:9090>
