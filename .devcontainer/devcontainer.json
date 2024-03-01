@@ -21,7 +21,8 @@
           "GitHub.vscode-pull-request-github",
           "hashicorp.terraform",
           "ms-azuretools.vscode-docker",
-          "redhat.vscode-yaml"
+          "redhat.vscode-yaml",
+          "ms-azuretools.vscode-docker"
         ]
       }
     }
