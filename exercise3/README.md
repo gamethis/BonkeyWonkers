@@ -26,8 +26,8 @@ your choice but time is limited.
 
 You have 15 minutes to complete both of the following excercies.
 
-1. Complete Excercise 1.
-1. Complete Excercise 2.
+1. Complete scripting excercise 1.
+1. Complete scripting excercise 2.
 
 ## Excercise 3 complete
 
