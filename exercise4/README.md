@@ -4,9 +4,7 @@ This exercise will test you skills with grafana
 
 ## Setup the excercise
 
-
 - Skip this step if in Code Spaces.
-
 
 - If on a personal computer run:
 
@@ -14,7 +12,6 @@ This exercise will test you skills with grafana
 cd excercise4
 docker-compose up -d
 ```
-
 
 ## Launch Grafana
 
@@ -37,7 +34,7 @@ If on codespaces:
 ## Setup Data Source
 
 - Import prometheus data source
- - The url will be: <http://prometheus:9090>
+- The url will be: <http://prometheus:9090>
 
 ## Create a dashboard
 
@@ -62,6 +59,6 @@ docker run --rm -it progrium/stress --cpu 2 \
 ## Demonstrate that alert fired
 
 1. go to the CPU alert and show that it fired as expected
-1.  go to the Memory alert and show that it fired as expected.
+1. go to the Memory alert and show that it fired as expected.
 
 ## Excercise 4 complete
