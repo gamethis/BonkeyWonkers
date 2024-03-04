@@ -28,3 +28,7 @@ You have 15 minutes to complete both of the following excercies.
 
 1. Complete Excercise 1.
 1. Complete Excercise 2.
+
+## Excercise 3 complete
+
+Proced to [Excercise 4](../exercise4/README.md)

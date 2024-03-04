@@ -127,3 +127,7 @@ The actual outcome of this excersize is purely to ensure you can run
       "data": "Hello World"
     }
     ```
+
+## Excercise 2 complete
+
+Proced to [Excercise 3](../exercise3/README.md)
