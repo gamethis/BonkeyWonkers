@@ -38,9 +38,33 @@ If on codespaces:
 
 ## Create a dashboard
 
-1. Create a dashboard that shows:
-    - cpu utilization
-    - memory utilization
+1. Create a dashboard(s) that shows:
+    - cpu utilization `Gauge` Dashboard
+      - Metric should be displayed as Percentage
+      - Use node metrics
+        - query should be:
+        ```shell
+          scalar(node_load1) * 100 / count(count(node_cpu_seconds_total) by (cpu))`
+        ```
+    - cpu utilization `Time series` Dashboard
+      - Metric should be displayed as Percentage
+      - Use node metrics
+        - query should be: 
+
+        ```shell
+          scalar(node_load1) * 100 / count(count(node_cpu_seconds_total) by (cpu))`
+        ```
+
+    - memory utilization `Gauge` Dashboard
+      - Metric should be displayed as bytes
+      - Use node metrics
+
+
+    - memory utilization `Time Series` Dashboard
+      - Metric should be displayed as bytes
+      - Use node metrics
+      - 
+
 
 ## Create an alert
 
@@ -53,7 +77,7 @@ Execute the following command:
 
 ```shell
 docker run --rm -it progrium/stress --cpu 2 \
-  --io 1 --vm 2 --vm-bytes 128M --timeout 10s
+  --io 1 --vm 2 --vm-bytes 1GB --timeout 30s
 ```
 
 ## Demonstrate that alert fired
