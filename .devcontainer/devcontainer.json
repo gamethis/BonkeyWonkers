@@ -1,7 +1,8 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "hostRequirements": {
-    "cpus": 4
+    "cpus": 4,
+    "memory": "16gb"
   },
   "waitFor": "onCreateCommand",
   "updateContentCommand": "",
@@ -21,8 +22,7 @@
           "GitHub.vscode-pull-request-github",
           "hashicorp.terraform",
           "ms-azuretools.vscode-docker",
-          "redhat.vscode-yaml",
-          "ms-azuretools.vscode-docker"
+          "redhat.vscode-yaml"
         ]
       }
     }
