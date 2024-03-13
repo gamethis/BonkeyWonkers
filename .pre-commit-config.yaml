@@ -28,13 +28,13 @@ repos:
     always_run: true
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.26.3
+  rev: 0.28.0
   hooks:
     - id: check-github-workflows
     - id: check-github-actions
     - id: check-dependabot
 - repo: https://github.com/igorshubovych/markdownlint-cli
-  rev: v0.36.0
+  rev: v0.39.0
   hooks:
   - id: markdownlint-fix
   - id: markdownlint

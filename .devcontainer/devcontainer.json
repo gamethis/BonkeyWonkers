@@ -1,16 +1,37 @@
 {
-    "postCreateCommand": "./code_space.sh",
-    "customizations": {
-        "vscode": {
-          "extensions": [
-            "DavidAnson.vscode-markdownlint",
-            "GitHub.codespaces",
-            "GitHub.github-vscode-theme",
-            "GitHub.vscode-pull-request-github",
-            "hashicorp.terraform",
-            "ms-azuretools.vscode-docker",
-            "redhat.vscode-yaml"
-          ]
-        }
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb"
+  },
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "",
+  "postCreateCommand": "./code_space.sh",
+  "postAttachCommand": {
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "README.md"
+      ],
+      "vscode": {
+        "extensions": [
+          "DavidAnson.vscode-markdownlint",
+          "GitHub.codespaces",
+          "GitHub.github-vscode-theme",
+          "GitHub.vscode-pull-request-github",
+          "hashicorp.terraform",
+          "ms-azuretools.vscode-docker",
+          "redhat.vscode-yaml"
+        ]
       }
+    }
+  },
+  "portsAttributes": {
+    "3000": {
+      "label": "Grafana",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "forwardPorts": [3000]
 }
