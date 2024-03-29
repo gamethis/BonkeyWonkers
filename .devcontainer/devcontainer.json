@@ -30,7 +30,23 @@
   "portsAttributes": {
     "3000": {
       "label": "Grafana",
-      "onAutoForward": "openPreview"
+      "onAutoForward": "notify"
+    },
+    "9100": {
+      "label": "Node Exporter",
+      "onAutoForward": "notify"
+    },
+    "9090":{
+      "label": "Prometheus",
+      "onAutoForward": "notify"
+    },
+    "8080":{
+      "label": "C-Advisor",
+      "onAutoForward": "notify"
+    },
+    "6379":{
+      "label": "Redis",
+      "onAutoForward": "notify"
     }
   },
   "forwardPorts": [3000]
