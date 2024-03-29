@@ -60,7 +60,7 @@ If on codespaces:
     - memory utilization `Gauge` Dashboard
       - Metric should be displayed as bytes
       - Use node metrics
-       - query should be:
+        - query should be:
 
       ```shell
       ```
@@ -68,7 +68,7 @@ If on codespaces:
     - memory utilization `Time Series` Dashboard
       - Metric should be displayed as bytes
       - Use node metrics
-      - query should be:
+        - query should be:
 
       ```shell
       ```

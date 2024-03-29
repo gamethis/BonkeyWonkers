@@ -11,9 +11,6 @@
   },
   "customizations": {
     "codespaces": {
-      //"openFiles": [
-      //  "README.md"
-      //],
       "vscode": {
         "extensions": [
           "DavidAnson.vscode-markdownlint",
