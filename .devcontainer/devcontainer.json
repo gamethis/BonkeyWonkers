@@ -11,9 +11,9 @@
   },
   "customizations": {
     "codespaces": {
-      "openFiles": [
-        "README.md"
-      ],
+      //"openFiles": [
+      //  "README.md"
+      //],
       "vscode": {
         "extensions": [
           "DavidAnson.vscode-markdownlint",
@@ -49,5 +49,5 @@
       "onAutoForward": "notify"
     }
   },
-  "forwardPorts": [3000]
+  "forwardPorts": [3000,9100,9090,8080,6379]
 }
