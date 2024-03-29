@@ -43,13 +43,15 @@ If on codespaces:
       - Metric should be displayed as Percentage
       - Use node metrics
         - query should be:
+
         ```shell
           scalar(node_load1) * 100 / count(count(node_cpu_seconds_total) by (cpu))`
         ```
+
     - cpu utilization `Time series` Dashboard
       - Metric should be displayed as Percentage
       - Use node metrics
-        - query should be: 
+        - query should be:
 
         ```shell
           scalar(node_load1) * 100 / count(count(node_cpu_seconds_total) by (cpu))`
@@ -59,12 +61,10 @@ If on codespaces:
       - Metric should be displayed as bytes
       - Use node metrics
 
-
     - memory utilization `Time Series` Dashboard
       - Metric should be displayed as bytes
       - Use node metrics
-      - 
-
+      -
 
 ## Create an alert
 
