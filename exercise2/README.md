@@ -1,5 +1,7 @@
 # Exercise 2
 
+Back to [Main](../README.md)
+
 This exercise is meant to test your ability to run basic
  terraform commands and make a modification to a terraform module.
 

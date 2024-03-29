@@ -1,5 +1,7 @@
 # Exercise 4
 
+Back to [Main](../README.md)
+
 This exercise will test you skills with grafana
 
 ## Setup the excercise
@@ -57,32 +59,21 @@ If on codespaces:
           scalar(node_load1) * 100 / count(count(node_cpu_seconds_total) by (cpu))`
         ```
 
-    - memory utilization `Gauge` Dashboard
-      - Metric should be displayed as bytes
-      - Use node metrics
-
-    - memory utilization `Time Series` Dashboard
-      - Metric should be displayed as bytes
-      - Use node metrics
-      -
-
 ## Create an alert
 
 1. Create an alert for 60% or more CPU utilization
-1. Create an alert for 60% or more Memory Utilization
 
 ## Stress system
 
 Execute the following command:
 
 ```shell
-docker run --rm -it progrium/stress --cpu 2 \
-  --io 1 --vm 2 --vm-bytes 1GB --timeout 30s
+docker run --rm -it progrium/stress --cpu 4 \
+  --io 2 --vm 4 --vm-bytes 4GB --timeout 30s
 ```
 
 ## Demonstrate that alert fired
 
 1. go to the CPU alert and show that it fired as expected
-1. go to the Memory alert and show that it fired as expected.
 
 ## Excercise 4 complete
