@@ -1,5 +1,7 @@
 # Exercise 3
 
+Back to [Main](../README.md)
+
 This excercise is meant to test your basic abilities at problem solving by scripting.
 
 ## Setup scripting environment
