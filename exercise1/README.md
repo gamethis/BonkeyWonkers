@@ -32,3 +32,7 @@ Terraform has compared your real infrastructure against
 Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 
 ```
+
+## Excercise 1 complete
+
+Proced to [Excercise 2](../exercise2/README.md)
