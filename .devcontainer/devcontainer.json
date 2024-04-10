@@ -6,7 +6,7 @@
   },
   "waitFor": "onCreateCommand",
   "updateContentCommand": "",
-  "postCreateCommand": "./code_space.sh",
+  "postCreateCommand": "./.devcontainer/code_space.sh",
   "postAttachCommand": {
   },
   "customizations": {
