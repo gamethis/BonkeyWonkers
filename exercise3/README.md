@@ -2,7 +2,7 @@
 
 Back to [Main](../README.md)
 
-This excercise is meant to test your basic abilities at problem solving by scripting.
+This exercise is meant to test your basic abilities at problem solving by scripting.
 
 ## Setup scripting environment
 
@@ -18,19 +18,19 @@ This excercise is meant to test your basic abilities at problem solving by scrip
 
 1. View the README.md file found in `/exercises` folder.
 
-### Complete Scripting Excercises
+### Complete Scripting exercises
 
 All the tools, commands, and libraries are present to complete the
-excercies using `Python` or `bash`` inside the container.
+exercises using `Python` or `bash`` inside the container.
 
 Alternatively you may install depencies to complete with language of
 your choice but time is limited.
 
-You have 15 minutes to complete both of the following excercies.
+You have 15 minutes to complete both of the following exercises.
 
-1. Complete scripting excercise 1.
-1. Complete scripting excercise 2.
+1. Complete scripting exercise 1.
+1. Complete scripting exercise 2.
 
-## Excercise 3 complete
+## Exercise 3 complete
 
-Proced to [Excercise 4](../exercise4/README.md)
+Proceed to [Exercise 4](../exercise4/README.md)
