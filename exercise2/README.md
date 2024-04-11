@@ -5,7 +5,7 @@ Back to [Main](../README.md)
 This exercise is meant to test your ability to run basic
  terraform commands and make a modification to a terraform module.
 
-The actual outcome of this excersize is purely to ensure you can run
+The actual outcome of this exercise is purely to ensure you can run
  basic terraform commands, and a simple test to see if you understand
  templating in terraform.  DON'T OVER THINK IT!
 
@@ -130,6 +130,6 @@ The actual outcome of this excersize is purely to ensure you can run
     }
     ```
 
-## Excercise 2 complete
+## Exercise 2 complete
 
-Proced to [Excercise 3](../exercise3/README.md)
+Proceed to [exercise 3](../exercise3/README.md)

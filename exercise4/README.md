@@ -4,14 +4,14 @@ Back to [Main](../README.md)
 
 This exercise will test you skills with grafana
 
-## Setup the excercise
+## Setup the exercise
 
 - Skip this step if in Code Spaces.
 
 - If on a personal computer run:
 
 ```shell
-cd excercise4
+cd exercise4
 docker-compose up -d
 ```
 
@@ -76,4 +76,4 @@ docker run --rm -it progrium/stress --cpu 4 \
 
 1. go to the CPU alert and show that it fired as expected
 
-## Excercise 4 complete
+## Exercise 4 complete

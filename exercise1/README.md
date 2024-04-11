@@ -35,6 +35,6 @@ Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 
 ```
 
-## Excercise 1 complete
+## Exercise 1 complete
 
-Proced to [Excercise 2](../exercise2/README.md)
+Proceed to [Exercise 2](../exercise2/README.md)
