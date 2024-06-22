@@ -26,7 +26,7 @@ If on codespaces:
 
 ## Create a new policy for list & read only on `secret/` kvv2 store
 
-```
+```hcl
 path "secret/*" {
   capabilities = ["read", "list"]
 }
