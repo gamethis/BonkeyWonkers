@@ -4,7 +4,7 @@ services:
     container_name: app1
     build: .
     ports:
-      - "80:80"
+      - "90:80"
 
   app2:
     container_name: app2
