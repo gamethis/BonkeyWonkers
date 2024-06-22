@@ -26,3 +26,8 @@ knowledge of scripting.
 
 [This exercise](./exercise4/README.md) will be used to test your basic
 knowledge of grafana.
+
+## Exercise 5
+
+[This exercise](./exercise5/README.md) will be used to test your basic
+knowledge of vault.
