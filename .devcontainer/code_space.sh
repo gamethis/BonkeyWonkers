@@ -2,7 +2,7 @@
 set -x
 DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq
+sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip -o  curl jq
 DEBIAN_FRONTEND=dialog
 
 function getLatestVersion() {
@@ -24,7 +24,7 @@ VERSION=$(getLatestVersion)
 
 cd ~
 wget "https://releases.hashicorp.com/terraform/"$VERSION"/terraform_"$VERSION"_linux_amd64.zip"
-unzip "terraform_"$VERSION"_linux_amd64.zip"
+unzip -o  "terraform_"$VERSION"_linux_amd64.zip"
 sudo install terraform /usr/local/bin/
 
 echo "Done Installing Terraform"
@@ -46,7 +46,7 @@ if [ "$arch" == "x86_64" ]; then
         fi
 filename="tflint_${platform}_${arch}.zip"
 curl -s -LO "https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/${filename}"
-sudo unzip $filename -d "${INSTALL_PATH}"
+sudo unzip -o  $filename -d "${INSTALL_PATH}"
 
 echo "Done installing tflint"
 echo "========================="
@@ -92,7 +92,7 @@ VAULT_VERSION=$(getLatestVaultVersion)
 
 cd ~
 wget "https://releases.hashicorp.com/vault/"$VAULT_VERSION"/terraform_"$VAULT_VERSION"_linux_amd64.zip"
-unzip "terraform_"$VERSION"_linux_amd64.zip"
+unzip -o  "terraform_"$VERSION"_linux_amd64.zip"
 sudo install terraform /usr/local/bin/
 
 mv /workspaces/BonkeyWonkers/exercise5/workflow-vault.sh /usr/local/bin
