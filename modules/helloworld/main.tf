@@ -3,7 +3,6 @@ output "service" {
     "${path.module}/templates/Dockerfile.tftpl",
     {
       source_file = var.source_file
-      cmds = var.commands
     }
   )
 }

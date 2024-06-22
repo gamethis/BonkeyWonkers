@@ -68,9 +68,8 @@ If on codespaces:
 Execute the following command:
 
 ```shell
-docker run --rm -it j0hnewhitley/docker-stress:v0.0.1 --cpu 4 \
+docker run --rm -it progrium/stress --cpu 4 \
   --io 2 --vm 4 --vm-bytes 4GB --timeout 30s
-
 ```
 
 ## Demonstrate that alert fired

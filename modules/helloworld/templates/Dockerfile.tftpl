@@ -6,9 +6,6 @@ RUN useradd --no-log-init -r -g root bonkey
 COPY ${source_file} /app/main.py
 
 RUN cd /app && \
-%{ for cmd in cmds ~}
- ${cmd} && \
-%{ endfor ~}
  chmod +x /app/main.py && \
  pip install Flask-RESTful Flask
 
