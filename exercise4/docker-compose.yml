@@ -64,6 +64,7 @@ services:
 
   vault:
     image: hashicorp/vault:latest
+    container_name: Vault
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: testtoken
     ports:
