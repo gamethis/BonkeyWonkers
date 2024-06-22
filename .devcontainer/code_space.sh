@@ -2,7 +2,7 @@
 set -x
 DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip -o  curl jq
+sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq
 DEBIAN_FRONTEND=dialog
 
 function getLatestVersion() {
