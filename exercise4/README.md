@@ -78,3 +78,4 @@ docker run --rm -it j0hnewhitley/docker-stress:v0.0.1 --cpu 4 \
 1. go to the CPU alert and show that it fired as expected
 
 ## Exercise 4 complete
+Proceed to [Exercise 5](../exercise5/README.md)
