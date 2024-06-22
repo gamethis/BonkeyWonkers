@@ -1,8 +1,8 @@
 #!/bin/bash
-
+set -x
 DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq
+sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip -o  curl jq
 DEBIAN_FRONTEND=dialog
 
 function getLatestVersion() {
@@ -24,7 +24,7 @@ VERSION=$(getLatestVersion)
 
 cd ~
 wget "https://releases.hashicorp.com/terraform/"$VERSION"/terraform_"$VERSION"_linux_amd64.zip"
-unzip "terraform_"$VERSION"_linux_amd64.zip"
+unzip -o  "terraform_"$VERSION"_linux_amd64.zip"
 sudo install terraform /usr/local/bin/
 
 echo "Done Installing Terraform"
@@ -46,7 +46,7 @@ if [ "$arch" == "x86_64" ]; then
         fi
 filename="tflint_${platform}_${arch}.zip"
 curl -s -LO "https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/${filename}"
-sudo unzip $filename -d "${INSTALL_PATH}"
+sudo unzip -o  $filename -d "${INSTALL_PATH}"
 
 echo "Done installing tflint"
 echo "========================="
@@ -68,7 +68,33 @@ cd /workspaces/BonkeyWonkers/exercise4 && docker-compose up -d
 echo "============"
 
 echo "Get stress test"
-docker pull progrium/stress
+docker pull j0hnewhitley/docker-stress:v0.0.1
+echo "============"
+
+echo "Setting up Vault"
+
+function getLatestVaultVersion() {
+
+  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/hashicorp/vault/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2))
+
+  for ver in "${LATEST_ARR[@]}"; do
+    if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]]; then
+      LATEST="$ver"
+      break
+    fi
+  done
+  echo -n "$LATEST"
+}
+
+echo "Install Vault"
+
+VAULT_VERSION=$(getLatestVaultVersion)
+
+cd ~
+wget "https://releases.hashicorp.com/vault/"$VAULT_VERSION"/vault_"$VAULT_VERSION"_linux_amd64.zip"
+unzip -o  "vault_"$VAULT_VERSION"_linux_amd64.zip"
+sudo install vault /usr/local/bin/
+
 echo "============"
 
 echo "Completed Setup"
