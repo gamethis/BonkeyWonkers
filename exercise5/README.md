@@ -2,79 +2,42 @@
 
 Back to [Main](../README.md)
 
-This exercise will test you skills with grafana
+This exercise will test your basic skillset with Vault
 
-## Setup the exercise
+## Go to the Vault UI
 
-- Skip this step if in Code Spaces.
+From your computer:
 
-- If on a personal computer run:
-
-```shell
-cd exercise4
-docker-compose up -d
-```
-
-## Launch Grafana
-
-From your computer :
-
-1. go to `localhost:3000` in your browser
+1. go to `localhost:8200` in your browser
 
 If on codespaces:
 
 1. click ports
-1. hover over `forwarded address` for the port Labeled Grafana (3000)
+1. hover over `forwarded address` for the port Labeled Vault (8200)
 1. click middle icon
 
-## Login to grafana
+## Login to Vault
 
-- username is admin
-- password is admin
-- When asked to enter a new password click `skip`
+- root token is testtoken
 
-## Setup Data Source
+## Create a secret via the UI
 
-- Import prometheus data source
-- The url will be: <http://prometheus:9090>
+- Create any secret (keyValue pair) in the `secret/` kvv2 store
 
-## Create a dashboard
-
-1. Create a dashboard(s) that shows:
-    - cpu utilization `Gauge` Dashboard
-      - Metric should be displayed as Percentage
-      - Use node metrics
-        - query should be:
-
-        ```shell
-          scalar(node_load1) * 100 / count(count(node_cpu_seconds_total) by (cpu))`
-        ```
-
-    - cpu utilization `Time series` Dashboard
-      - Metric should be displayed as Percentage
-      - Use node metrics
-        - query should be:
-
-        ```shell
-          scalar(node_load1) * 100 / count(count(node_cpu_seconds_total) by (cpu))`
-        ```
-
-## Create an alert
-
-1. Create an alert for 60% or more CPU utilization
-
-## Stress system
-
-Execute the following command:
-
-```shell
-docker run --rm -it j0hnewhitley/docker-stress:v0.0.1 --cpu 4 \
-  --io 2 --vm 4 --vm-bytes 4GB --timeout 30s
+## Create a new policy for list & read only on `secret/` kvv2 store
 
 ```
+path "secret/*" {
+  capabilities = ["read", "list"]
+}
+```
 
-## Demonstrate that alert fired
+## Use the vault CLI to create a new token, using the policy above to used in a later step
 
-1. go to the CPU alert and show that it fired as expected
+**Note** You'll need to use the http address and NOT https
 
-## Exercise 4 complete
+## Demonstrate reading the secret by using the python app (getSecret.py)
+
+## Can you explain how this could be more secure? Placing tokens in an application is not ideal (as it's also a secret)
+
+## Exercise 5 complete
