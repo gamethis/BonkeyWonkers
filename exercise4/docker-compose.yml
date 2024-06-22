@@ -62,5 +62,13 @@ services:
     volumes:
     - grafana-storage:/var/lib/grafana
 
+  vault:
+    image: hashicorp/vault:latest
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: testtoken
+    ports:
+      - 8200:8200
+    privileged: true
+
 volumes:
   grafana-storage: {}
