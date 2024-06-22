@@ -68,7 +68,7 @@ cd /workspaces/BonkeyWonkers/exercise4 && docker-compose up -d
 echo "============"
 
 echo "Get stress test"
-docker pull progrium/stress
+docker pull j0hnewhitley/docker-stress:v0.0.1
 echo "============"
 
 echo "Completed Setup"
