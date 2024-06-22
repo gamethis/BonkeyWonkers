@@ -50,5 +50,5 @@
       "onAutoForward": "notify"
     }
   },
-  "forwardPorts": [3000,9100,9090,8080,6379]
+  "forwardPorts": [3000,9100,9090,8080,6379,8200]
 }
