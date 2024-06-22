@@ -91,11 +91,10 @@ echo "Install Vault"
 VAULT_VERSION=$(getLatestVaultVersion)
 
 cd ~
-wget "https://releases.hashicorp.com/vault/"$VAULT_VERSION"/terraform_"$VAULT_VERSION"_linux_amd64.zip"
-unzip -o  "terraform_"$VERSION"_linux_amd64.zip"
-sudo install terraform /usr/local/bin/
+wget "https://releases.hashicorp.com/vault/"$VAULT_VERSION"/vault_"$VAULT_VERSION"_linux_amd64.zip"
+unzip -o  "vault_"$VERSION"_linux_amd64.zip"
+sudo install vault /usr/local/bin/
 
-mv /workspaces/BonkeyWonkers/exercise5/workflow-vault.sh /usr/local/bin
 echo "============"
 
 echo "Completed Setup"
