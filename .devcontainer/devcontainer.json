@@ -22,6 +22,17 @@
           "redhat.vscode-yaml"
         ]
       }
+    },
+    "vscode": {
+      "extensions": [
+        "DavidAnson.vscode-markdownlint",
+          "GitHub.codespaces",
+          "GitHub.github-vscode-theme",
+          "GitHub.vscode-pull-request-github",
+          "hashicorp.terraform",
+          "ms-azuretools.vscode-docker",
+          "redhat.vscode-yaml"
+      ]
     }
   },
   "portsAttributes": {
@@ -50,5 +61,5 @@
       "onAutoForward": "notify"
     }
   },
-  "forwardPorts": [3000,9100,9090,8080,6379]
+  "forwardPorts": [3000,9100,9090,8080,6379,8200]
 }
