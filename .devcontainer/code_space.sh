@@ -68,6 +68,7 @@ echo "============"
 
 echo "Get stress test"
 docker pull j0hnewhitley/docker-stress:v0.0.1
+
 echo "============"
 
 echo "Setting up Vault"
