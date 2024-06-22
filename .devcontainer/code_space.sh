@@ -64,6 +64,7 @@ echo "========================="
 
 echo "Setup Grafana"
 cd /workspaces/BonkeyWonkers/exercise4 && docker-compose up -d
+cd /workspaces/BonkeyWonkers
 echo "============"
 
 echo "Get stress test"
