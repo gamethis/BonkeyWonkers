@@ -44,6 +44,10 @@
     "6379":{
       "label": "Redis",
       "onAutoForward": "notify"
+    },
+    "8200":{
+      "label": "Vault",
+      "onAutoForward": "notify"
     }
   },
   "forwardPorts": [3000,9100,9090,8080,6379]
