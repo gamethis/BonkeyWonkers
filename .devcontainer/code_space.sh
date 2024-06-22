@@ -71,5 +71,32 @@ echo "Get stress test"
 docker pull j0hnewhitley/docker-stress:v0.0.1
 echo "============"
 
+echo "Setting up Vault"
+
+function getLatestVaultVersion() {
+
+  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/hashicorp/vault/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2))
+
+  for ver in "${LATEST_ARR[@]}"; do
+    if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]]; then
+      LATEST="$ver"
+      break
+    fi
+  done
+  echo -n "$LATEST"
+}
+
+echo "Install Vault"
+
+VAULT_VERSION=$(getLatestVaultVersion)
+
+cd ~
+wget "https://releases.hashicorp.com/vault/"$VAULT_VERSION"/terraform_"$VAULT_VERSION"_linux_amd64.zip"
+unzip "terraform_"$VERSION"_linux_amd64.zip"
+sudo install terraform /usr/local/bin/
+
+mv /workspaces/BonkeyWonkers/exercise5/workflow-vault.sh /usr/local/bin
+echo "============"
+
 echo "Completed Setup"
 exit 0
