@@ -32,12 +32,14 @@ path "secret/*" {
 }
 ```
 
-## Use the vault CLI to create a new token, using the policy above to used in a later step
+## Use the vault CLI to create a new token
+**Note:** Use the policy created above (to used in a later step)
 
 **Note** You'll need to use the http address and NOT https
 
 ## Demonstrate reading the secret by using the python app (getSecret.py)
 
-## Can you explain how this could be more secure? Placing tokens in an application is not ideal (as it's also a secret)
+## Can you explain how this could be more secure? 
+Placing tokens in an application is not ideal (as it's also a secret - "Secret 0")
 
 ## Exercise 5 complete
