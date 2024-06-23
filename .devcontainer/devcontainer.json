@@ -26,12 +26,13 @@
     "vscode": {
       "extensions": [
         "DavidAnson.vscode-markdownlint",
-          "GitHub.codespaces",
-          "GitHub.github-vscode-theme",
-          "GitHub.vscode-pull-request-github",
-          "hashicorp.terraform",
-          "ms-azuretools.vscode-docker",
-          "redhat.vscode-yaml"
+        "GitHub.codespaces",
+        "GitHub.github-vscode-theme",
+        "GitHub.vscode-pull-request-github",
+        "hashicorp.terraform",
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml",
+        "ms-python.python"
       ]
     }
   },
@@ -40,26 +41,29 @@
       "label": "Grafana",
       "onAutoForward": "notify"
     },
-    "9100": {
-      "label": "Node Exporter",
-      "onAutoForward": "notify"
+    "3002": {
+      "label": "WireShark (3002)"
     },
-    "9090":{
-      "label": "Prometheus",
-      "onAutoForward": "notify"
-    },
-    "8080":{
-      "label": "C-Advisor",
-      "onAutoForward": "notify"
-    },
-    "6379":{
+    "6379": {
       "label": "Redis",
       "onAutoForward": "notify"
     },
-    "8200":{
+    "8080": {
+      "label": "C-Advisor",
+      "onAutoForward": "notify"
+    },
+    "8200": {
       "label": "Vault",
+      "onAutoForward": "notify"
+    },
+    "9090": {
+      "label": "Prometheus",
+      "onAutoForward": "notify"
+    },
+    "9100": {
+      "label": "Node Exporter",
       "onAutoForward": "notify"
     }
   },
-  "forwardPorts": [3000,9100,9090,8080,6379,8200]
+  "forwardPorts": [3000,3002,9100,9090,8080,6379,8200]
 }
