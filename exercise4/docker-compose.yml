@@ -70,6 +70,7 @@ services:
       - 8200:8200
     privileged: true
 
+  # https://github.com/linuxserver/docker-wireshark
   wireshark:
     image: lscr.io/linuxserver/wireshark:latest
     container_name: wireshark
