@@ -42,6 +42,4 @@ path "secret/*" {
 
 ## Can you explain how this could be more secure?
 
-Placing tokens in an application is not ideal (as it's also a secret - "Secret 0")
-
 ## Exercise 5 complete
