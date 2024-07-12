@@ -109,16 +109,16 @@ echo "============"
 
 echo "Install ACT"
 cd /workspaces/BonkeyWonkers/exercise6
-git clone https://github.com/nektos/act.git
+# git clone https://github.com/nektos/act.git
 # cd act
 # sudo make test
 # sudo make install
+# cd ..
+# rm -rf act
+
 wget https://github.com/nektos/act/releases/latest/download/act_Linux_x86_64.tar.gz
 sudo tar -xvlsf act_Linux_x86_64.tar.gz -C /usr/local/bin act
 act --version
-
-# cd ..
-# rm -rf act
 rm -rf act_Linux_x86_64.tar.gz
 git clone https://github.com/cplee/github-actions-demo.git
 echo "Building container for using act local"
@@ -134,10 +134,10 @@ EOF
 export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\')
 echo "testing act"
 echo | act -C github-actions-demo
-echo "==========="
+rm -rf github-actions-demo
 echo "Returning to main path"
 cd /workspaces/BonkeyWonkers/
-
+echo "==========="
 
 echo "Completed Setup"
 exit 0
