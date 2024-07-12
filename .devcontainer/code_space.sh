@@ -130,7 +130,7 @@ echo "Configuring act to use local container"
 cat <<EOF > ~/.actrc
 -P ubuntu-latest=localhost:5000/act-local:latest
 EOF
-echo 'export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\'')' >> ~/.bashrc
+#echo 'export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\'')' >> ~/.bashrc
 export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\')
 echo "testing act"
 echo | act -C github-actions-demo
