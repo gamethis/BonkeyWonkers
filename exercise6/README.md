@@ -2,7 +2,7 @@
 
 Back to [Main](../README.md)
 
-This exercise will test your basic skillset with GitHub Actions.
+This exercise will test your basic skillset with GitHub Actions and Workflows.
 
 ## Create GitHub Action
 
