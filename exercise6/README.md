@@ -4,3 +4,4 @@ Back to [Main](../README.md)
 
 This exercise will test your basic skillset with GitHub Actions.
 
+## Exercise 6 complete

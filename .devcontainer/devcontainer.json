@@ -42,7 +42,7 @@
       "onAutoForward": "notify"
     },
     "3002": {
-      "label": "WireShark (3002)"
+      "label": "WireShark"
     },
     "6379": {
       "label": "Redis",
