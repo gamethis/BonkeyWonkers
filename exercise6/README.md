@@ -18,7 +18,8 @@ has released a new Minor or Patch version of the Major version referenced in the
   </summary>
 
   ```code
-    Create your file in the local .github folder
+    Create your file in the .github folder
+    cd /workspaces/BonkeyWonkers
     act -l
     act -j name_of_job
  ```
