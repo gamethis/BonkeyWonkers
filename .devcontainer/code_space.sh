@@ -64,10 +64,12 @@ echo "========================="
 
 echo "Setup Grafana"
 cd /workspaces/BonkeyWonkers/exercise4 
-while ((docker container ls | wc -l) == 1)
-do
-echo "starting docker compose"
-docker-compose up -d
+result=1
+while [ $result -le 1 ];
+do  
+  echo "starting docker compose"
+  docker-compose up -d
+  result=$(docker container ls | wc -l)
 done
 
 cd /workspaces/BonkeyWonkers
