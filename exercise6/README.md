@@ -4,7 +4,7 @@ Back to [Main](../README.md)
 
 This exercise will test your basic skillset with GitHub Actions and Workflows.
 
-## Create GitHub Action
+## Create GitHub Action/Workflow
 
 ### Step 1
 
