@@ -2,7 +2,7 @@
 
 DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq xdotool
+sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq
 DEBIAN_FRONTEND=dialog
 
 function getLatestVersion() {
@@ -115,7 +115,7 @@ sudo tar -xvlsf act_Linux_x86_64.tar.gz -C /usr/local/bin act
 act --version
 rm -rf act_Linux_x86_64.tar.gz
 git clone https://github.com/cplee/github-actions-demo.git
-xdotool keyup + Return | act -C github-actions-demo
+echo | act -C github-actions-demo
 
 echo "==========="
 
