@@ -48,8 +48,12 @@
       "label": "Redis",
       "onAutoForward": "notify"
     },
-    "8080": {
+    "8081": {
       "label": "C-Advisor",
+      "onAutoForward": "notify"
+    },
+    "8080":{
+      "label": "ACT",
       "onAutoForward": "notify"
     },
     "8200": {
@@ -63,7 +67,11 @@
     "9100": {
       "label": "Node Exporter",
       "onAutoForward": "notify"
+    },
+    "5000":{
+      "label": "Docker Registry",
+      "onAutoForward": "notify"
     }
   },
-  "forwardPorts": [3000,3002,9100,9090,8080,6379,8200]
+  "forwardPorts": [3000,3002,9100,9090,8081,6379,8200,5000]
 }
