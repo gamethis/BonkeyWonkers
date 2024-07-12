@@ -22,14 +22,14 @@ repos:
     -   id: flake8
 
 -   repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: "v1.83.2"
+    rev: "v1.92.0"
     hooks:
     -   id: terraform_fmt
-        exclude: /root/.cache/.+
+        exclude: '^[^/]+$'
     -   id: terraform_tflint
-        exclude: /root/.cache/.+
+        exclude: '^[^/]+$'
     -   id: terraform_validate
-        exclude: /root/.cache/.+
+        exclude: '^[^/]+$'
 
 - repo: local
   hooks:
