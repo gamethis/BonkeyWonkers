@@ -1,4 +1,5 @@
 #!/bin/bash
+
 DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
 sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq xdotool
@@ -63,10 +64,10 @@ echo "Done running pre-commit"
 echo "========================="
 
 echo "Setup Grafana"
-cd /workspaces/BonkeyWonkers/exercise4 
+cd /workspaces/BonkeyWonkers/exercise4
 result=1
 while [ $result -le 1 ];
-do  
+do
   echo "starting docker compose"
   docker-compose up -d
   result=$(docker container ls | wc -l)
