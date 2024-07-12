@@ -18,9 +18,23 @@ has released a new Minor or Patch version of the Major version referenced in the
   </summary>
 
   ```code
-    1. Create your file in the local .github folder
-    1. act -l
-    1. act -j name_of_job
+    Create your file in the local .github folder
+    act -l
+    act -j name_of_job
+ ```
+
+ </details>
+  </p>
+
+<details>
+  <summary>
+  Add dependencies in to act container if needed
+  </summary>
+
+  ```code
+docker build -t act-local .
+docker tag act-local:latest localhost:5000/act-local:latest
+docker image push localhost:5000/act-local:latest
  ```
 
  </details>
