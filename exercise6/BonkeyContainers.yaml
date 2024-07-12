@@ -1,0 +1,10 @@
+BonkeyMachine:
+  Images:
+    alertmanager: alertmanager:v0.24.0
+    cadvisor: cadvisor/cadvisor:v0.33.0
+    coredns: coredns/coredns:1.11.1
+    envoy: envoy:v1.26.6
+    envoy_exporter: wayfinder:0.31.0
+    fluentbit: fluent-bit:1.9.4
+    frr: frr:v8.4.2
+    node_exporter: node-exporter:v1.1.2

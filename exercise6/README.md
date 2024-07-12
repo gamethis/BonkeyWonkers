@@ -6,14 +6,20 @@ This exercise will test your basic skillset with GitHub Actions.
 
 ## Create GitHub Action
 
-Spell out what kind of action is to be created
+### Step 1
 
-## TEST
+Create a github workflow that checks if <https://github.com/FRRouting/frr> has released
+a new Minor or Patch version of the Major version referenced in the
+[Bonkey Containers File](.\BonkeyContainers.yaml)
 
-Give Steps to test action locally using act.
+### Step 2
 
-## Verify
+Update github workflow to Update the [Bonkey Containers File](.\BonkeyContainers.yaml)
+with the new Major version of frr.
 
-Verify solution meets request.
+### Step 3
+
+Update the github workflow to submit a pull request on a new branch to BonkeyWonkers
+Provide a good description of what is being updated.
 
 ## Exercise 6 complete
