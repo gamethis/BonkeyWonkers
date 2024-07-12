@@ -33,4 +33,4 @@ Dockerfile
 
 **/.DS_Store
 
-**/github-actions-demo/*
+*/github-actions-demo
