@@ -12,10 +12,19 @@ Create a GitHub workflow that runs `Once a Week` and checks if [FRR](https://Git
 has released a new Minor or Patch version of the Major version referenced in the
 [Bonkey Containers File](./BonkeyContainers.yaml)
 
-Leverage act to test your file locally.
-1. Create your file in the local [GitHub](./.github)
-1. `act -l`
-1. `act -j name_of_job`
+<details>
+  <summary>
+  Leverage act to test your file locally.
+  </summary>
+
+  ```code
+    1. Create your file in the local .github folder
+    1. act -l
+    1. act -j name_of_job
+ ```
+
+ </details>
+  </p>
 
 ### Step 2
 
