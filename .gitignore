@@ -32,3 +32,6 @@ Dockerfile
 .terraform.lock.hcl
 
 **/.DS_Store
+
+**/github-actions-demo/*
+

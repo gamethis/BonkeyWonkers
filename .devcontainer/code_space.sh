@@ -98,5 +98,18 @@ sudo install vault /usr/local/bin/
 
 echo "============"
 
+echo "Install ACT"
+cd /workspaces/BonkeyWonkers/exercise6
+ACT_VERSION=v0.2.64
+wget https://github.com/nektos/act/releases/latest/download/act_Linux_x86_64.tar.gz
+sudo tar -xvlsf act_Linux_x86_64.tar.gz -C /usr/local/bin act
+act --version
+rm -rf act_Linux_x86_64.tar.gz
+git clone https://github.com/cplee/github-actions-demo.git
+# echo act -C github-actions-demo
+
+echo "==========="
+
+cd /workspaces/BonkeyWonkers/
 echo "Completed Setup"
 exit 0

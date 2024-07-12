@@ -43,3 +43,5 @@ path "secret/*" {
 ## Can you explain how this could be more secure?
 
 ## Exercise 5 complete
+
+Proceed to [Exercise 6](../exercise6/README.md)
