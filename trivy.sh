@@ -8,5 +8,3 @@ then
 fi
 
 trivy fs --format table --exit-code 1 --ignore-unfixed --scanners vuln,secret,misconfig --severity CRITICAL,HIGH --no-progress ./
-
-cd exercise4 && docker-compose up -d && cd ..
