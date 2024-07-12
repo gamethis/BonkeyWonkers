@@ -1,7 +1,7 @@
 #!/bin/bash
 DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq
+sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq xdotool
 DEBIAN_FRONTEND=dialog
 
 function getLatestVersion() {
@@ -63,7 +63,13 @@ echo "Done running pre-commit"
 echo "========================="
 
 echo "Setup Grafana"
-cd /workspaces/BonkeyWonkers/exercise4 && docker-compose up -d
+cd /workspaces/BonkeyWonkers/exercise4 
+while ((docker container ls | wc -l) == 1)
+do
+echo "starting docker compose"
+docker-compose up -d
+done
+
 cd /workspaces/BonkeyWonkers
 echo "============"
 
@@ -106,7 +112,7 @@ sudo tar -xvlsf act_Linux_x86_64.tar.gz -C /usr/local/bin act
 act --version
 rm -rf act_Linux_x86_64.tar.gz
 git clone https://github.com/cplee/github-actions-demo.git
-# echo act -C github-actions-demo
+xdotool keyup + Return | act -C github-actions-demo
 
 echo "==========="
 
