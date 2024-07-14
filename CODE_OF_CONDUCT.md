@@ -5,7 +5,8 @@
 We as members, contributors, and leaders pledge to make participation in our
 community a harassment-free experience for everyone.
 
-We pledge to act and interact in ways that contribute to an open, welcoming, and healthy community.
+We pledge to act and interact in ways that contribute to an open, welcoming,
+and healthy community.
 
 ## Our Standards
 
@@ -111,7 +112,7 @@ the community.
 
 This Code of Conduct is adapted from the [Contributor Covenant][homepage],
 version 2.0, available at
-https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
+[code of conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct.html).
 
 Community Impact Guidelines were inspired by [Mozilla's code of conduct
 enforcement ladder](https://github.com/mozilla/diversity).
@@ -119,5 +120,5 @@ enforcement ladder](https://github.com/mozilla/diversity).
 [homepage]: https://www.contributor-covenant.org
 
 For answers to common questions about this code of conduct, see the FAQ at
-https://www.contributor-covenant.org/faq. Translations are available at
-https://www.contributor-covenant.org/translations.
+[faq](https://www.contributor-covenant.org/faq). Translations are available at
+[translations](https://www.contributor-covenant.org/translations).
