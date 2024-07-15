@@ -19,9 +19,15 @@ function getLatestVersion() {
 }
 
 function getLatestFrrVersion() {
+  FRR_DESIRED_VERSION=$1
+  if [[ -n "${FRR_DESIRED_VERSION}" ]]; then
+    FRR_MAJOR_VERSION=${FRR_DESIRED_VERSION}
+  else
+    FRR_MAJOR_VERSION=8
+  fi
   LATEST_ARR=($(wget -q -O- https://api.github.com/repos/frrouting/frr/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2 | sort -V -r))
   for ver in "${LATEST_ARR[@]}"; do
-    if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]] ; then
+    if [[ $ver =~ $FRR_MAJOR_VERSION ]] && [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]] ; then
       LATEST="$ver"
       break
     fi
