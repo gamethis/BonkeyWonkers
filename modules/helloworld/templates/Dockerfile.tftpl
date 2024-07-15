@@ -1,4 +1,4 @@
-FROM dahicks/sample:latest as build
+FROM docker pull dahicks/sample:v1.0.1 as build
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN useradd --no-log-init -r -g root bonkey
