@@ -146,7 +146,7 @@ act --version
 rm -rf act_Linux_x86_64.tar.gz
 git clone https://github.com/cplee/github-actions-demo.git
 echo "Building container for using act local"
-docker build -t act-local .
+docker build --platform linux/amd64 -t act-local .
 docker tag act-local:latest localhost:5000/act-local:latest
 echo "Pushing container to local registry"
 docker image push localhost:5000/act-local:latest
