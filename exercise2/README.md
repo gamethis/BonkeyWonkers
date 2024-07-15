@@ -20,7 +20,7 @@ The actual outcome of this exercise is purely to ensure you can run
   </summary>
 
     ```Dockerfile
-      FROM dahicks/sample:latest as build
+      FROM docker pull dahicks/sample:v1.0.1 as build
 
       SHELL ["/bin/bash", "-o", "pipefail", "-c"]
       RUN useradd --no-log-init -r -g root bonkey
@@ -86,7 +86,7 @@ The actual outcome of this exercise is purely to ensure you can run
   </summary>
 
     ```DockerFile
-    FROM dahicks/sample:latest as build
+    FROM docker pull dahicks/sample:v1.0.1 as build
     SHELL ["/bin/bash", "-o", "pipefail", "-c"]
     RUN useradd --no-log-init -r -g root bonkey
     COPY helloworld.py /app/main.py
