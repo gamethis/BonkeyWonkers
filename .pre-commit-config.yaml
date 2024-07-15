@@ -29,7 +29,17 @@ repos:
     -   id: terraform_tflint
         exclude: '^[^/]+$'
     -   id: terraform_validate
+        args:
+        - --tf-init-args=-upgrade
         exclude: '^[^/]+$'
+    -   id: terraform_docs
+        exclude: '^[^/]+$'
+    -   id: terraform_trivy
+        exclude: '^[^/]+$'
+    -   id: terraform_providers_lock
+        exclude: '^[^/]+$'
+        args:
+        - --hook-config=--mode=always-regenerate-lockfile
 
 - repo: local
   hooks:
