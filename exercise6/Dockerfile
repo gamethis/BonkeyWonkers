@@ -39,7 +39,7 @@ RUN echo \
 # Install Docker CLI
 RUN apt-get update && \
     apt-get install -y --no-install-recommends docker-ce-cli
-
+# add sudo
 RUN useradd -m -s /bin/bash -G sudo -p $(openssl passwd -1 password) bonkey
 # Clean up
 RUN apt-get clean && \
