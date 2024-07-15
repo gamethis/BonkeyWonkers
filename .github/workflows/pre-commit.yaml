@@ -89,4 +89,4 @@ jobs:
         pre-commit --version
 
     - name: Run pre-commit
-      run: pre-commit run --all-files --show-diff-on-failure --color=auto
+      run: pre-commit run --all-files --verbose --show-diff-on-failure --color=auto
