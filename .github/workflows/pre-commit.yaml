@@ -18,6 +18,7 @@ jobs:
         python-version: '3.10.14'
     - name: Install terraform_fmt
       run: |
+        
         function getLatestVersion() {
           LATEST_ARR=($(wget -q -O- https://api.github.com/repos/hashicorp/terraform/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2))
           for ver in "${LATEST_ARR[@]}"; do
@@ -28,12 +29,16 @@ jobs:
           done
           echo -n "$LATEST"
         }
+        mkdir -p ./terraform
+        cd ./terraform
         echo "Install Terraform"
         VERSION=$(getLatestVersion)
         cd ~
         wget "https://releases.hashicorp.com/terraform/"$VERSION"/terraform_"$VERSION"_linux_amd64.zip"
         unzip -o  "terraform_"$VERSION"_linux_amd64.zip"
         sudo install terraform /usr/local/bin/
+        cd ..
+        rm -rf ./terraform
         terraform version
         echo "Done Installing Terraform"
     - name: Install terraform doc
@@ -42,6 +47,8 @@ jobs:
          INSTALL_PATH: /usr/local/bin
       run: |
         set -euo pipefail
+        mkdir -p ./terraform-docs
+        cd ./terraform-docs
         platform=$(uname -s | tr '[:upper:]' '[:lower:]')
         arch=$(uname -m)
         wget --no-check-certificate https://github.com/terraform-docs/terraform-docs/releases/download/v${TFDOCS_VERSION}/terraform-docs-v${TFDOCS_VERSION}-${platform}-amd64.tar.gz
@@ -50,6 +57,8 @@ jobs:
         tar -xvf terraform-docs-v${TFDOCS_VERSION}-${platform}-amd64.tar.gz
         chmod +x terraform-docs
         mv ./terraform-docs ${INSTALL_PATH}/terraform-docs
+        cd ..
+        rm -rf ./terraform-docs
         terraform-docs version
     - name: Install tflint
       env:
@@ -57,6 +66,8 @@ jobs:
         INSTALL_PATH: /usr/local/bin
       run: |
         set -euo pipefail
+        mkdir -p ./tflint
+        cd ./tflint
         platform=$(uname -s | tr '[:upper:]' '[:lower:]')
         arch=$(uname -m)
         if [ "$arch" == "x86_64" ]; then
@@ -67,6 +78,8 @@ jobs:
         wget --no-check-certificate "https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/${filename}"
         ls -lah $filename
         sudo unzip $filename -d "${INSTALL_PATH}"
+        cd ..
+        rm -rf ./tflint
         tflint --version
 
     - name: Install Trivy
@@ -74,11 +87,15 @@ jobs:
        TRIVY_VERSION: 0.53.0
        INSTALL_PATH: /usr/local/bin
       run: |
+        mkdir -p ./trivy
+        cd ./trivy
         set -euo pipefail
         wget --no-check-certificate "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz"
         ls -la trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
         tar -xvf trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
         mv ./trivy ${INSTALL_PATH}/trivy
+        cd ..
+        rm -rf ./trivy
         trivy --version
 
     - name: Install pre-commit framework
