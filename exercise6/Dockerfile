@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y  --no-install-recommends \
     unzip \
     gnupg \
     xz-utils \
+    gh \
     && rm -rf /var/lib/apt/lists/*
 
 
