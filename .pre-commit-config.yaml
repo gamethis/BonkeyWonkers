@@ -62,4 +62,6 @@ repos:
   rev: v0.39.0
   hooks:
   - id: markdownlint-fix
+    exclude: '^LICENSE$'
   - id: markdownlint
+    exclude: '^LICENSE$'
