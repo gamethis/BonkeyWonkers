@@ -7,7 +7,7 @@ DEBIAN_FRONTEND=dialog
 
 function getLatestVersion() {
 
-  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/hashicorp/terraform/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2))
+  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/hashicorp/terraform/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2 | sort -V -r))
 
   for ver in "${LATEST_ARR[@]}"; do
     if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]]; then
@@ -18,10 +18,26 @@ function getLatestVersion() {
   echo -n "$LATEST"
 }
 
+function getLatestFrrVersion() {
+  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/frrouting/frr/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2 | sort -V -r))
+  for ver in "${LATEST_ARR[@]}"; do
+    if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]] ; then
+      LATEST="$ver"
+      break
+    fi
+  done
+  echo -n "$LATEST"
+}
+
+echo "Install Terraform Docs"
+
+TFDOCS_VERSION: 0.18.0
+sudo go install github.com/terraform-docs/terraform-docs@v${TFDOCS_VERSION}
+echo "Done Installing Terraform Docs"
+echo "========================="
+
 echo "Install Terraform"
-
 VERSION=$(getLatestVersion)
-
 cd ~
 wget "https://releases.hashicorp.com/terraform/"$VERSION"/terraform_"$VERSION"_linux_amd64.zip"
 unzip -o  "terraform_"$VERSION"_linux_amd64.zip"
@@ -37,7 +53,7 @@ echo "Done install pre-commit."
 echo "========================="
 
 echo "Install tflint"
-TFLINT_VERSION="0.48.0"
+TFLINT_VERSION="0.50.0"
 INSTALL_PATH="/usr/local/bin"
 platform=$(uname -s | tr '[:upper:]' '[:lower:]')
 arch=$(uname -m)
@@ -57,6 +73,8 @@ curl --retry 3 --retry-delay 5 -sSL "https://github.com/aquasecurity/trivy/relea
 
 echo "Done install trivy"
 echo "========================="
+
+
 
 echo "run pre-commit"
 pre-commit run --all-files
