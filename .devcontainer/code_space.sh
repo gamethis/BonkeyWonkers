@@ -78,13 +78,6 @@ echo "============"
 echo "Get test container"
 docker pull dahicks/sample:latest
 
-echo "Prep Excercise3"
-docker create --name excercise3 dahicks/sample:latest
-docker cp excercise3:/exercises/README.md /workspaces/BonkeyWonkers/exercise3/Instructions.md
-docker cp excercise3:/exercises/config.json.tmpl /workspaces/BonkeyWonkers/exercise3/config.json.tmpl
-docker rm -f dummy
-
-
 echo "Get stress test"
 docker pull j0hnewhitley/docker-stress:v0.0.1
 
