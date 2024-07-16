@@ -8,7 +8,7 @@ This exercise is meant to test your ability to run basic
 ## Step 1 Initialize Workspace
 
 + Build a container:
-  + Using the newly created Dockerfile, build a container named `hello`.
+  + Using the Dockerfile, build a container named `hello`.
 
 + Run the docker image
 
