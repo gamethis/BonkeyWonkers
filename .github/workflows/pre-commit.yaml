@@ -97,6 +97,7 @@ jobs:
         cd ..
         rm -rf ./trivy
         trivy --version
+        trivy server --download-db-only
     - name: Install tfupdate
       env:
         TFUPDATE_VERSION: 0.8.2
