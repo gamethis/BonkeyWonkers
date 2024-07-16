@@ -39,6 +39,13 @@ repos:
         - --args=--skip-dirs="**/.terraform"
         exclude: '^[^/]+$'
     -   id: tfupdate
+        args:
+        - --args=terraform
+    -   id: tfupdate
+        args:
+        - --args=provider hashicorp/local
+        exclude: '^[^/]+$'
+
     -   id: terraform_providers_lock
         exclude: '^[^/]+$'
         args:
