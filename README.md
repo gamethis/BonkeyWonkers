@@ -37,4 +37,14 @@ knowledge of vault.
 ## Excercise 6
 
 [This exercise](./exercise6/README.md) will be used to test your basic
-knowledge of github actions.
+knowledge of GitHub actions/workflows and scripting.
+
+## Exercise 7
+
+[This exercise](./exercise7/README.md) will be used to test your basic
+knowledge of GitHub actions/workflows to work with files and repositories.
+
+## Exercise 8
+
+[This exercise](./exercise8/README.md) will be used to test your basic
+knowledge of GitHub actions/workflows to pass variables between jobs.
