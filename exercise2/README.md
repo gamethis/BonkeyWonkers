@@ -18,6 +18,7 @@ This exercise is meant to test your ability to run basic
       ```shell
         root@c0700134dc42:/exercises#
       ```
+
 + Exit and stop the container.
 
 ## Step 2 Docker Compose debug, execute, and test

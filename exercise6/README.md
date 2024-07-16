@@ -35,11 +35,10 @@ The actual outcome of this exercise is purely to ensure you can run
   </details>
   </p>
 
-
 ## Step 2 Modify Terraform Module, Update HelloWorld text file
 
 + Update the Terraform template(`HelloWorld.tftpl`) file so that the resulting `HelloWorld.txt`
-  includes 3 things you like, each on a new line. 
+  includes 3 things you like, each on a new line.
 
     > **NOTE:** The purpose of this exercise is to test your knowledge of
                 terraform variables and templates.
@@ -48,6 +47,7 @@ The actual outcome of this exercise is purely to ensure you can run
                 templating to render the final `HelloWorld.txt`
 
     Exmample List for user GameThis
+
     ```text
     Pizza
     Gardening
