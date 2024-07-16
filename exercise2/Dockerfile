@@ -1,6 +1,6 @@
 FROM dahicks/sample:latest as build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN useradd --no-log-init -r -g root bonkey
+RUN useradd --no-log-init -m -r -g root bonkey
 COPY helloworld.py /app/main.py
 
 RUN cd /app && \

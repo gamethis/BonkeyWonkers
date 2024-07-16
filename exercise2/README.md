@@ -19,6 +19,10 @@ This exercise is meant to test your ability to run basic
         root@c0700134dc42:/exercises#
       ```
 
++ CD to `~`
+  + Create a `test.sh` script that outputs "hello"
+  + Run the script.
+
 + Exit and stop the container.
 
 ## Step 2 Docker Compose debug, execute, and test

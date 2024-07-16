@@ -63,9 +63,20 @@ echo "Done running pre-commit"
 echo "========================="
 
 echo "Setup Grafana"
-cd /workspaces/BonkeyWonkers/exercise4 && docker-compose up -d
+cd /workspaces/BonkeyWonkers/exercise4
+result=1
+while [ $result -le 1 ];
+do
+  echo "starting docker compose"
+  docker-compose up -d
+  result=$(docker container ls | wc -l)
+done
+
 cd /workspaces/BonkeyWonkers
 echo "============"
+
+echo "Get test container"
+docker pull dahicks/sample:latest
 
 echo "Get stress test"
 docker pull j0hnewhitley/docker-stress:v0.0.1
