@@ -34,7 +34,7 @@ knowledge of grafana.
 [This exercise](./exercise5/README.md) will be used to test your basic
 knowledge of vault.
 
-## Excercise 6
+## Exercise 6
 
 [This exercise](./exercise6/README.md) will be used to test your basic
 knowledge of GitHub actions/workflows and scripting.
