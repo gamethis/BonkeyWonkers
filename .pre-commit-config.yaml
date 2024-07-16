@@ -38,10 +38,12 @@ repos:
         args:
         - --args=--skip-dirs="**/.terraform"
         exclude: '^[^/]+$'
+    -   id: tfupdate
     -   id: terraform_providers_lock
         exclude: '^[^/]+$'
         args:
         - --hook-config=--mode=always-regenerate-lockfile
+
 
 - repo: local
   hooks:
