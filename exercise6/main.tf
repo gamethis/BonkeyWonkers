@@ -1,6 +1,6 @@
 module "service_config" {
-  source      = ".//modules/helloworld"
-  user = "NONAME"
+  source = ".//modules/helloworld"
+  user   = "NONAME"
 }
 
 resource "local_file" "helloworld" {
