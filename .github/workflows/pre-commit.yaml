@@ -106,7 +106,7 @@ jobs:
         set -euo pipefail
         mkdir -p ./tfupdate
         cd ./tfupdate
-        wget --no-check-certificate "https://github.com/${REPO}/releases/download/${TFUPDATE_VERSION}/tfupdate_${TFUPDATE_VERSION}_linux_amd64.tar.gz"
+        wget --no-check-certificate "https://github.com/${REPO}/releases/download/v${TFUPDATE_VERSION}/tfupdate_${TFUPDATE_VERSION}_linux_amd64.tar.gz"
         tar -xvf tfupdate_${TFUPDATE_VERSION}_linux_amd64.tar.gz
         mv ./tfupdate ${INSTALL_PATH}/tfupdate
         cd ..
