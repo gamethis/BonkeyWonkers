@@ -103,6 +103,9 @@ done
 cd /workspaces/BonkeyWonkers
 echo "============"
 
+echo "Get test container"
+docker pull dahicks/sample:latest
+
 echo "Get stress test"
 docker pull j0hnewhitley/docker-stress:v0.0.1
 
