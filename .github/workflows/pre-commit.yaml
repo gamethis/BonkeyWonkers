@@ -101,11 +101,11 @@ jobs:
       env:
         TFUPDATE_VERSION: 0.8.2
         INSTALL_PATH: /usr/local/bin
-        REPO: minamijoyo/tfupdate
+        REPO: "minamijoyo/tfupdate"
       run: |
+        set -euo pipefail
         mkdir -p ./tfupdate
         cd ./tfupdate
-        set -euo pipefail
         wget --no-check-certificate "https://github.com/${REPO}/releases/download/${TFUPDATE_VERSION}/tfupdate_${TFUPDATE_VERSION}_linux_amd64.tar.gz
         tar -xvf tfupdate_${TFUPDATE_VERSION}_linux_amd64.tar.gz
         mv ./tfupdate ${INSTALL_PATH}/tfupdate
