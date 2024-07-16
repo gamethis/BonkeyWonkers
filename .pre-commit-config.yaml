@@ -35,6 +35,8 @@ repos:
     -   id: terraform_docs
         exclude: '^[^/]+$'
     -   id: terraform_trivy
+        args:
+        - --args=--skip-dirs="**/.terraform"
         exclude: '^[^/]+$'
     -   id: terraform_providers_lock
         exclude: '^[^/]+$'
