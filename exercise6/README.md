@@ -36,7 +36,7 @@ The actual outcome of this exercise is purely to ensure you can run
   </p>
 
 
-## Step 2 Modify Terraform Module, Update Docker file
+## Step 2 Modify Terraform Module, Update HelloWorld text file
 
 + Update the Terraform template(`HelloWorld.tftpl`) file so that the resulting `HelloWorld.txt`
   includes 3 things you like, each on a new line. 
