@@ -97,7 +97,22 @@ jobs:
         cd ..
         rm -rf ./trivy
         trivy --version
-
+    - name: Install tfupdate
+      env:
+        TFUPDATE_VERSION: 0.8.2
+        INSTALL_PATH: /usr/local/bin
+        REPO: minamijoyo/tfupdate
+      run: |
+        mkdir -p ./tfupdate
+        cd ./tfupdate
+        set -euo pipefail
+        wget --no-check-certificate "https://github.com/${REPO}/releases/${TFUPDATE_VERSION}/download/tfupdate_${TFUPDATE_VERSION}_linux_amd64.tar.gz
+        ls -la tfupdate_${TFUPDATE_VERSION}_linux_amd64.tar.gz
+        tar -xvf tfupdate_${TFUPDATE_VERSION}_linux_amd64.tar.gz
+        mv ./tfupdate ${INSTALL_PATH}/tfupdate
+        cd ..
+        rm -rf ./tfupdate
+        tfupdate --version
     - name: Install pre-commit framework
       env:
         PRE_COMMIT_VERSION: 3.7.1

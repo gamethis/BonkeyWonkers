@@ -18,18 +18,21 @@ function getLatestVersion() {
   echo -n "$LATEST"
 }
 
-function getLatestFrrVersion() {
-  FRR_DESIRED_VERSION=$1
-  if [[ -n "${FRR_DESIRED_VERSION}" ]]; then
-    FRR_MAJOR_VERSION=${FRR_DESIRED_VERSION}
-  else
-    FRR_MAJOR_VERSION=8
-  fi
-  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/frrouting/frr/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2 | sort -V -r))
+function getLatestRepoVersion() {
+  REPO=$1  #frrouting/frr
+  DESIRED_VERSION=$2
+  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/${REPO}/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2 | sort -V -r))
   for ver in "${LATEST_ARR[@]}"; do
-    if [[ $ver =~ $FRR_MAJOR_VERSION ]] && [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]] ; then
-      LATEST="$ver"
-      break
+    if [[ -n "${DESIRED_VERSION}" ]]; then
+      if [[ $ver =~ $DESIRED_VERSION ]] && [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]] ; then
+        LATEST="$ver"
+        break
+      fi
+    else
+      if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]] ; then
+        LATEST="$ver"
+        break
+      fi
     fi
   done
   echo -n "$LATEST"
@@ -129,6 +132,15 @@ wget "https://releases.hashicorp.com/vault/"$VAULT_VERSION"/vault_"$VAULT_VERSIO
 unzip -o  "vault_"$VAULT_VERSION"_linux_amd64.zip"
 sudo install vault /usr/local/bin/
 
+echo "============"
+
+echo "Install tfupdate
+$REPO="minamijoyo/tfupdate"
+$LATEST=getLatestRepoVersion "${REPO}"
+wget https://github.com/${REPO}/releases/${LATEST}/download/tfupdate_${LATEST}_linux_amd64.tar.gz
+sudo tar -xvlsf tfupdate_${LATEST}_linux_amd64.tar.gz -C /usr/local/bin tfupdate
+tfupdate --version
+echo "Done installing tfupdate"
 echo "============"
 
 echo "Install ACT"
