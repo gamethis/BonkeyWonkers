@@ -2,17 +2,15 @@
 
 Back to [Main](../README.md)
 
-This exercise will test your basic skillset with GitHub Actions and Workflows.
-The focus of this exercise is working with a file and the local GitHub Repo.
+This exercise will test your basic skillset with GitHub Actions and Workflows,
+and scripting abilities.
 
 ## Create GitHub Action/Workflow
 
 ### Step 1
 
-Create/Update a GitHub workflow in the file named `Bonkey-Check.yaml`,
-to update the [Bonkey Containers File](./BonkeyContainers.yaml) with the Version
-of the enviornment variable `frr_version`.
-This should leverage a job name/job id of `frr_update`.
+Create a GitHub workflow named `Bonkey-Check.yaml` that runs `Once a Week` and
+exits successfully if the [Bonkey Containers File](./BonkeyContainers.yaml) is present.
 
 <details>
   <summary>
@@ -45,16 +43,17 @@ cd /workspaces/BonkeyWonkers
  </details>
   </p>
 
-### Step 2
+## Step 2
 
-If the File Updates create a Pull request to gamethis/BonkeyWonkers.
-Provide the title `Updating Frr Version to keep current with Major version`
-Provide a description of what the version is being updated to.
+Update your workflow to:
 
-### Step 3
-
-Update the GitHub workflow to submit a pull request on a new branch to BonkeyWonkers
-If Step 2 Updates the file. Provide a good description of what is being updated.
+- With a Job name/Job-ID of `frr_check`.
+- Fetch the latest Version of [FRR](https://GitHub.com/FRRouting/frr).
+  This should be constrained to the [Major version](https://semver.org/)
+  referenced in [Bonkey Containers File](./BonkeyContainers.yaml).
+- Print the version to terminal.
+- Save the Output to a variable called `frr_version` that will be
+  refrenced in future jobs.
 
 ## Exercise 7 complete
 

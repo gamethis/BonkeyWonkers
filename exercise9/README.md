@@ -1,18 +1,21 @@
-# Exercise 8
+# Exercise 9
 
 Back to [Main](../README.md)
 
 This exercise will test your basic skillset with GitHub Actions and Workflows.
-The focus of this exercise is working with a file and the local GitHub Repo.
+The focus of this exercise is to tie workflow jobs together and pass variables
+from one job to another.
+This exercise will update the work done in
+[Exercise 7](../exercise6/README.md) and
+[Exercise 8](../exercise7/README.md)
 
 ## Create GitHub Action/Workflow
 
 ### Step 1
 
 Create/Update a GitHub workflow in the file named `Bonkey-Check.yaml`,
-to update the [Bonkey Containers File](./BonkeyContainers.yaml) with the Version
-of the enviornment variable `frr_version`.
-This should leverage a job name/job id of `frr_update`.
+Pass the variable `frr_version` that was in the output of `frr_check`
+to `frr_update` job.
 
 <details>
   <summary>
@@ -47,15 +50,6 @@ cd /workspaces/BonkeyWonkers
 
 ### Step 2
 
-If the File Updates create a Pull request to gamethis/BonkeyWonkers.
-Provide the title `Updating Frr Version to keep current with Major version`
-Provide a description of what the version is being updated to.
+demonstrate that the `frr_version` from `frr_check` is used in `frr_update`
 
-### Step 3
-
-Update the GitHub workflow to submit a pull request on a new branch to BonkeyWonkers
-If Step 2 Updates the file. Provide a good description of what is being updated.
-
-## Exercise 8 complete
-
-Proceed to [Exercise 9](../exercise9/README.md)
+## Exercise 9 complete
