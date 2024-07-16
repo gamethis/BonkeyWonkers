@@ -15,7 +15,7 @@ module to another without modifying the actual state of the resource.
 ## Exercise 2
 
 [This exercise](./exercise2/README.md) will be used to test your basic
-knowledge of executing a terraform plan as well as basic templating.
+knowledge of docker containers.
 
 ## Exercise 3
 
@@ -31,3 +31,8 @@ knowledge of grafana.
 
 [This exercise](./exercise5/README.md) will be used to test your basic
 knowledge of vault.
+
+## Exercise 6
+
+[This exercise](./exercise2/README.md) will be used to test your basic
+knowledge of executing a terraform plan as well as basic templating.
