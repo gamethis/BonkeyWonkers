@@ -48,7 +48,7 @@ cd /workspaces/BonkeyWonkers
 Update your workflow to:
 
 - With a Job name/Job-ID of `frr_check`.
-- Fetch the latest Version of [FRR](https://GitHub.com/FRRouting/frr).
+- Fetch the latest Released Version of [FRR](https://api.github.com/repos/frrouting/frr/releases).
   This should be constrained to the [Major version](https://semver.org/)
   referenced in [Bonkey Containers File](./BonkeyContainers.yaml).
 - Print the version to terminal.
