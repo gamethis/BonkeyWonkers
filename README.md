@@ -17,7 +17,7 @@ module to another without modifying the actual state of the resource.
 ## Exercise 2
 
 [This exercise](./exercise2/README.md) will be used to test your basic
-knowledge of executing a terraform plan as well as basic templating.
+knowledge of docker containers.
 
 ## Exercise 3
 
@@ -34,17 +34,22 @@ knowledge of grafana.
 [This exercise](./exercise5/README.md) will be used to test your basic
 knowledge of vault.
 
-## Excercise 6
+## Exercise 6
+
+[This exercise](./exercise6/README.md) will be used to test your basic
+knowledge of executing a terraform plan as well as basic templating.
+
+## Exercise 7
 
 [This exercise](./exercise6/README.md) will be used to test your basic
 knowledge of GitHub actions/workflows and scripting.
 
-## Exercise 7
+## Exercise 8
 
 [This exercise](./exercise7/README.md) will be used to test your basic
 knowledge of GitHub actions/workflows to work with files and repositories.
 
-## Exercise 8
+## Exercise 9
 
 [This exercise](./exercise8/README.md) will be used to test your basic
 knowledge of GitHub actions/workflows to pass variables between jobs.
