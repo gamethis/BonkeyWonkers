@@ -147,7 +147,7 @@ echo "Done installing tfupdate"
 echo "============"
 
 echo "Install ACT"
-cd /workspaces/BonkeyWonkers/exercise6
+cd /workspaces/BonkeyWonkers/exercise7
 # git clone https://github.com/nektos/act.git
 # cd act
 # sudo make test
