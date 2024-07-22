@@ -13,6 +13,7 @@ Create/Update a GitHub workflow in the file named `Bonkey-Check.yaml`,
 to update the [Bonkey Containers File](./BonkeyContainers.yaml) with the Version
 of the enviornment variable `frr_version`.
 This should leverage a job name/job id of `frr_update`.
+Cat the file to demonstrate the change
 
 <details>
   <summary>
@@ -44,17 +45,6 @@ cd /workspaces/BonkeyWonkers
 
  </details>
   </p>
-
-### Step 2
-
-If the File Updates create a Pull request to gamethis/BonkeyWonkers.
-Provide the title `Updating Frr Version to keep current with Major version`
-Provide a description of what the version is being updated to.
-
-### Step 3
-
-Update the GitHub workflow to submit a pull request on a new branch to BonkeyWonkers
-If Step 2 Updates the file. Provide a good description of what is being updated.
 
 ## Exercise 8 complete
 
