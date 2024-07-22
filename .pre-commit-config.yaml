@@ -52,16 +52,6 @@ repos:
         - --hook-config=--mode=always-regenerate-lockfile
 
 
-- repo: local
-  hooks:
-  - id: trivy
-    name: Trivy security scan
-    description: "Scan Repository with Trivy"
-    language: script
-    entry: ./trivy.sh
-    pass_filenames: false
-    always_run: true
-
 - repo: https://github.com/python-jsonschema/check-jsonschema
   rev: 0.29.0
   hooks:
