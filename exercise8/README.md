@@ -11,8 +11,8 @@ The focus of this exercise is working with a file and the local GitHub Repo.
 
 Create/Update a GitHub workflow in the file named `Bonkey-Check.yaml`,
 to update the [Bonkey Containers File](./BonkeyContainers.yaml) with the Version
-of the enviornment variable `frr_version`.
-This should leverage a job name/job id of `frr_update`.
+of the enviornment variable `version`.
+This should leverage a job name/job id of `update`.
 Cat the file to demonstrate the change
 
 <details>

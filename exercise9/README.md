@@ -14,8 +14,8 @@ This exercise will update the work done in
 ### Step 1
 
 Create/Update a GitHub workflow in the file named `Bonkey-Check.yaml`,
-Pass the variable `frr_version` that was in the output of `frr_check`
-to `frr_update` job.
+Pass the variable `version` that was in the output of `check`
+to `update` job.
 
 <details>
   <summary>
@@ -50,6 +50,6 @@ cd /workspaces/BonkeyWonkers
 
 ### Step 2
 
-demonstrate that the `frr_version` from `frr_check` is used in `frr_update`
+demonstrate that the `version` from `check` is used in `update`
 
 ## Exercise 9 complete
