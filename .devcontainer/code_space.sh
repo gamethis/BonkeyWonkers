@@ -134,6 +134,7 @@ cd ~
 wget "https://releases.hashicorp.com/vault/"$VAULT_VERSION"/vault_"$VAULT_VERSION"_linux_amd64.zip"
 unzip -o  "vault_"$VAULT_VERSION"_linux_amd64.zip"
 sudo install vault /usr/local/bin/
+pip3 install hvac
 
 echo "============"
 
