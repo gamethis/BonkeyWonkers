@@ -52,8 +52,6 @@ Update your workflow to:
   This should be constrained to the [Major version](https://semver.org/)
   referenced in [Bonkey Containers File](./BonkeyContainers.yaml).
 - Print the version to terminal.
-- Save the Output to a variable called `version` that will be
-  refrenced in future jobs.
 
 ## Exercise 7 complete
 

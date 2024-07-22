@@ -14,8 +14,11 @@ This exercise will update the work done in
 ### Step 1
 
 Create/Update a GitHub workflow in the file named `Bonkey-Check.yaml`,
-Pass the variable `version` that was in the output of `check`
+Pass the variable `version` that is an output of `check`
 to `update` job.
+
+- Save the output to a variable called `version` in `check` job.
+- leverage output variable called `version` in `update` job.
 
 <details>
   <summary>
