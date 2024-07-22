@@ -16,7 +16,7 @@ This exercise is meant to test your ability to run basic
   + You should see something like
 
       ```shell
-        root@c0700134dc42:/exercises#
+        bonkey@c0700134dc42:/exercises#
       ```
 
 + CD to `~`
