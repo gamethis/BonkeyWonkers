@@ -1,0 +1,9 @@
+BonkeyMachine:
+  Images:
+    alertmanager: prom/alertmanager:v0.24.0
+    cadvisor: gcr.io/cadvisor/cadvisor:v0.47.1
+    coredns: coredns/coredns:1.11.1
+    envoy: envoyproxy/envoy:v1.26.6
+    fluentbit: fluent/fluent-bit:1.9.4
+    frr: quay.io/frrouting/frr:8.4.2
+    node_exporter: prom/node-exporter:v1.1.2

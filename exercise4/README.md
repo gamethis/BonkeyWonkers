@@ -41,6 +41,7 @@ If on codespaces:
 ## Create a dashboard
 
 1. Create a dashboard(s) that shows:
+    - Name dashboard CPU_Utilization_Gauge
     - cpu utilization `Gauge` Dashboard
       - Metric should be displayed as Percentage
       - Use node metrics
@@ -51,6 +52,7 @@ If on codespaces:
         ```
 
     - cpu utilization `Time series` Dashboard
+      - Name dashboard CPU_Utilization_TS
       - Metric should be displayed as Percentage
       - Use node metrics
         - query should be:
@@ -62,6 +64,9 @@ If on codespaces:
 ## Create an alert
 
 1. Create an alert for 60% or more CPU utilization
+   - Create alert folder called bonkey.
+   - Create alert group called wonkers.
+   - Evaluation at 10s
 
 ## Stress system
 

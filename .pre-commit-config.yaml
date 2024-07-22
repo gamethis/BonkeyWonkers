@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.6.0
     hooks:
     -   id: check-yaml
     -   id: end-of-file-fixer
@@ -22,31 +22,47 @@ repos:
     -   id: flake8
 
 -   repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: "v1.83.2"
+    rev: "v1.92.0"
     hooks:
     -   id: terraform_fmt
+        exclude: '^[^/]+$'
     -   id: terraform_tflint
+        exclude: '^[^/]+$'
     -   id: terraform_validate
+        args:
+        - --tf-init-args=-upgrade
+        exclude: '^[^/]+$'
+    -   id: terraform_docs
+        exclude: '^[^/]+$'
+    -   id: terraform_trivy
+        args:
+        - --args=--skip-dirs="**/.terraform"
+        exclude: '^[^/]+$'
+    -   id: tfupdate
+        args:
+        - --args=terraform
+    -   id: tfupdate
+        args:
+        - --args=provider hashicorp/local
+        exclude: '^[^/]+$'
 
-- repo: local
-  hooks:
-  - id: trivy
-    name: Trivy security scan
-    description: "Scan Repository with Trivy"
-    language: script
-    entry: ./trivy.sh
-    pass_filenames: false
-    always_run: true
+    -   id: terraform_providers_lock
+        exclude: '^[^/]+$'
+        args:
+        - --hook-config=--mode=always-regenerate-lockfile
+
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.28.0
+  rev: 0.29.0
   hooks:
     - id: check-github-workflows
     - id: check-github-actions
     - id: check-dependabot
 
 - repo: https://github.com/igorshubovych/markdownlint-cli
-  rev: v0.39.0
+  rev: v0.41.0
   hooks:
   - id: markdownlint-fix
+    exclude: '^LICENSE$'
   - id: markdownlint
+    exclude: '^LICENSE$'
