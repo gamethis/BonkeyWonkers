@@ -27,17 +27,6 @@ If on codespaces:
 1. hover over `forwarded address` for the port Labeled Grafana (3000)
 1. click middle icon
 
-## Login to grafana
-
-- username is admin
-- password is admin
-- When asked to enter a new password click `skip`
-
-## Setup Data Source
-
-- Import prometheus data source
-- The url will be: <http://prometheus:9090>
-
 ## Create a dashboard
 
 1. Create a dashboard(s) that shows:

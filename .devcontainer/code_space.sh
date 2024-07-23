@@ -138,7 +138,7 @@ pip3 install hvac
 
 echo "============"
 
-echo "Install tfupdate
+echo "Install tfupdate"
 $REPO="minamijoyo/tfupdate"
 $LATEST=getLatestRepoVersion "${REPO}"
 wget https://github.com/${REPO}/releases/${LATEST}/download/tfupdate_${LATEST}_linux_amd64.tar.gz
@@ -149,28 +149,26 @@ echo "============"
 
 echo "Install ACT"
 cd /workspaces/BonkeyWonkers/exercise7
-# git clone https://github.com/nektos/act.git
-# cd act
-# sudo make test
-# sudo make install
-# cd ..
-# rm -rf act
+# https://github.com/nektos/act.git]
 
 wget https://github.com/nektos/act/releases/latest/download/act_Linux_x86_64.tar.gz
 sudo tar -xvlsf act_Linux_x86_64.tar.gz -C /usr/local/bin act
 act --version
 rm -rf act_Linux_x86_64.tar.gz
 git clone https://github.com/cplee/github-actions-demo.git
+
 echo "Building container for using act local"
 docker build --platform linux/amd64 -t act-local .
 docker tag act-local:latest localhost:5000/act-local:latest
+
 echo "Pushing container to local registry"
 docker image push localhost:5000/act-local:latest
+
 echo "Configuring act to use local container"
 cat <<EOF > ~/.actrc
 -P ubuntu-latest=localhost:5000/act-local:latest
 EOF
-#echo 'export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\'')' >> ~/.bashrc
+# echo 'export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\'')' >> ~/.bashrc
 export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\')
 echo "testing act"
 echo | act -C github-actions-demo

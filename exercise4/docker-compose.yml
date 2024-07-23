@@ -59,7 +59,8 @@ services:
     environment:
      - GF_INSTALL_PLUGINS=grafana-clock-panel
     volumes:
-    - grafana-storage:/var/lib/grafana
+      - ./datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - ./grafana.ini:/etc/grafana/grafana.ini
 
   vault:
     image: hashicorp/vault:latest
@@ -93,7 +94,3 @@ services:
     ports:
       - 5000:5000
     restart: always
-
-
-volumes:
-  grafana-storage: {}
