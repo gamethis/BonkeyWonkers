@@ -41,11 +41,11 @@ to `update` job.
   </summary>
 
   ```code
-cd /workspaces/BonkeyWonkers/exercise9
-docker build -t act-local .
-docker tag act-local:latest localhost:5000/act-local:latest
-docker image push localhost:5000/act-local:latest
-cd /workspaces/BonkeyWonkers
+    cd /workspaces/BonkeyWonkers/exercise9
+    docker build -t act-local:Latest .
+    docker tag act-local:latest localhost:5000/act-local:latest
+    docker image push localhost:5000/act-local:latest
+    cd /workspaces/BonkeyWonkers
  ```
 
  </details>
