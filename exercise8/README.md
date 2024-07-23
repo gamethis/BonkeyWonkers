@@ -36,7 +36,7 @@ Cat the file to demonstrate the change
   </summary>
 
   ```code
-cd /workspaces/BonkeyWonkers/exercise6
+cd /workspaces/BonkeyWonkers/exercise8
 docker build -t act-local .
 docker tag act-local:latest localhost:5000/act-local:latest
 docker image push localhost:5000/act-local:latest

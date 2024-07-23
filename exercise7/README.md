@@ -33,7 +33,7 @@ exits successfully if the [Bonkey Containers File](./BonkeyContainers.yaml) is p
   </summary>
 
   ```code
-cd /workspaces/BonkeyWonkers/exercise6
+cd /workspaces/BonkeyWonkers/exercise7
 docker build -t act-local .
 docker tag act-local:latest localhost:5000/act-local:latest
 docker image push localhost:5000/act-local:latest
