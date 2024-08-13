@@ -50,8 +50,12 @@ sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 wget -O- https://apt.releases.hashicorp.com/gpg | \
 gpg --dearmor | \
 sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
-sudo apt update -y
-sudo apt-get install terraform
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
+sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+sudo apt-get update -y
+sudo apt-get install terraform -y
 terraform --version
 echo "Done Installing Terraform"
 echo "========================="
@@ -83,8 +87,6 @@ curl --retry 3 --retry-delay 5 -sSL "https://github.com/aquasecurity/trivy/relea
 trivy server --download-db-only
 echo "Done install trivy"
 echo "========================="
-
-
 
 echo "run pre-commit"
 pre-commit run --all-files
