@@ -40,18 +40,23 @@ function getLatestRepoVersion() {
 
 echo "Install Terraform Docs"
 
-TFDOCS_VERSION: 0.18.0
+TFDOCS_VERSION=0.18.0
 sudo go install github.com/terraform-docs/terraform-docs@v${TFDOCS_VERSION}
 echo "Done Installing Terraform Docs"
 echo "========================="
 
 echo "Install Terraform"
-VERSION=$(getLatestVersion)
-cd ~
-wget "https://releases.hashicorp.com/terraform/"$VERSION"/terraform_"$VERSION"_linux_amd64.zip"
-unzip -o  "terraform_"$VERSION"_linux_amd64.zip"
-sudo install terraform /usr/local/bin/
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+wget -O- https://apt.releases.hashicorp.com/gpg | \
+gpg --dearmor | \
+sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
+sudo tee /etc/apt/sources.list.d/hashicorp.list
 
+sudo apt-get update -y
+sudo apt-get install terraform -y
+terraform --version
 echo "Done Installing Terraform"
 echo "========================="
 
@@ -82,8 +87,6 @@ curl --retry 3 --retry-delay 5 -sSL "https://github.com/aquasecurity/trivy/relea
 trivy server --download-db-only
 echo "Done install trivy"
 echo "========================="
-
-
 
 echo "run pre-commit"
 pre-commit run --all-files
@@ -139,10 +142,7 @@ pip3 install hvac
 echo "============"
 
 echo "Install tfupdate"
-$REPO="minamijoyo/tfupdate"
-$LATEST=getLatestRepoVersion "${REPO}"
-wget https://github.com/${REPO}/releases/${LATEST}/download/tfupdate_${LATEST}_linux_amd64.tar.gz
-sudo tar -xvlsf tfupdate_${LATEST}_linux_amd64.tar.gz -C /usr/local/bin tfupdate
+sudo go install github.com/minamijoyo/tfupdate@latest
 tfupdate --version
 echo "Done installing tfupdate"
 echo "============"
