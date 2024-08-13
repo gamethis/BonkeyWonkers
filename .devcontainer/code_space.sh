@@ -40,7 +40,7 @@ function getLatestRepoVersion() {
 
 echo "Install Terraform Docs"
 
-TFDOCS_VERSION: 0.18.0
+TFDOCS_VERSION=0.18.0
 sudo go install github.com/terraform-docs/terraform-docs@v${TFDOCS_VERSION}
 echo "Done Installing Terraform Docs"
 echo "========================="
