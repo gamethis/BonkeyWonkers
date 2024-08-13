@@ -46,12 +46,13 @@ echo "Done Installing Terraform Docs"
 echo "========================="
 
 echo "Install Terraform"
-VERSION=$(getLatestVersion)
-cd ~
-wget "https://releases.hashicorp.com/terraform/"$VERSION"/terraform_"$VERSION"_linux_amd64.zip"
-unzip -o  "terraform_"$VERSION"_linux_amd64.zip"
-sudo install terraform /usr/local/bin/
-
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+wget -O- https://apt.releases.hashicorp.com/gpg | \
+gpg --dearmor | \
+sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+sudo apt update -y
+sudo apt-get install terraform
+terraform --version
 echo "Done Installing Terraform"
 echo "========================="
 
