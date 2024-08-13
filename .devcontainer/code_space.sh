@@ -142,10 +142,7 @@ pip3 install hvac
 echo "============"
 
 echo "Install tfupdate"
-$REPO="minamijoyo/tfupdate"
-$LATEST=getLatestRepoVersion "${REPO}"
-wget https://github.com/${REPO}/releases/${LATEST}/download/tfupdate_${LATEST}_linux_amd64.tar.gz
-sudo tar -xvlsf tfupdate_${LATEST}_linux_amd64.tar.gz -C /usr/local/bin tfupdate
+sudo go install github.com/minamijoyo/tfupdate@latest
 tfupdate --version
 echo "Done installing tfupdate"
 echo "============"
