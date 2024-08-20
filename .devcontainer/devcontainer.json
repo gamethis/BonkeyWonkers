@@ -11,17 +11,6 @@
   },
   "customizations": {
     "codespaces": {
-      "vscode": {
-        "extensions": [
-          "DavidAnson.vscode-markdownlint",
-          "GitHub.codespaces",
-          "GitHub.github-vscode-theme",
-          "GitHub.vscode-pull-request-github",
-          "hashicorp.terraform",
-          "ms-azuretools.vscode-docker",
-          "redhat.vscode-yaml"
-        ]
-      }
     },
     "vscode": {
       "extensions": [
@@ -32,7 +21,8 @@
         "hashicorp.terraform",
         "ms-azuretools.vscode-docker",
         "redhat.vscode-yaml",
-        "ms-python.python"
+        "ms-python.python",
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
       ]
     }
   },

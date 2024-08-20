@@ -5,39 +5,6 @@ sudo apt-get update
 sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq
 DEBIAN_FRONTEND=dialog
 
-function getLatestVersion() {
-
-  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/hashicorp/terraform/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2 | sort -V -r))
-
-  for ver in "${LATEST_ARR[@]}"; do
-    if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]]; then
-      LATEST="$ver"
-      break
-    fi
-  done
-  echo -n "$LATEST"
-}
-
-function getLatestRepoVersion() {
-  REPO=$1  #frrouting/frr
-  DESIRED_VERSION=$2
-  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/${REPO}/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2 | sort -V -r))
-  for ver in "${LATEST_ARR[@]}"; do
-    if [[ -n "${DESIRED_VERSION}" ]]; then
-      if [[ $ver =~ $DESIRED_VERSION ]] && [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]] ; then
-        LATEST="$ver"
-        break
-      fi
-    else
-      if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]] ; then
-        LATEST="$ver"
-        break
-      fi
-    fi
-  done
-  echo -n "$LATEST"
-}
-
 echo "Install Terraform Docs"
 
 TFDOCS_VERSION=0.18.0
@@ -77,7 +44,7 @@ if [ "$arch" == "x86_64" ]; then
 filename="tflint_${platform}_${arch}.zip"
 curl -s -LO "https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/${filename}"
 sudo unzip -o  $filename -d "${INSTALL_PATH}"
-
+rm -f ./$filename
 echo "Done installing tflint"
 echo "========================="
 
@@ -174,6 +141,18 @@ echo "testing act"
 echo | act -C github-actions-demo
 rm -rf github-actions-demo
 echo "Returning to main path"
+
+echo "Setting up Exercise10
+cd /workspaces/BonkeyWonkers/exercise10
+echo "Installing MiniKube"
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+/usr/local/bin/minikube start
+rm -f ./minikube-linux-amd64
+echo "Installing kompose"
+sudo curl -L https://github.com/kubernetes/kompose/releases/download/v1.34.0/kompose-linux-amd64 -o /usr/local/bin/kompose
+sudo chmod +x /usr/local/bin/kompose
+
 cd /workspaces/BonkeyWonkers/
 echo "==========="
 
