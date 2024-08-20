@@ -77,7 +77,7 @@ if [ "$arch" == "x86_64" ]; then
 filename="tflint_${platform}_${arch}.zip"
 curl -s -LO "https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/${filename}"
 sudo unzip -o  $filename -d "${INSTALL_PATH}"
-
+rm -f ./$filename
 echo "Done installing tflint"
 echo "========================="
 
@@ -174,6 +174,12 @@ echo "testing act"
 echo | act -C github-actions-demo
 rm -rf github-actions-demo
 echo "Returning to main path"
+
+echo "Installing MiniKube"
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+rm -f ./minikube-linux-amd64
+
 cd /workspaces/BonkeyWonkers/
 echo "==========="
 
