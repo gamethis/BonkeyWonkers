@@ -142,11 +142,17 @@ echo | act -C github-actions-demo
 rm -rf github-actions-demo
 echo "Returning to main path"
 
+echo "Setting up Exercise10
+cd /workspaces/BonkeyWonkers/exercise10
 echo "Installing MiniKube"
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 /usr/local/bin/minikube start
 rm -f ./minikube-linux-amd64
+echo "Installing kompose"
+sudo curl -L https://github.com/kubernetes/kompose/releases/download/v1.34.0/kompose-linux-amd64 -o /usr/local/bin/kompose
+sudo chmod +x /usr/local/bin/kompose
+
 cd /workspaces/BonkeyWonkers/
 echo "==========="
 
