@@ -5,39 +5,6 @@ sudo apt-get update
 sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq
 DEBIAN_FRONTEND=dialog
 
-function getLatestVersion() {
-
-  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/hashicorp/terraform/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2 | sort -V -r))
-
-  for ver in "${LATEST_ARR[@]}"; do
-    if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]]; then
-      LATEST="$ver"
-      break
-    fi
-  done
-  echo -n "$LATEST"
-}
-
-function getLatestRepoVersion() {
-  REPO=$1  #frrouting/frr
-  DESIRED_VERSION=$2
-  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/${REPO}/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2 | sort -V -r))
-  for ver in "${LATEST_ARR[@]}"; do
-    if [[ -n "${DESIRED_VERSION}" ]]; then
-      if [[ $ver =~ $DESIRED_VERSION ]] && [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]] ; then
-        LATEST="$ver"
-        break
-      fi
-    else
-      if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]] ; then
-        LATEST="$ver"
-        break
-      fi
-    fi
-  done
-  echo -n "$LATEST"
-}
-
 echo "Install Terraform Docs"
 
 TFDOCS_VERSION=0.18.0
@@ -178,8 +145,8 @@ echo "Returning to main path"
 echo "Installing MiniKube"
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
+/usr/local/bin/minikube start
 rm -f ./minikube-linux-amd64
-
 cd /workspaces/BonkeyWonkers/
 echo "==========="
 
