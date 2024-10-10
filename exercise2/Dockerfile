@@ -12,4 +12,3 @@ RUN cd /app && \
 
 ENTRYPOINT ["python3", "/app/main.py"]
 USER bonkey
-
