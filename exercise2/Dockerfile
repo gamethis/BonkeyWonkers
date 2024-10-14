@@ -1,4 +1,4 @@
-FROM dahicks/sample:latest as build
+FROM dahicks/sample:latest AS build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN useradd --no-log-init -m -r -g root bonkey
 COPY helloworld.py /app/main.py
