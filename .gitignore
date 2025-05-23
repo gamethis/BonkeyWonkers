@@ -40,4 +40,4 @@ HelloWorld.txt
 tflint_linux_amd64.zip
 
  **/.ansible/*
- ./ansible/*
+.ansible/*
