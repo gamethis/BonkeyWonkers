@@ -56,3 +56,5 @@ to `update` job.
 demonstrate that the `version` from `check` is used in `update`
 
 ## Exercise 9 complete
+
+Proceed to [Exercise 10](../exercise10/README.md)

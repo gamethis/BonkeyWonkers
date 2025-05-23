@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: MIT-0
+---
+- hosts: localhost
+  vars:
+    images:
+      - name: alertmanager
+        container: prom/alertmanager:v0.24.0
+  roles:
+    - name: bonkey
+      vars:
+        bonkey_images: "{{ images }}"

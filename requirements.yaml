@@ -1,0 +1,22 @@
+---
+collections:
+  - name: community.docker
+    version: 4.3.1
+    type: galaxy
+    source: https://galaxy.ansible.com
+  - name: community.general
+    version: 3.3.0
+    type: galaxy
+    source: https://galaxy.ansible.com
+  - name: community.crypto
+    version: 2.26.0
+    type: galaxy
+    source: https://galaxy.ansible.com
+  - name: ansible.netcommon
+    version: 8.0.0
+    type: galaxy
+    source: https://galaxy.ansible.com
+  - name: ansible.utils
+    version: 6.0.0
+    type: galaxy
+    source: https://galaxy.ansible.com

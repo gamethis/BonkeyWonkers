@@ -177,5 +177,9 @@ echo "Returning to main path"
 cd /workspaces/BonkeyWonkers/
 echo "==========="
 
-echo "Completed Setup"
+pip install ansible
+
+echo "Completed Setup run following command:"
+
+echo "pre-commit run -a"
 exit 0

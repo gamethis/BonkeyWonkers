@@ -1,11 +1,11 @@
+---
 # Example markdownlint configuration with all properties set to their default value
 
 # Default state for all rules
 default: true
 
 # Path to configuration file to extend
-extends: null
-
+extends:
 # MD001/heading-increment/header-increment - Heading levels should only increment by one level at a time
 MD001: true
 
@@ -163,8 +163,7 @@ MD032: true
 # MD033/no-inline-html - Inline HTML
 MD033:
   # Allowed elements
-  allowed_elements: [ "details", "summary", "p", "img"]
-
+  allowed_elements: ["details", "summary", "p", "img"]
 # MD034/no-bare-urls - Bare URL used
 MD034: true
 
