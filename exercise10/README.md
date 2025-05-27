@@ -6,7 +6,7 @@ This exercise will test your basic understanding of ansible and ansible templati
 
 ## Start Bonkey App
 
-### Bonkey App Step 1
+### Bonkey App Task 1
 
 Execute Ansible `bonkey_playbook.yaml` to setup bonkey_app,
 
@@ -36,7 +36,7 @@ USER bonkey
  </details>
   </p>
 
-### Bonkey App Step 2 Docker Compose debug, execute, and test
+### Bonkey App Task 2
 
 + Run docker compose and fix any errors you encounter.
 + Curl the `/hello` endpoint on both containers.
@@ -50,10 +50,10 @@ USER bonkey
 
 ## Pull More images
 
-### Bonkey Images Step 1
+### Bonkey Images Task 3
 
 Update the Ansible role `bonkey` to loop through and pull all containers found in
-`BonkeyContainers.yaml` vars file.
+[BonkeyContainers](./vars/BonkeyContainers.yaml) vars file.
 
 ## Exercise 10 complete
 
