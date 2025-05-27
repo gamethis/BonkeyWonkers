@@ -4,7 +4,7 @@
 - name: Create Bonkey Docker File
   ansible.builtin.template:
     src: Dockerfile.j2
-    dest: ./bonkey_app/DockerFile
+    dest: ./bonkey_app/Dockerfile
     owner: codespace
     group: codespace
     mode: "0644"
