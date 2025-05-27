@@ -8,7 +8,7 @@ This exercise will test your basic understanding of ansible and ansible templati
 
 ### Bonkey App Step 1
 
-Execute Ansible playbook to setup bonkey_app,
+Execute Ansible `bonkey_playbook.yaml` to setup bonkey_app,
 
 <details>
   <summary>
