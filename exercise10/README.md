@@ -52,7 +52,7 @@ USER bonkey
 
 ### Bonkey Images Task 3
 
-Update the Ansible role `bonkey` to loop through and pull all containers found in
+Update the Ansible role `bonkey` to iterate through and pull all containers found in
 [BonkeyContainers](./vars/BonkeyContainers.yaml) vars file.
 
 ## Exercise 10 complete
