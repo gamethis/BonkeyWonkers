@@ -83,5 +83,3 @@ repos:
         exclude: ^(.*tests\.yaml)$
         name: Ansible-lint
         always_run: true
-        additional_dependencies:
-          - ansible-core>=2.16.0
