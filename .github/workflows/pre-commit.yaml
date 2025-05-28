@@ -115,7 +115,7 @@ jobs:
         tfupdate --version
     - name: Install pre-commit framework
       env:
-        PRE_COMMIT_VERSION: 3.7.1
+        PRE_COMMIT_VERSION: 4.2.0
       run: |
         pip install pre-commit==${PRE_COMMIT_VERSION}
         pre-commit --version

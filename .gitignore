@@ -38,3 +38,6 @@ exercise2/Dockerfile
 Bonkey-Container-Update.yaml
 HelloWorld.txt
 tflint_linux_amd64.zip
+
+ **/.ansible/*
+.ansible/*

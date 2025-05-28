@@ -1,0 +1,16 @@
+---
+images:
+  - name: alertmanager
+    container: prom/alertmanager:v0.24.0
+  - name: cadvisor
+    container: gcr.io/cadvisor/cadvisor:v0.47.1
+  - name: coredns
+    container: coredns/coredns:1.11.1
+  - name: envoy
+    container: envoyproxy/envoy:v1.26.6
+  - name: fluentbit
+    container: fluent/fluent-bit:1.9.4
+  - name: frr
+    container: quay.io/frrouting/frr:8.4.2
+  - name: node_exporter
+    container: prom/node-exporter:v1.1.2

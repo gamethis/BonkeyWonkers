@@ -1,3 +1,4 @@
+---
 BonkeyMachine:
   Images:
     alertmanager: prom/alertmanager:v0.24.0

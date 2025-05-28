@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: MIT-0
+---
+# defaults file for bonkey
+bonkey_docker_var1: "whoami"
+bonkey_docker_var2: "pwd"
+bonkey_docker_var3: "ls -ltra"
+bonkey_docker_var4: "chmod +x /app/main.py"
+bonkey_image: prom/alertmanager:v0.24.0

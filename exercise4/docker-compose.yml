@@ -1,3 +1,4 @@
+---
 services:
   node-exporter:
     image: prom/node-exporter:latest
@@ -8,11 +9,11 @@ services:
       - /sys:/host/sys:ro
       - /:/rootfs:ro
     command:
-      - '--path.procfs=/host/proc'
-      - '--path.rootfs=/rootfs'
-      - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
-      - '--collector.cpu.info.flags-include=True'
+      - "--path.procfs=/host/proc"
+      - "--path.rootfs=/rootfs"
+      - "--path.sysfs=/host/sys"
+      - "--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)"
+      - "--collector.cpu.info.flags-include=True"
     ports:
       - 9100:9100
 
@@ -34,30 +35,30 @@ services:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
     ports:
-    - 8081:8080
+      - 8081:8080
     volumes:
-    - /:/rootfs:ro
-    - /var/run:/var/run:rw
-    - /sys:/sys:ro
-    - /var/lib/docker/:/var/lib/docker:ro
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
     devices:
       - /dev/kmsg:/dev/kmsg
     privileged: true
     depends_on:
-    - redis
+      - redis
 
   redis:
     image: redis:latest
     container_name: redis
     ports:
-    - 6379:6379
+      - 6379:6379
 
   grafana:
     image: grafana/grafana-enterprise:latest
     ports:
-    - 3000:3000
+      - 3000:3000
     environment:
-     - GF_INSTALL_PLUGINS=grafana-clock-panel
+      - GF_INSTALL_PLUGINS=grafana-clock-panel
     volumes:
       - ./datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
       - ./grafana.ini:/etc/grafana/grafana.ini
@@ -78,7 +79,7 @@ services:
     cap_add:
       - NET_ADMIN
     security_opt:
-      - seccomp:unconfined #optional
+      - seccomp:unconfined # optional
     environment:
       - PUID=1000
       - PGID=1000
@@ -86,7 +87,7 @@ services:
     volumes:
       - /path/to/config:/config
     ports:
-      - 3002:3000 #optional
+      - 3002:3000 # optional
     restart: unless-stopped
   registry:
     image: registry:2

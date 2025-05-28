@@ -1,0 +1,14 @@
+FROM dahicks/sample:latest AS build
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN useradd --no-log-init -m -r -g root bonkey
+COPY helloworld.py /app/main.py
+
+RUN cd /app && \
+    {{ bonkey_docker_var1 }} && \
+    {{ bonkey_docker_var2 }} && \
+    {{ bonkey_docker_var3 }} && \
+    {{ bonkey_docker_var3 }} && \
+    pip install Flask-RESTful Flask
+
+ENTRYPOINT ["python3", "/app/main.py"]
+USER bonkey

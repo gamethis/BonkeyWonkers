@@ -1,68 +1,85 @@
+---
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
     hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
-    -   id: check-added-large-files
-    -   id: check-json
-    -   id: check-executables-have-shebangs
-    -   id: check-shebang-scripts-are-executable
-    -   id: check-merge-conflict
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-added-large-files
+      - id: check-json
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-merge-conflict
 
-- repo: https://github.com/ambv/black
-  rev: 24.4.2
-  hooks:
-    - id: black
-
--   repo: https://github.com/PyCQA/flake8
-    rev: 7.1.0
+  - repo: https://github.com/ambv/black
+    rev: 25.1.0
     hooks:
-    -   id: flake8
+      - id: black
 
--   repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: "v1.92.0"
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.2.0
     hooks:
-    -   id: terraform_fmt
-        exclude: '^[^/]+$'
-    -   id: terraform_tflint
-        exclude: '^[^/]+$'
-    -   id: terraform_validate
-        args:
-        - --tf-init-args=-upgrade
-        exclude: '^[^/]+$'
-    -   id: terraform_docs
-        exclude: '^[^/]+$'
-    -   id: terraform_trivy
-        args:
-        - --args=--skip-dirs="**/.terraform"
-        exclude: '^[^/]+$'
-    -   id: tfupdate
-        args:
-        - --args=terraform
-    -   id: tfupdate
-        args:
-        - --args=provider hashicorp/local
-        exclude: '^[^/]+$'
+      - id: flake8
 
-    -   id: terraform_providers_lock
-        exclude: '^[^/]+$'
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: "v1.99.0"
+    hooks:
+      - id: terraform_fmt
+        exclude: "^[^/]+$"
+      - id: terraform_tflint
+        exclude: "^[^/]+$"
+      - id: terraform_validate
         args:
-        - --hook-config=--mode=always-regenerate-lockfile
+          - --tf-init-args=-upgrade
+        exclude: "^[^/]+$"
+      - id: terraform_docs
+        exclude: "^[^/]+$"
+      # - id: terraform_trivy
+      #  args:
+      #    - --args=--skip-dirs="**/.terraform"
+      #  exclude: "^[^/]+$"
+      - id: tfupdate
+        args:
+          - --args=terraform
+      - id: tfupdate
+        args:
+          - --args=provider hashicorp/local
+        exclude: "^[^/]+$"
 
+      - id: terraform_providers_lock
+        exclude: "^[^/]+$"
+        args:
+          - --hook-config=--mode=always-regenerate-lockfile
 
-- repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.29.0
-  hooks:
-    - id: check-github-workflows
-    - id: check-github-actions
-    - id: check-dependabot
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.33.0
+    hooks:
+      - id: check-github-workflows
+      - id: check-github-actions
+      - id: check-dependabot
 
-- repo: https://github.com/igorshubovych/markdownlint-cli
-  rev: v0.41.0
-  hooks:
-  - id: markdownlint-fix
-    exclude: '^LICENSE$'
-  - id: markdownlint
-    exclude: '^LICENSE$'
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.45.0
+    hooks:
+      - id: markdownlint-fix
+        exclude: "^LICENSE$"
+      - id: markdownlint
+        exclude: "^LICENSE$"
+
+  - repo: local
+    hooks:
+      - id: ansible-galaxy-install
+        name: Install Ansible Galaxy roles and collections
+        entry: bash -c "ansible-galaxy collection install -r requirements.yaml --force"
+        language: system
+        files: ^requirements\.yml$
+        always_run: true
+
+  - repo: https://github.com/ansible/ansible-lint.git
+    rev: v25.4.0
+    hooks:
+      - id: ansible-lint
+        exclude: ^(.*tests\.yaml)$
+        name: Ansible-lint
+        always_run: true

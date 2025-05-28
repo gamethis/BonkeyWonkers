@@ -1,0 +1,10 @@
+---
+- name: Create Bonkey Files
+  hosts: 127.0.0.1
+  connection: local
+  vars_files:
+    - vars/BonkeyContainers.yaml
+  roles:
+    - role: bonkey
+      vars:
+        bonkey_images: "{{ images }}"
