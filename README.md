@@ -1,8 +1,7 @@
 # BonkeyWonkers Questions
 
-[![pre-commit](
-  https://github.com/gamethis/BonkeyWonkers/actions/workflows/pre-commit.yaml/badge.svg)](
-  https://github.com/gamethis/BonkeyWonkers/actions/workflows/pre-commit.yaml)
+[![Run pre-commit](https://github.com/gamethis/BonkeyWonkers/actions/workflows/pre-commit.yaml/badge.svg?branch=main)](
+https://github.com/gamethis/BonkeyWonkers/actions/workflows/pre-commit.yaml)
 
 <p align="center">
   <img src="./BonkeyWonkers.png" alt="Bonkey Wonkers" width="256" height="256" />
