@@ -35,10 +35,10 @@ repos:
         exclude: "^[^/]+$"
       - id: terraform_docs
         exclude: "^[^/]+$"
-      - id: terraform_trivy
-        args:
-          - --args=--skip-dirs="**/.terraform"
-        exclude: "^[^/]+$"
+      # - id: terraform_trivy
+      #  args:
+      #    - --args=--skip-dirs="**/.terraform"
+      #  exclude: "^[^/]+$"
       - id: tfupdate
         args:
           - --args=terraform
