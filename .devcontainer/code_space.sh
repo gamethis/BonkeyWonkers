@@ -45,20 +45,21 @@ sudo go install github.com/terraform-docs/terraform-docs@v${TFDOCS_VERSION}
 echo "Done Installing Terraform Docs"
 echo "========================="
 
-echo "Install Terraform"
-sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
-wget -O- https://apt.releases.hashicorp.com/gpg | \
-gpg --dearmor | \
-sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
-https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
-sudo tee /etc/apt/sources.list.d/hashicorp.list
+# echo "========================="
 
-sudo apt-get update -y
-sudo apt-get install terraform -y
-terraform --version
-echo "Done Installing Terraform"
-echo "========================="
+# echo "Install Terraform"
+# sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+# wget -O- https://apt.releases.hashicorp.com/gpg | \
+# gpg --dearmor | \
+# sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
+# echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+# https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
+# sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+# sudo apt-get update -y
+# sudo apt-get install terraform -y
+# terraform --version
+# echo "Done Installing Terraform"
 
 echo "install pre-commit"
 pip install pre-commit
@@ -177,7 +178,7 @@ echo "Returning to main path"
 cd /workspaces/BonkeyWonkers/
 echo "==========="
 
-pip install ansible
+# pip install ansible
 
 echo "Completed Setup run following command:"
 
