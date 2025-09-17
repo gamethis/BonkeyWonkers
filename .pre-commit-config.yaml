@@ -73,7 +73,7 @@ repos:
         name: Install Ansible Galaxy roles and collections
         entry: bash -c "ansible-galaxy collection install -r requirements.yaml --force"
         language: system
-        files: ^requirements\.yml$
+        files: ^requirements\.yaml$
         always_run: true
 
   - repo: https://github.com/ansible/ansible-lint.git
