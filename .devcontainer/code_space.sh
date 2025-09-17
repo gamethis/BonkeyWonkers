@@ -40,9 +40,9 @@ function getLatestRepoVersion() {
 
 echo "Install Terraform Docs"
 
-TFDOCS_VERSION=0.18.0
-sudo go install github.com/terraform-docs/terraform-docs@v${TFDOCS_VERSION}
-echo "Done Installing Terraform Docs"
+# TFDOCS_VERSION=0.18.0
+# sudo go install github.com/terraform-docs/terraform-docs@v${TFDOCS_VERSION}
+# echo "Done Installing Terraform Docs"
 echo "========================="
 
 # echo "========================="
@@ -117,29 +117,29 @@ echo "============"
 
 echo "Setting up Vault"
 
-function getLatestVaultVersion() {
-
-  LATEST_ARR=($(wget -q -O- https://api.github.com/repos/hashicorp/vault/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2))
-
-  for ver in "${LATEST_ARR[@]}"; do
-    if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]]; then
-      LATEST="$ver"
-      break
-    fi
-  done
-  echo -n "$LATEST"
-}
-
-echo "Install Vault"
-
-VAULT_VERSION=$(getLatestVaultVersion)
-
-cd ~
-wget "https://releases.hashicorp.com/vault/"$VAULT_VERSION"/vault_"$VAULT_VERSION"_linux_amd64.zip"
-unzip -o  "vault_"$VAULT_VERSION"_linux_amd64.zip"
-sudo install vault /usr/local/bin/
-pip3 install hvac
-
+# function getLatestVaultVersion() {
+#
+#   LATEST_ARR=($(wget -q -O- https://api.github.com/repos/hashicorp/vault/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2))
+#
+#   for ver in "${LATEST_ARR[@]}"; do
+#     if [[ ! $ver =~ beta ]] && [[ ! $ver =~ rc ]] && [[ ! $ver =~ alpha ]]; then
+#       LATEST="$ver"
+#       break
+#     fi
+#   done
+#   echo -n "$LATEST"
+# }
+#
+# echo "Install Vault"
+#
+# VAULT_VERSION=$(getLatestVaultVersion)
+#
+# cd ~
+# wget "https://releases.hashicorp.com/vault/"$VAULT_VERSION"/vault_"$VAULT_VERSION"_linux_amd64.zip"
+# unzip -o  "vault_"$VAULT_VERSION"_linux_amd64.zip"
+# sudo install vault /usr/local/bin/
+# pip3 install hvac
+#
 echo "============"
 
 echo "Install tfupdate"
@@ -152,35 +152,45 @@ echo "Install ACT"
 cd /workspaces/BonkeyWonkers/exercise7
 # https://github.com/nektos/act.git]
 
-wget https://github.com/nektos/act/releases/latest/download/act_Linux_x86_64.tar.gz
-sudo tar -xvlsf act_Linux_x86_64.tar.gz -C /usr/local/bin act
+# wget https://github.com/nektos/act/releases/latest/download/act_Linux_x86_64.tar.gz
+# sudo tar -xvlsf act_Linux_x86_64.tar.gz -C /usr/local/bin act
+# act --version
+# rm -rf act_Linux_x86_64.tar.gz
+# git clone https://github.com/cplee/github-actions-demo.git
+#
+# echo "Building container for using act local"
+# docker build --platform linux/amd64 -t act-local .
+# docker tag act-local:latest localhost:5000/act-local:latest
+#
+# echo "Pushing container to local registry"
+# docker image push localhost:5000/act-local:latest
+#
+# echo "Configuring act to use local container"
+# cat <<EOF > ~/.actrc
+# -P ubuntu-latest=localhost:5000/act-local:latest
+# EOF
+# # echo 'export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\'')' >> ~/.bashrc
+# export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\')
+# echo "testing act"
+# echo | act -C github-actions-demo
+# rm -rf github-actions-demo
+# echo "Returning to main path"
+# cd /workspaces/BonkeyWonkers/
 act --version
-rm -rf act_Linux_x86_64.tar.gz
-git clone https://github.com/cplee/github-actions-demo.git
+echo "Done installing ACT"
+echo "==========="
 
-echo "Building container for using act local"
-docker build --platform linux/amd64 -t act-local .
-docker tag act-local:latest localhost:5000/act-local:latest
 
-echo "Pushing container to local registry"
-docker image push localhost:5000/act-local:latest
-
-echo "Configuring act to use local container"
-cat <<EOF > ~/.actrc
--P ubuntu-latest=localhost:5000/act-local:latest
-EOF
-# echo 'export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\'')' >> ~/.bashrc
-export DOCKER_HOST=$(docker context inspect --format '\''{{.Endpoints.docker.Host}}'\')
-echo "testing act"
-echo | act -C github-actions-demo
-rm -rf github-actions-demo
-echo "Returning to main path"
-cd /workspaces/BonkeyWonkers/
+# Start Minikube
+echo "Starting Minikube"
+minikube start --driver=docker --memory=4096 --cpus=2
+minikube status
+echo "Minikube Started"
+minikube dashboard &
 echo "==========="
 
 # pip install ansible
 
 echo "Completed Setup run following command:"
 
-echo "pre-commit run -a"
-exit 0
+echo "cd /workspaces/BonkeyWonkers"

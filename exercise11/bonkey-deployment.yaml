@@ -1,0 +1,55 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bonkey
+  namespace: bonkey-app
+  labels:
+    app: bonkey
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bonkey
+  template:
+    metadata:
+      labels:
+        app: bonkey
+        version: v1
+    spec:
+      containers:
+        - name: bonkey-container
+          image: bonkey-k8s:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi
+          env:
+            - name: GREETING_MESSAGE
+              valueFrom:
+                configMapKeyRef:
+                  name: bonkey-config
+                  key: message
+            - name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: bonkey-config
+                  key: app_name
+          livenessProbe:
+            httpGet:
+              path: /hello
+              port: 5000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /hello
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5

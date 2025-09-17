@@ -27,6 +27,11 @@ If on codespaces:
 1. hover over `forwarded address` for the port Labeled Grafana (3000)
 1. click middle icon
 
+### Grafana login
+
+Username: `admin`
+Password: `admin`
+
 ## Create a dashboard
 
 1. Create a dashboard(s) that shows:
