@@ -2,7 +2,8 @@
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "hostRequirements": {
     "cpus": 4,
-    "memory": "16gb"
+    "memory": "16gb",
+    "storage": "64gb"
   },
   "waitFor": "onCreateCommand",
   "updateContentCommand": "",
