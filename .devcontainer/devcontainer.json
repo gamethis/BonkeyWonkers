@@ -1,5 +1,9 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/terraform:1": {},
+    "ghcr.io/devcontainers-extra/features/ansible:2": {}
+  },
   "hostRequirements": {
     "cpus": 4,
     "memory": "16gb",
