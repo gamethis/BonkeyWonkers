@@ -10,5 +10,5 @@ RUN cd /app && \
     chmod +x /app/main.py && \
     pip install Flask-RESTful Flask
 
-ENTRYPOINT ["python3", "/app/main.py"]
 USER bonkey
+ENTRYPOINT ["python3", "/app/main.py"]
