@@ -43,13 +43,13 @@ spec:
                   key: app_name
           livenessProbe:
             httpGet:
-              path: /hello
+              path: /health
               port: 5000
             initialDelaySeconds: 30
             periodSeconds: 10
           readinessProbe:
             httpGet:
-              path: /hello
+              path: /health
               port: 5000
             initialDelaySeconds: 5
             periodSeconds: 5
