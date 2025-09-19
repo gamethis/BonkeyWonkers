@@ -183,7 +183,7 @@ echo "==========="
 
 # Start Minikube
 echo "Starting Minikube"
-minikube start --driver=docker --memory=4096 --cpus=2
+minikube start --driver=docker --memory=6144 --cpus=2
 minikube status
 echo "Minikube Started"
 minikube dashboard &
