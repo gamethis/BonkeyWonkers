@@ -231,9 +231,11 @@ Test service connectivity:
 pod/test-pod created
 
 If you don't see a command prompt, try pressing enter.
-/ $ curl bonkey.bonkey-app.svc.cluster.local
+/ $ curl bonkey.bonkey-app.svc.cluster.local/hello
 {
-  "data": "Hello from Updated BonkeyWonkers!"
+  "data": "Hello from Updated BonkeyWonkers!",
+  "app": "bonkey-k8s",
+  "version": "1.1.0"
 }
 
 / $ nslookup bonkey.bonkey-app.svc.cluster.local
