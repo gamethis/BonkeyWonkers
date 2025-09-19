@@ -1,0 +1,19 @@
+---
+BonkeyKubernetes:
+  Images:
+    app: dahicks/sample:latest
+    app_v2: dahicks/sample:v1.1
+    curl: curlimages/curl:latest
+    nginx: nginx:1.21-alpine
+  Resources:
+    cpu_limit: 100m
+    memory_limit: 128Mi
+    cpu_request: 50m
+    memory_request: 64Mi
+  Scaling:
+    min_replicas: 2
+    max_replicas: 10
+    target_cpu: 70
+  Storage:
+    volume_size: 1Gi
+    mount_path: /data

@@ -57,3 +57,8 @@ knowledge of GitHub actions/workflows to pass variables between jobs.
 
 [This exercise](./exercise10/README.md) will be used to test basic
 knowledge of ansible and ansible templateing.
+
+## Exercise 11
+
+[This exercise](./exercise11/README.md) will be used to test basic
+knowledge of Kubernetes including deploying, updating, and modifying applications.
