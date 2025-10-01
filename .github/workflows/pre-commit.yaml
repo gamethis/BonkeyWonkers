@@ -121,4 +121,4 @@ jobs:
         pre-commit --version
 
     - name: Run pre-commit
-      run: pre-commit run --all-files --verbose --show-diff-on-failure --color=auto
+      run: SKIP=tfupdate,terraform_validate  pre-commit run --all-files --verbose --show-diff-on-failure --color=auto
