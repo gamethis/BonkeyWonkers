@@ -107,6 +107,80 @@ Use the terraform Command-Line Interface (CLI)
 
 **Expected Output**:
 
+**Expected Result**: Terraform initializes successfully and downloads required providers.
+
+### 1.2 Plan Infrastructure
+
+Review the planned infrastructure changes:
+
+```bash
+Use the terraform Command-Line Interface (CLI)
+```
+
+**Expected Result**: Plan shows 3 local_file resources to be created.
+
+### 1.3 Apply Configuration
+Deploy the infrastructure:
+
+```bash
+Use the terraform Command-Line Interface (CLI)
+```
+
+**Expected Result**: Three text files are created in the current directory:
+
+- `file1.txt` - Created by module1
+- `file2.txt` - Created by module1  
+- `file3.txt` - Created by module2
+
+## Step 2: Resource Migration Challenge
+
+### 2.1 Analyze Current State
+
+Examine the current resource structure and identify which resource needs to be moved.
+
+**Task**: Move the `file2` resource from [module1](../modules/module1/) to [module2](../modules/module2/).
+
+**Critical Requirement**: The migration must NOT recreate any files or destroy existing resources.
+
+### 2.2 Plan Migration Strategy
+
+Consider the following approaches:
+- Terraform state manipulation commands
+- Resource import/export workflows
+- Module restructuring techniques
+
+### 2.3 Execute Migration
+
+Implement your chosen migration strategy:
+
+```bash
+Use appropriate terraform and state management commands
+```
+
+**Expected Result**: Resource is moved between modules without any file recreation or data loss.
+
+## Step 3: Validation and Verification
+
+### 3.1 Verify State Consistency
+
+Run a plan to ensure no unintended changes:
+
+```bash
+Use the terraform Command-Line Interface (CLI)
+```
+
+**Expected Result**: No changes should be detected.
+
+### 3.2 Validate Resource Ownership
+
+Confirm that `file2.txt` is now managed by module2:
+
+```bash
+Use the terraform Command-Line Interface (CLI)
+```
+
+**Expected Output**:
+
 ```bash
 terraform apply
 module.m2.local_file.file2: Refreshing state... [id=6a23b0a0be4741283159cdf45b6814073415c47c]
