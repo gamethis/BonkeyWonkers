@@ -17,18 +17,21 @@ Write a script, using Bash or Python or another language of your choice, with a 
 **Formula:** `c = sqrt(a^2 + b^2)`
 
 **Implementation Hints:**
+
 - **Bash/Shell:** Use the `bc` command to calculate the sqrt ([bc command reference](https://www.geeksforgeeks.org/bc-command-linux-examples/))
 - **Python:** Use the `math.sqrt()` function for calculations
 
 **Expected Output Examples:**
 
 Bash execution:
+
 ```shell
 root@6209920d39aa:/exercises# ./pythagorean.sh 45 10
 46.09772228646443655001
 ```
 
 Python execution:
+
 ```shell
 root@6209920d39aa:/exercises# python pythagorean.py 45 10
 46.09772228646444
@@ -37,6 +40,7 @@ root@6209920d39aa:/exercises# python pythagorean.py 45 10
 ### Exercise 2: Configuration Template Processor
 
 **Input File:** `config.json.tmpl` contains:
+
 ```json
 {
     "properties": {
@@ -51,12 +55,14 @@ root@6209920d39aa:/exercises# python pythagorean.py 45 10
 **Task:** Parse `config.json.tmpl`, performing text substitution on the placeholder variables and save the result to `config.json`.
 
 **Variable Substitutions:**
+
 - `_BUILD_NAME_` → `abc1234`
 - `_BUCKET_` → `gcs_mythd_bucket`
 - `_PROJECT_` → `my_new_project`
 - `_VERSION_` → `v1.0`
 
 **Expected Output:** `config.json`
+
 ```json
 {
     "properties": {
@@ -78,14 +84,16 @@ You have 15 minutes to complete both of the following exercises:
 2. Complete scripting exercise 2 (Configuration Template Processor)
 
 ### Exercise 1: Pythagorean Theorem Calculator
+
 - **`pythagorean.py`** - Python implementation with math library
 - **`pythagorean.sh`** - Bash implementation using bc for precision
 - **Usage:** `python3 pythagorean.py <side1> <side2>` or `./pythagorean.sh <side1> <side2>`
 - **Test:** Both versions calculate hypotenuse for sides 3,4 → 5.0
 
 ### Exercise 2: Configuration Template Processor
+
 - **`config_processor.py`** - Python template processor with file I/O
-- **`config_processor.sh`** - Bash implementation using sed substitution  
+- **`config_processor.sh`** - Bash implementation using sed substitution
 - **Usage:** Run scripts in exercise3 directory to process `config.json.tmpl` → `config.json`
 - **Result:** Generates valid JSON with all placeholder variables substituted
 
