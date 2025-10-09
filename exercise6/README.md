@@ -121,7 +121,6 @@ Use the terraform Command-Line Interface (CLI)
 **Expected Result**: Plan shows changes to the HelloWorld.txt content.
 
 ### 3.2 Apply the Updated Configuration
-
 Deploy the enhanced template:
 
 ```bash
