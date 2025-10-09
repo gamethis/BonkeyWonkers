@@ -90,6 +90,7 @@ While inside the container:
 ## Step 2: Docker Compose Troubleshooting
 
 ### 2.1 Identify the Problem
+
 Attempt to run the provided Docker Compose setup:
 
 ```bash

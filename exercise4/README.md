@@ -3,6 +3,7 @@
 ## Overview
 
 This exercise tests your ability to:
+
 - Deploy and configure a monitoring stack with Docker Compose
 - Create effective Grafana dashboards and visualizations
 - Implement system alerting with proper thresholds
@@ -11,7 +12,7 @@ This exercise tests your ability to:
 ## Available Files
 
 - `docker-compose.yml` - Complete monitoring stack configuration
-- `prometheus.yml` - Prometheus scraping configuration  
+- `prometheus.yml` - Prometheus scraping configuration
 - `grafana.ini` - Grafana server configuration
 - `datasource.yaml` - Pre-configured Prometheus data source
 
@@ -28,7 +29,8 @@ cd exercise4
 docker-compose up -d
 ```
 
-**Expected Result**: All monitoring services (Prometheus, Grafana, Node Exporter, cAdvisor) start successfully.
+**Expected Result**: All monitoring services (Prometheus, Grafana, Node Exporter,
+cAdvisor) start successfully.
 
 ## Step 2: Access Grafana Interface
 
@@ -53,6 +55,7 @@ If on codespaces:
 Create a dashboard(s) that shows:
 
 #### CPU_Utilization_Gauge Dashboard
+
 - Name dashboard `CPU_Utilization_Gauge`
 - cpu utilization `Gauge` Dashboard
   - Metric should be displayed as Percentage
@@ -63,7 +66,8 @@ Create a dashboard(s) that shows:
     scalar(node_load1) * 100 / count(count(node_cpu_seconds_total) by (cpu))
     ```
 
-#### CPU_Utilization_TS Dashboard  
+#### CPU_Utilization_TS Dashboard
+
 - cpu utilization `Time series` Dashboard
   - Name dashboard `CPU_Utilization_TS`
   - Metric should be displayed as Percentage
@@ -81,6 +85,7 @@ Create a dashboard(s) that shows:
 ### 4.1 Create an Alert
 
 Create an alert for 60% or more CPU utilization:
+
 - Create alert folder called `bonkey`
 - Create alert group called `wonkers`
 - Evaluation at `10s`
@@ -102,31 +107,38 @@ docker run --rm -it j0hnewhitley/docker-stress:v0.0.1 --cpu 4 \
 
 Go to the CPU alert and show that it fired as expected.
 
-**Expected Result**: Alert transitions from Normal → Pending → Firing during load test, then resolves.
+**Expected Result**: Alert transitions from Normal → Pending → Firing during
+load test, then resolves.
 
 ## Success Criteria
 
 ✅ **Infrastructure Deployment**:
+
 - All monitoring services running without errors
 - Grafana accessible and properly configured
 
 ✅ **Dashboard Creation**:
+
 - CPU_Utilization_Gauge displays current CPU as percentage
 - CPU_Utilization_TS shows CPU trends over time
 - Both dashboards use correct PromQL queries
 
 ✅ **Alert Configuration**:
+
 - Alert folder "bonkey" and group "wonkers" created
 - CPU alert configured with 60% threshold
 - 10-second evaluation interval set properly
 
 ✅ **System Validation**:
+
 - Stress test successfully increases CPU load
 - Alert fires during high CPU conditions
 - Monitoring dashboards reflect load changes accurately
 
 ### Objectives
+
 By completing this exercise, you will demonstrate:
+
 - Monitoring stack deployment and configuration
 - Grafana dashboard design and PromQL query usage
 - Alert management and threshold configuration

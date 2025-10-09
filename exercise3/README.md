@@ -2,17 +2,23 @@
 
 Back to [Main](../README.md)
 
-**Objective:** Master Python and Bash scripting through mathematical calculations and text processing challenges that demonstrate real-world automation capabilities.
+**Objective:** Master Python and Bash scripting through mathematical
+calculations and text processing challenges that demonstrate real-world
+automation capabilities.
 
 ## Challenge Overview
 
-This exercise tests your ability to create robust, multi-language scripts that handle mathematical computations and configuration file processing - essential skills for DevOps automation and system administration.
+This exercise tests your ability to create robust, multi-language scripts that
+handle mathematical computations and configuration file processing - essential
+skills for DevOps automation and system administration.
 
 ## Detailed Script Instructions
 
 ### Exercise 1: Pythagorean Theorem Calculator
 
-Write a script, using Bash or Python or another language of your choice, with a function that calculates the hypotenuse of a right triangle, given two sides as inputs.
+Write a script, using Bash or Python or another language of your choice, with
+a function that calculates the hypotenuse of a right triangle, given two sides
+as inputs.
 
 **Formula:** `c = sqrt(a^2 + b^2)`
 
@@ -52,7 +58,8 @@ root@6209920d39aa:/exercises# python pythagorean.py 45 10
 }
 ```
 
-**Task:** Parse `config.json.tmpl`, performing text substitution on the placeholder variables and save the result to `config.json`.
+**Task:** Parse `config.json.tmpl`, performing text substitution on the
+placeholder variables and save the result to `config.json`.
 
 **Variable Substitutions:**
 
@@ -76,21 +83,23 @@ root@6209920d39aa:/exercises# python pythagorean.py 45 10
 
 ## Complete Scripting Exercises
 
-All the tools, commands, and libraries are present to complete the exercises using `Python` or `bash` or another programming language of your choice.
+All the tools, commands, and libraries are present to complete the exercises
+using `Python` or `bash` or another programming language of your choice.
 
 You have 15 minutes to complete both of the following exercises:
 
 1. Complete scripting exercise 1 (Pythagorean Calculator)
 2. Complete scripting exercise 2 (Configuration Template Processor)
 
-### Exercise 1: Pythagorean Theorem Calculator
+### Implementation: Pythagorean Theorem Calculator
 
 - **`pythagorean.py`** - Python implementation with math library
 - **`pythagorean.sh`** - Bash implementation using bc for precision
-- **Usage:** `python3 pythagorean.py <side1> <side2>` or `./pythagorean.sh <side1> <side2>`
+- **Usage:** `python3 pythagorean.py <side1> <side2>` or
+  `./pythagorean.sh <side1> <side2>`
 - **Test:** Both versions calculate hypotenuse for sides 3,4 → 5.0
 
-### Exercise 2: Configuration Template Processor
+### Implementation: Configuration Template Processor
 
 - **`config_processor.py`** - Python template processor with file I/O
 - **`config_processor.sh`** - Bash implementation using sed substitution
