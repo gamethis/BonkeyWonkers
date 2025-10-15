@@ -1,6 +1,8 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/go:1": {},
     "ghcr.io/devcontainers/features/terraform:1": {},
     "ghcr.io/devcontainers-extra/features/ansible:2": {},
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
@@ -11,8 +13,8 @@
   },
   "hostRequirements": {
     "cpus": 4,
-    "memory": "16gb",
-    "storage": "16gb"
+    "memory": "8gb",
+    "storage": "32gb"
   },
   "waitFor": "onCreateCommand",
   "updateContentCommand": "",
