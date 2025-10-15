@@ -11,7 +11,7 @@
   },
   "hostRequirements": {
     "cpus": 8,
-    "memory": "16gb",
+    "memory": "32gb",
     "storage": "64gb"
   },
   "waitFor": "onCreateCommand",
