@@ -46,82 +46,75 @@ pip install pre-commit
 pre-commit install
 echo "Done install pre-commit."
 echo "========================="
+echo "NOTE: Skipping 'pre-commit run --all-files' for faster setup. Run manually if needed."
 
-echo "Install tflint"
-TFLINT_VERSION="0.50.0"
-INSTALL_PATH="/usr/local/bin"
-platform=$(uname -s | tr '[:upper:]' '[:lower:]')
-arch=$(uname -m)
-if [ "$arch" == "x86_64" ]; then
-            arch="amd64"
-        fi
-filename="tflint_${platform}_${arch}.zip"
-curl -s -LO "https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/${filename}"
-sudo unzip -o  $filename -d "${INSTALL_PATH}"
-
-echo "Done installing tflint"
+echo "Installing tools in parallel for faster setup..."
 echo "========================="
 
-echo "install trivy"
-TRIVY_VERSION="0.49.0"
-curl --retry 3 --retry-delay 5 -sSL "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" | sudo tar xz -C /usr/local/bin --overwrite
-trivy server --download-db-only
-echo "Done install trivy"
+# Install tflint in background
+(
+  echo "Installing tflint..."
+  TFLINT_VERSION="0.50.0"
+  INSTALL_PATH="/usr/local/bin"
+  platform=$(uname -s | tr '[:upper:]' '[:lower:]')
+  arch=$(uname -m)
+  if [ "$arch" == "x86_64" ]; then
+    arch="amd64"
+  fi
+  filename="tflint_${platform}_${arch}.zip"
+  curl -s -LO "https://github.com/terraform-linters/tflint/releases/download/v${TFLINT_VERSION}/${filename}"
+  sudo unzip -o $filename -d "${INSTALL_PATH}"
+  rm $filename
+  echo "✓ tflint installed"
+) &
+TFLINT_PID=$!
+
+# Install trivy in background
+(
+  echo "Installing trivy..."
+  TRIVY_VERSION="0.49.0"
+  curl --retry 3 --retry-delay 5 -sSL "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" | sudo tar xz -C /usr/local/bin --overwrite
+  echo "✓ trivy installed"
+) &
+TRIVY_PID=$!
+
+# Install tfupdate in background
+(
+  echo "Installing tfupdate..."
+  sudo go install github.com/minamijoyo/tfupdate@latest
+  echo "✓ tfupdate installed"
+) &
+TFUPDATE_PID=$!
+
+# Wait for all background jobs
+wait $TFLINT_PID
+wait $TRIVY_PID
+wait $TFUPDATE_PID
+
+echo "All tools installed successfully!"
+echo "NOTE: Skipping 'trivy server --download-db-only' for faster setup. Will download on first use."
 echo "========================="
-
-echo "run pre-commit"
-pre-commit run --all-files
-echo "Done running pre-commit"
-echo "========================="
-
-echo "Setup Grafana"
-cd /workspaces/BonkeyWonkers/exercise4
-result=1
-while [ $result -le 1 ];
-do
-  echo "starting docker compose"
-  docker-compose up -d
-  result=$(docker container ls | wc -l)
-done
-
-cd /workspaces/BonkeyWonkers
-echo "============"
-
-echo "Get test container"
-docker pull dahicks/sample:latest
-
-echo "Get stress test"
-docker pull j0hnewhitley/docker-stress:v0.0.1
-
-echo "============"
-
-echo "Setting up Vault"
-echo "============"
-
-echo "Install tfupdate"
-sudo go install github.com/minamijoyo/tfupdate@latest
-tfupdate --version
-echo "Done installing tfupdate"
-echo "============"
 
 echo "Install ACT"
 cd /workspaces/BonkeyWonkers/exercise7
-
 act --version
 echo "Done installing ACT"
 echo "==========="
 
+cd /workspaces/BonkeyWonkers
 
-# Start Minikube
-echo "Starting Minikube"
-minikube start --driver=docker --memory=6144 --cpus=2
-minikube status
-echo "Minikube Started"
-minikube dashboard &
-echo "==========="
-
-# pip install ansible
-
-echo "Completed Setup run following command:"
-
-echo "cd /workspaces/BonkeyWonkers"
+echo ""
+echo "=============================================="
+echo "Setup complete! 🎉"
+echo "=============================================="
+echo ""
+echo "Heavy operations moved to on-demand scripts for faster startup:"
+echo "  - Exercise 4 (Grafana/Prometheus): .devcontainer/setup-exercise4.sh"
+echo "  - Minikube: .devcontainer/setup-minikube.sh"
+echo "  - Docker images: .devcontainer/pull-docker-images.sh"
+echo ""
+echo "Run these scripts when you need them:"
+echo "  bash .devcontainer/setup-exercise4.sh"
+echo "  bash .devcontainer/setup-minikube.sh"
+echo "  bash .devcontainer/pull-docker-images.sh"
+echo ""
