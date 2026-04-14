@@ -1,79 +1,163 @@
-# Exercise 6
+# Exercise 6 - Terraform Planning & Templating
 
 Back to [Main](../README.md)
 
-This exercise is meant to test your ability to run basic
- terraform commands and make a modification to a terraform module.
+## Overview
 
-The actual outcome of this exercise is purely to ensure you can run
- basic terraform commands, and a simple test to see if you understand
- templating in terraform.  DON'T OVER THINK IT!
+This exercise tests your ability to:
 
-## Step 1 Initialize Workspace
+- Execute basic Terraform workflow commands
+- Modify Terraform modules and templates
+- Implement list variables and template iteration
+- Use Terraform templating syntax for dynamic content generation
 
-+ Initialize, Plan, and Execute the Terraform configuration
-  in the directory to create an initial `HelloWorld.txt`.
+## Available Files
 
-  <details>
-  <summary>
-  HelloWorld.txt contents
-  </summary>
+- `main.tf` - Root module that calls the helloworld module
+- `providers.tf` - Terraform provider configuration
+- `modules/helloworld/` - Module containing template and variable definitions
+- `modules/helloworld/templates/HelloWorld.tftpl` - Template file to be modified
+- `modules/helloworld/variables.tf` - Variable definitions
+- `modules/helloworld/main.tf` - Module output configuration
 
-    ```Text
-    Hello NONAME,
+## Step 1: Initialize and Deploy Initial Configuration
 
-    Welcome to terraform templating!
-    Can you list 3 things you like?
+### 1.1 Initialize Terraform
 
-    Provide List here:
+Initialize the Terraform working directory:
+
+```bash
+Use the terraform Command-Line Interface (CLI)
+```
+
+**Expected Result**: Terraform initializes successfully and downloads required providers.
+
+### 1.2 Plan and Apply Initial Setup
+
+Deploy the initial configuration:
+
+```bash
+Use the terraform Command-Line Interface (CLI)
+```
+
+**Expected Result**: Creates `HelloWorld.txt` with the following content:
+
+```text
+Hello NONAME,
+
+Welcome to terraform templating!
+Can you list 3 things you like?
+
+Provide List here:
 
 
-    - BonkeyWonkers
+- BonkeyWonkers
+```
 
-    ```
+## Step 2: Implement Template Enhancement
 
-  </details>
-  </p>
+### 2.1 Analyze Current Structure
 
-## Step 2 Modify Terraform Module, Update HelloWorld text file
+Examine the existing module structure and identify what needs to be modified:
 
-+ Update the Terraform template(`HelloWorld.tftpl`) file so that the resulting `HelloWorld.txt`
-  includes 3 things you like, each on a new line.
+- Template file location and current content
+- Variable definitions and usage
+- Module input/output configuration
 
-    > **NOTE:** The purpose of this exercise is to test your knowledge of
-                terraform variables and templates.
-                To complete this step, you should make use of a list that
-                is iterated through using Terraform's
-                templating to render the final `HelloWorld.txt`
+### 2.2 Add List Variable Support
 
-    Exmample List for user GameThis
+Modify the module to support a list of favorite things:
 
-    ```text
-    Pizza
-    Gardening
-    Programming
-    ```
+```bash
+Edit the appropriate variable definition file
+```
 
-+ Run `Terraform` again
-  <details>
-  <summary>
-  Expected Output
-  </summary>
+**Requirement**: Add a list variable that can hold multiple string values.
 
-    ```text
-    Hello GameThis,
+### 2.3 Update Template with Iteration
 
-    Welcome to terraform templating!
-    Can you list 3 things you like?
+Modify the template to iterate through the list:
 
-    Provide List here:
-    - Pizza
-    - Gardening
-    - Programming
+```bash
+Edit the template file to include list iteration
+```
 
-    - BonkeyWonkers
-    ```
+**Requirement**: Use Terraform templating syntax to loop through list items.
 
-  </details>
+### 2.4 Update Module Configuration
 
-## Exercise 6 complete
+Ensure the module can pass the new variable to the template:
+
+```bash
+Update module configuration files as needed
+```
+
+### 2.5 Provide List Data
+
+Update the root configuration to include your favorite things:
+
+```bash
+Modify the root module to pass actual list data
+```
+
+**Example List**:
+
+```text
+Pizza
+Gardening
+Programming
+```
+
+## Step 3: Apply and Validate Changes
+
+### 3.1 Plan the Changes
+
+Review the planned modifications:
+
+```bash
+Use the terraform Command-Line Interface (CLI)
+```
+
+**Expected Result**: Plan shows changes to the HelloWorld.txt content.
+
+### 3.2 Apply the Updated Configuration
+
+Deploy the enhanced template:
+
+```bash
+Use the terraform Command-Line Interface (CLI)
+```
+
+### 3.3 Verify Output
+
+Check the generated `HelloWorld.txt` file:
+
+**Expected Output** (example for user "GameThis"):
+
+```text
+Hello GameThis,
+
+Welcome to terraform templating!
+Can you list 3 things you like?
+
+Provide List here:
+- Pizza
+- Gardening
+- Programming
+
+- BonkeyWonkers
+```
+
+### Objectives
+
+By completing this exercise, you will demonstrate:
+
+- Terraform workflow command execution
+- Module modification and variable management
+- Template function usage and iteration syntax
+- Dynamic content generation with complex data types
+- Infrastructure-as-code templating best practices
+
+## Exercise 6 Complete
+
+Once all validation steps pass successfully, proceed to [Exercise 7](../exercise7/README.md).

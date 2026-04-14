@@ -93,6 +93,7 @@ pip install hvac
 echo "Done installing hvac"
 echo "========================="
 
+
 echo "Install tfupdate"
 sudo go install github.com/minamijoyo/tfupdate@latest
 tfupdate --version
@@ -104,6 +105,22 @@ ansible-galaxy collection install -r /workspaces/BonkeyWonkers/requirements.yaml
 echo "Done installing Ansible Galaxy collections"
 echo "========================="
 
+echo "Install ACT"
+cd /workspaces/BonkeyWonkers/exercise7
+
+act --version
+echo "Done installing ACT"
+echo "==========="
+
+
+# Start Minikube
+echo "Starting Minikube"
+minikube start --driver=docker --memory=6144 --cpus=2
+minikube status
+echo "Minikube Started"
+minikube dashboard &
+echo "==========="
+
 echo ""
 echo "============================================================"
 echo "  Codespace setup complete."
@@ -114,4 +131,5 @@ echo "    exercise10: cd exercise10 && ./start.sh"
 echo "    exercise11: cd exercise11 && ./start.sh"
 echo "============================================================"
 echo ""
+
 echo "cd /workspaces/BonkeyWonkers"
