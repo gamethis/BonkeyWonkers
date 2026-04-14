@@ -7,8 +7,20 @@ deploying, updating, and modifying applications running on Kubernetes clusters.
 
 ## Prerequisites
 
-Ensure you have access to a Kubernetes cluster (minikube, kind, or cloud
-provider). The exercise assumes `kubectl` is configured and working.
+Ensure `kubectl` is configured (handled by the devcontainer). A Minikube
+cluster is used in this exercise. Run the provided start script to start
+Minikube and build the application image before proceeding:
+
+```shell
+cd exercise11
+./start.sh
+```
+
+This script will:
+
+- Start Minikube (if not already running)
+- Build the `bonkey-k8s:latest` Docker image
+- Load the image into Minikube's local registry
 
 ## Step 1: Prepare Application Image
 
@@ -47,20 +59,21 @@ Before deploying to Kubernetes, you need to create a proper Docker image:
 
 ## Step 2: Deploy Bonkey Application
 
-### Task 2.1: Create Kubernetes Manifests
+### Task 2.1: Review Kubernetes Manifests
 
-Create the following Kubernetes manifests in this directory:
+The following starter manifests are provided in this directory. Review each
+one to understand the resource definitions before applying them:
 
-1. **`bonkey-namespace.yaml`** - Create a namespace called `bonkey-app`
-2. **`bonkey-deployment.yaml`** - Deploy the hello world application using
+1. **`bonkey-namespace.yaml`** - Namespace called `bonkey-app`
+2. **`bonkey-deployment.yaml`** - Deploys the hello world application using
    `bonkey-k8s:latest`
-   - Use 3 replicas
-   - Set resource limits: CPU 100m, Memory 128Mi
-   - Set resource requests: CPU 50m, Memory 64Mi
-   - Add labels: `app=bonkey`, `version=v1`
-3. **`bonkey-service.yaml`** - Expose the deployment via ClusterIP service
-   on port 80
-4. **`bonkey-configmap.yaml`** - Create a ConfigMap with greeting message:
+   - 3 replicas with a `RollingUpdate` strategy
+   - Resource limits: CPU 100m, Memory 128Mi
+   - Resource requests: CPU 50m, Memory 64Mi
+   - Labels: `app=bonkey`, `version=v1`
+   - Liveness and readiness probes on `/health`
+3. **`bonkey-service.yaml`** - ClusterIP service exposing port 80 → 5000
+4. **`bonkey-configmap.yaml`** - ConfigMap with greeting message:
    `message: "Hello from BonkeyWonkers!"`
 
 ### Task 2.2: Deploy to Kubernetes
@@ -146,13 +159,8 @@ bonkey-6d4b5a8f9c-new05   1/1     Running       0          10s
 
 ### Task 4.1: Horizontal Pod Autoscaler (HPA)
 
-Create an HPA that:
-
-- Targets the bonkey deployment
-- Scales between 2-10 replicas
-- Based on CPU utilization (target: 70%)
-
-Create `bonkey-hpa.yaml` and apply it.
+A starter `bonkey-hpa.yaml` is provided. Review it, then apply it to configure
+auto-scaling for the bonkey deployment:
 
 **Expected Output:**
 
@@ -165,13 +173,12 @@ bonkey   Deployment/bonkey   <unknown>/70%   2         10        5          30s
 
 ### Task 4.2: Resource Management
 
-Create a ResourceQuota for the `bonkey-app` namespace:
+A starter `bonkey-resourcequota.yaml` is provided. Review it, then apply it
+to enforce the following limits on the `bonkey-app` namespace:
 
-- Limit total CPU requests to 500m
-- Limit total memory requests to 1Gi
-- Limit total pods to 10
-
-Create `bonkey-resourcequota.yaml` and apply it.
+- Total CPU requests: 500m
+- Total memory requests: 1Gi
+- Total pods: 10
 
 **Expected Output:**
 
@@ -252,11 +259,17 @@ pod "test-pod" deleted
 
 ### Task 6.1: Ingress Controller
 
-Create `bonkey-ingress.yaml` to expose the application externally:
+A starter `bonkey-ingress.yaml` is provided. Review it, then:
 
-- Use host: `bonkey.local`
+1. Create a self-signed TLS certificate and store it as a Kubernetes Secret
+   named `bonkey-tls`
+2. Apply the Ingress manifest to expose the application externally
+
+The Ingress uses:
+
+- Host: `bonkey.local`
 - Path: `/`
-- Enable TLS with a self-signed certificate (create as Secret)
+- TLS via the `bonkey-tls` Secret
 
 **Expected Output:**
 
@@ -270,11 +283,15 @@ bonkey   <none>   bonkey.local   192.168.1.100  80, 443   30s
 
 ### Task 6.2: Persistent Storage
 
-Add persistent storage to the deployment:
+A starter `bonkey-pvc.yaml` is provided. Complete the following steps:
 
-1. Create `bonkey-pvc.yaml` - PersistentVolumeClaim for 1Gi storage
-2. Update the deployment to mount the volume at `/data`
-3. Add an init container that creates a file in `/data` with timestamp
+1. Apply `bonkey-pvc.yaml` to create a 1Gi PersistentVolumeClaim named
+   `bonkey-storage`
+2. Update `bonkey-deployment.yaml` to:
+   - Mount the volume at `/data`
+   - Add an init container that writes the current timestamp to
+     `/data/init-timestamp.txt`
+3. Apply the updated deployment and verify the init container ran
 
 **Expected Output:**
 

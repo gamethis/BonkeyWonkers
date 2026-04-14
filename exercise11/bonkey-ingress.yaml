@@ -1,0 +1,27 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bonkey
+  namespace: bonkey-app
+  labels:
+    app: bonkey
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - bonkey.local
+      secretName: bonkey-tls
+  rules:
+    - host: bonkey.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: bonkey
+                port:
+                  number: 80

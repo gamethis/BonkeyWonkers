@@ -6,13 +6,11 @@ This exercise will test you skills with grafana
 
 ## Setup the exercise
 
-- Skip this step if in Code Spaces.
-
-- If on a personal computer run:
+Run the provided start script to bring up Grafana and Prometheus:
 
 ```shell
 cd exercise4
-docker-compose up -d
+./start.sh
 ```
 
 ## Launch Grafana

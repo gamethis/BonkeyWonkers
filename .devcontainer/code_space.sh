@@ -41,6 +41,14 @@ function getLatestRepoVersion() {
 echo "Installing tools and dependencies"
 echo "========================="
 
+echo "Set execute permissions on exercise start scripts"
+chmod +x /workspaces/BonkeyWonkers/exercise4/start.sh \
+         /workspaces/BonkeyWonkers/exercise5/start.sh \
+         /workspaces/BonkeyWonkers/exercise10/start.sh \
+         /workspaces/BonkeyWonkers/exercise11/start.sh
+echo "Done."
+echo "========================="
+
 echo "install pre-commit"
 pip install pre-commit
 pre-commit install
@@ -74,54 +82,36 @@ pre-commit run --all-files
 echo "Done running pre-commit"
 echo "========================="
 
-echo "Setup Grafana"
-cd /workspaces/BonkeyWonkers/exercise4
-result=1
-while [ $result -le 1 ];
-do
-  echo "starting docker compose"
-  docker-compose up -d
-  result=$(docker container ls | wc -l)
-done
-
-cd /workspaces/BonkeyWonkers
-echo "============"
-
-echo "Get test container"
+echo "Pull common Docker base images"
 docker pull dahicks/sample:latest
-
-echo "Get stress test"
 docker pull j0hnewhitley/docker-stress:v0.0.1
+echo "Done pulling Docker images"
+echo "========================="
 
-echo "============"
-
-echo "Setting up Vault"
-echo "============"
+echo "Install hvac (Vault Python client for exercise 5)"
+pip install hvac
+echo "Done installing hvac"
+echo "========================="
 
 echo "Install tfupdate"
 sudo go install github.com/minamijoyo/tfupdate@latest
 tfupdate --version
 echo "Done installing tfupdate"
-echo "============"
+echo "========================="
 
-echo "Install ACT"
-cd /workspaces/BonkeyWonkers/exercise7
+echo "Install Ansible Galaxy collections"
+ansible-galaxy collection install -r /workspaces/BonkeyWonkers/requirements.yaml
+echo "Done installing Ansible Galaxy collections"
+echo "========================="
 
-act --version
-echo "Done installing ACT"
-echo "==========="
-
-
-# Start Minikube
-echo "Starting Minikube"
-minikube start --driver=docker --memory=6144 --cpus=2
-minikube status
-echo "Minikube Started"
-minikube dashboard &
-echo "==========="
-
-# pip install ansible
-
-echo "Completed Setup run following command:"
-
+echo ""
+echo "============================================================"
+echo "  Codespace setup complete."
+echo "  Common tools installed. To start a specific exercise:"
+echo "    exercise4:  cd exercise4  && ./start.sh"
+echo "    exercise5:  cd exercise5  && ./start.sh"
+echo "    exercise10: cd exercise10 && ./start.sh"
+echo "    exercise11: cd exercise11 && ./start.sh"
+echo "============================================================"
+echo ""
 echo "cd /workspaces/BonkeyWonkers"
