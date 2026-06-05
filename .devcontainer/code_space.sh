@@ -49,7 +49,7 @@ echo "Installing tools and dependencies"
 echo "========================="
 
 echo "Set execute permissions on exercise start scripts"
-chmod +x /workspaces/BonkeyWonkers/exercise{4,5,10}/start.sh
+chmod +x "$REPO_ROOT"/exercise{4,5,10}/start.sh
 echo "Done."
 echo "========================="
 
