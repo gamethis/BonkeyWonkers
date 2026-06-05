@@ -24,7 +24,6 @@ Skip this step if in Code Spaces.
 
 If on a personal computer run:
 
-
 ```shell
 cd exercise4
 ./start.sh
@@ -55,7 +54,6 @@ Password: `admin`
 **Expected Result**: Grafana login page accessible with default credentials (admin/admin).
 
 ## Step 3: Create Performance Dashboards
-
 
 ### 3.1 Create Dashboard Visualizations
 

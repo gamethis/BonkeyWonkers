@@ -2,8 +2,8 @@
 # post-checkout: keep assessment candidates on `main`.
 #
 # Candidates take a proctored screening on the `main` branch, where the repo's
-# AI instructions refuse to help. Switching to any other branch flips the AI
-# into "assist" mode, so this hook returns non-maintainers to `main`.
+# AI instructions refuse to help. This hook keeps non-maintainers on `main`
+# during the assessment.
 #
 # Maintainers (GitHub logins in $BONKEY_MAINTAINERS, or .devcontainer/maintainers)
 # may switch branches freely. This is a deterrent layered behind live proctoring,

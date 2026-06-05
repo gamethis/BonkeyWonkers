@@ -105,7 +105,7 @@ echo "Done installing tfupdate"
 echo "========================="
 
 echo "Install Ansible Galaxy collections"
-ansible-galaxy collection install -r /workspaces/BonkeyWonkers/requirements.yaml
+ansible-galaxy collection install -r "$REPO_ROOT/requirements.yaml"
 echo "Done installing Ansible Galaxy collections"
 echo "========================="
 
