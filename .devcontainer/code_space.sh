@@ -44,8 +44,7 @@ echo "========================="
 echo "Set execute permissions on exercise start scripts"
 chmod +x /workspaces/BonkeyWonkers/exercise4/start.sh \
          /workspaces/BonkeyWonkers/exercise5/start.sh \
-         /workspaces/BonkeyWonkers/exercise10/start.sh \
-         /workspaces/BonkeyWonkers/exercise11/start.sh
+         /workspaces/BonkeyWonkers/exercise10/start.sh
 echo "Done."
 echo "========================="
 
@@ -128,7 +127,6 @@ echo "  Common tools installed. To start a specific exercise:"
 echo "    exercise4:  cd exercise4  && ./start.sh"
 echo "    exercise5:  cd exercise5  && ./start.sh"
 echo "    exercise10: cd exercise10 && ./start.sh"
-echo "    exercise11: cd exercise11 && ./start.sh"
 echo "============================================================"
 echo ""
 
