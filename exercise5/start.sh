@@ -2,14 +2,13 @@
 # Exercise 5 - Start Vault in dev mode
 set -e
 
+export VAULT_ADDR='http://127.0.0.1:8200'
+
 if vault status &>/dev/null; then
   echo "Vault is already running."
   vault status
   exit 0
 fi
-
-export VAULT_ADDR='http://127.0.0.1:8200'
-
 echo "Starting Vault dev server..."
 vault server -dev \
   -dev-root-token-id=testtoken \
