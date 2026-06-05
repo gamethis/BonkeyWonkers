@@ -56,7 +56,7 @@ folder is a self-contained scenario with its own README and supporting files.
 - Templating: Some modules use `.tftpl` files for dynamic content.
 - Build images using `Dockerfile` and `docker-compose.yaml`.
 - Container definitions may be in `BonkeyContainers.yaml`.
-- Workflows are created/updated in `.github/` (e.g., `Bonkey-Check.yaml`).
+- Workflows are created/updated in `.github/workflows/` (e.g., `Bonkey-Check.yaml`).
 - Use [act](https://github.com/nektos/act) to test workflows locally.
 - Pass variables between jobs as described in exercise READMEs.
 
