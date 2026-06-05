@@ -6,7 +6,8 @@
 # during the assessment.
 #
 # Maintainers (GitHub logins in $BONKEY_MAINTAINERS, or .devcontainer/maintainers)
-# may switch branches freely. This is a deterrent layered behind live proctoring,
+# may switch branches freely. If no allowlist is configured at all, the hook
+# fails open (enforces nothing). This is a deterrent layered behind live proctoring,
 # not a hard control: $GITHUB_USER can be spoofed and this hook can be removed —
 # both are visible, disqualifying acts on screen-share.
 #
@@ -27,6 +28,12 @@ root="$(git rev-parse --show-toplevel 2>/dev/null)"
 if [ -z "$allow" ] && [ -f "$root/.devcontainer/maintainers" ]; then
   allow="$(grep -vE '^\s*(#|$)' "$root/.devcontainer/maintainers" | tr '\n' ' ')"
 fi
+
+# Fail open: with no allowlist configured ($BONKEY_MAINTAINERS unset and no
+# maintainers file) there is no way to tell candidates from maintainers, so do
+# not enforce. The guard is a deterrent behind live proctoring, not a hard
+# control — better to under-enforce than to lock maintainers out of branches.
+[ -z "$allow" ] && exit 0
 
 if [ -n "$who" ]; then
   for m in ${allow//,/ }; do
