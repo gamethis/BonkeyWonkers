@@ -77,10 +77,6 @@ failed checks.
 - **Ansible:**
 - Playbooks and roles are in `exercise10/` and `roles/`.
 - Templates use Jinja2 syntax (see `Dockerfile.j2`).
-- **Kubernetes:**
-  - Manifests and deployment scripts are in `exercise11/`.
-  - Use `kubectl` for cluster operations and testing.
-  - Follow the exercise README for deployment, scaling, and management tasks.
 
 ## Patterns & Conventions
 
