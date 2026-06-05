@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: bonkey-quota
+  namespace: bonkey-app
+  labels:
+    app: bonkey
+spec:
+  hard:
+    requests.cpu: "10m"
+    requests.memory: "20Mi"
+    pods: "1"

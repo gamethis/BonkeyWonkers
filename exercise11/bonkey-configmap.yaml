@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bonkey-config
+  namespace: bonkey-app
+  labels:
+    app: bonkey
+data:
+  message: "Hello from BonkeyWonkers!"
+  app_name: "bonkey-app"
