@@ -2,7 +2,7 @@
 # Exercise 5 - Start Vault in dev mode
 set -e
 
-if vault status &>/dev/null 2>&1; then
+if vault status &>/dev/null; then
   echo "Vault is already running."
   vault status
   exit 0
@@ -22,8 +22,12 @@ echo "Vault PID: $VAULT_PID (saved to /tmp/vault.pid)"
 
 # Wait for Vault to be ready
 for i in {1..15}; do
-  if vault status &>/dev/null 2>&1; then
+  if vault status &>/dev/null; then
     break
+  fi
+  if [ "$i" -eq 15 ]; then
+    echo "❌ Vault did not become ready in time. Check /tmp/vault.log for errors."
+    exit 1
   fi
   sleep 1
 done

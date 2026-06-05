@@ -42,9 +42,7 @@ echo "Installing tools and dependencies"
 echo "========================="
 
 echo "Set execute permissions on exercise start scripts"
-chmod +x /workspaces/BonkeyWonkers/exercise4/start.sh \
-         /workspaces/BonkeyWonkers/exercise5/start.sh \
-         /workspaces/BonkeyWonkers/exercise10/start.sh
+chmod +x /workspaces/BonkeyWonkers/exercise{4,5,10}/start.sh
 echo "Done."
 echo "========================="
 
@@ -100,7 +98,7 @@ echo "Done installing tfupdate"
 echo "========================="
 
 echo "Install Ansible Galaxy collections"
-ansible-galaxy collection install -r "$(dirname "$(realpath "$0")")/../requirements.yaml"
+ansible-galaxy collection install -r /workspaces/BonkeyWonkers/requirements.yaml
 echo "Done installing Ansible Galaxy collections"
 echo "========================="
 
