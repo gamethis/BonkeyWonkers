@@ -41,3 +41,8 @@ tflint_linux_amd64.zip
 
  **/.ansible/*
 .ansible/*
+
+# Assessor-only grading keys — never publish to the public candidate repo
+EVALUATION.md
+**/EVALUATION.md
+*-assessor-guide.md
