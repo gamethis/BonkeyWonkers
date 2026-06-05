@@ -12,7 +12,7 @@ fi
 echo "Starting Vault dev server..."
 vault server -dev \
   -dev-root-token-id=testtoken \
-  -dev-listen-address=0.0.0.0:8200 \
+  -dev-listen-address=127.0.0.1:8200 \
   &>/tmp/vault.log &
 
 VAULT_PID=$!
