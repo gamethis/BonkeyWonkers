@@ -101,7 +101,7 @@ failed checks.
 
 ## Example: Creating a Workflow
 
-- Place workflow YAML in `.github/` (e.g., `Bonkey-Check.yaml`).
+- Place workflow YAML in `.github/workflows/` (e.g., `pre-commit.yaml`).
 - Use job outputs to pass data between jobs.
 - Reference container versions from `BonkeyContainers.yaml`.
 
