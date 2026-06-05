@@ -5,6 +5,13 @@ sudo apt-get update
 sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq
 DEBIAN_FRONTEND=dialog
 
+# Install the assessment branch-guard hook (returns candidates to `main`).
+REPO_ROOT="/workspaces/BonkeyWonkers"
+if [ -f "$REPO_ROOT/.devcontainer/git-hooks/post-checkout" ]; then
+  echo "Installing assessment branch-guard git hook"
+  install -m 0755 "$REPO_ROOT/.devcontainer/git-hooks/post-checkout" "$REPO_ROOT/.git/hooks/post-checkout"
+fi
+
 function getLatestVersion() {
 
   LATEST_ARR=($(wget -q -O- https://api.github.com/repos/hashicorp/terraform/releases 2> /dev/null | awk '/tag_name/ { print $2 }' | cut -d '"' -f 2 | cut -d 'v' -f 2 | sort -V -r))

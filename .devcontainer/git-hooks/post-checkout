@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# post-checkout: keep assessment candidates on `main`.
+#
+# Candidates take a proctored screening on the `main` branch, where the repo's
+# AI instructions refuse to help. Switching to any other branch flips the AI
+# into "assist" mode, so this hook returns non-maintainers to `main`.
+#
+# Maintainers (GitHub logins in $BONKEY_MAINTAINERS, or .devcontainer/maintainers)
+# may switch branches freely. This is a deterrent layered behind live proctoring,
+# not a hard control: $GITHUB_USER can be spoofed and this hook can be removed —
+# both are visible, disqualifying acts on screen-share.
+#
+# Hook args: $1 = prev HEAD, $2 = new HEAD, $3 = 1 for a branch checkout.
+
+[ "$3" = "1" ] || exit 0
+
+branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+[ "$branch" = "main" ] && exit 0
+
+# Resolve the current GitHub identity (Codespaces sets GITHUB_USER).
+who="${GITHUB_USER:-$(gh api user --jq .login 2>/dev/null)}"
+
+# Maintainer allowlist: $BONKEY_MAINTAINERS (space/comma separated) wins;
+# otherwise fall back to a committed .devcontainer/maintainers file.
+allow="${BONKEY_MAINTAINERS:-}"
+root="$(git rev-parse --show-toplevel 2>/dev/null)"
+if [ -z "$allow" ] && [ -f "$root/.devcontainer/maintainers" ]; then
+  allow="$(grep -vE '^\s*(#|$)' "$root/.devcontainer/maintainers" | tr '\n' ' ')"
+fi
+
+if [ -n "$who" ]; then
+  for m in ${allow//,/ }; do
+    [ "$who" = "$m" ] && exit 0   # maintainer: allow the branch switch
+  done
+fi
+
+# Non-maintainer on a non-main branch during the assessment.
+cat <<'MSG'
+
+  ------------------------------------------------------------
+  Get Bonkey and show your skills! You are better than the Bot anyways!
+  ------------------------------------------------------------
+
+MSG
+git switch main >/dev/null 2>&1 || git checkout main >/dev/null 2>&1
+exit 0

@@ -7,6 +7,30 @@ https://github.com/gamethis/BonkeyWonkers/actions/workflows/pre-commit.yaml)
   <img src="./BonkeyWonkers.png" alt="Bonkey Wonkers" width="256" height="256" />
 </p>
 
+## Getting Started
+
+Welcome! This is a **proctored, hands-on technical screening**.
+
+**How to participate**
+
+- Launch a **GitHub Codespace on the `main` branch** (Code &rsaquo; Codespaces
+  &rsaquo; Create codespace on `main`). Every tool you need is pre-installed on
+  launch.
+- Do all of your work **in the Codespace, on the `main` branch**. You do **not**
+  need to commit, push, or open a pull request — your work is reviewed live.
+- All you need to participate is repository access and a web browser.
+
+**Rules**
+
+- **No AI assistants.** Copilot, ChatGPT, Claude, Cursor, and similar tools are
+  **not allowed**. The Codespace's AI tooling is configured to decline while you
+  are on `main`.
+- **Web search is allowed** — official documentation, Stack Overflow, and the
+  like.
+- **Camera on and screen shared at all times** for the duration of the session.
+
+Now go get Bonkey and show your skills!
+
 ## Exercise 1
 
 [This exercise](./exercise1/README.md) will be used to test your ability to do a
