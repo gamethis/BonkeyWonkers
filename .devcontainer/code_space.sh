@@ -6,8 +6,8 @@ sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie
 DEBIAN_FRONTEND=dialog
 
 # Install the assessment branch-guard hook (returns candidates to `main`).
-REPO_ROOT="/workspaces/BonkeyWonkers"
-if [ -f "$REPO_ROOT/.devcontainer/git-hooks/post-checkout" ]; then
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || echo /workspaces/BonkeyWonkers)"
+if [ -f "$REPO_ROOT/.devcontainer/git-hooks/post-checkout" ] && [ -d "$REPO_ROOT/.git/hooks" ]; then
   echo "Installing assessment branch-guard git hook"
   install -m 0755 "$REPO_ROOT/.devcontainer/git-hooks/post-checkout" "$REPO_ROOT/.git/hooks/post-checkout"
 fi
