@@ -17,7 +17,8 @@ vault server -dev \
   &>/tmp/vault.log &
 
 VAULT_PID=$!
-echo "Vault PID: $VAULT_PID"
+echo "$VAULT_PID" > /tmp/vault.pid
+echo "Vault PID: $VAULT_PID (saved to /tmp/vault.pid)"
 
 # Wait for Vault to be ready
 for i in {1..15}; do

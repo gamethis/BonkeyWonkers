@@ -1,16 +1,12 @@
 #!/bin/bash
-# Exercise 10 - Verify Ansible collection dependencies are installed
-# (Collections are installed during codespace setup via code_space.sh)
+# Exercise 10 - Install Ansible collection dependencies and verify setup
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKSPACE_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-echo "Verifying Ansible Galaxy collections..."
-ansible-galaxy collection list | grep -E "community\.docker|community\.general|community\.crypto|ansible\.netcommon|ansible\.utils" || {
-  echo "Some collections not found. Installing from requirements.yaml..."
-  ansible-galaxy collection install -r "$WORKSPACE_DIR/requirements.yaml"
-}
+echo "Installing Ansible Galaxy collections..."
+ansible-galaxy collection install -r "$WORKSPACE_DIR/requirements.yaml"
 
 echo ""
 echo "Ansible collections are ready."
