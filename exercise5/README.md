@@ -4,6 +4,22 @@ Back to [Main](../README.md)
 
 This exercise will test your basic skillset with Vault
 
+## Setup the exercise
+
+Start the Vault dev server using the provided start script:
+
+```shell
+cd exercise5
+./start.sh
+```
+
+Then set environment variables in your shell:
+
+```shell
+export VAULT_ADDR='http://127.0.0.1:8200'
+export VAULT_TOKEN='testtoken'
+```
+
 ## Go to the Vault UI
 
 From your computer:

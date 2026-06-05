@@ -24,9 +24,10 @@ Skip this step if in Code Spaces.
 
 If on a personal computer run:
 
+
 ```shell
 cd exercise4
-docker-compose up -d
+./start.sh
 ```
 
 **Expected Result**: All monitoring services (Prometheus, Grafana, Node Exporter,
@@ -46,9 +47,15 @@ If on codespaces:
 1. hover over `forwarded address` for the port Labeled Grafana (3000)
 1. click middle icon
 
+### Grafana login
+
+Username: `admin`
+Password: `admin`
+
 **Expected Result**: Grafana login page accessible with default credentials (admin/admin).
 
 ## Step 3: Create Performance Dashboards
+
 
 ### 3.1 Create Dashboard Visualizations
 
