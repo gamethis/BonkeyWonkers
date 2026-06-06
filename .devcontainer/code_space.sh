@@ -74,13 +74,6 @@ sudo unzip -o  $filename -d "${INSTALL_PATH}"
 echo "Done installing tflint"
 echo "========================="
 
-echo "install trivy"
-TRIVY_VERSION="0.49.0"
-curl --retry 3 --retry-delay 5 -sSL "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" | sudo tar xz -C /usr/local/bin --overwrite
-trivy server --download-db-only
-echo "Done install trivy"
-echo "========================="
-
 echo "run pre-commit"
 pre-commit run --all-files
 echo "Done running pre-commit"
