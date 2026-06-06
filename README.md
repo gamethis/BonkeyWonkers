@@ -90,3 +90,9 @@ next, the way real pipelines hand off state.
 Put it all together with Ansible: run a playbook, render a Dockerfile from a
 template, fix a compose stack, and loop a role over a list of images.
 [Start Exercise 10 →](./exercise10/README.md)
+
+## Exercise 13 - Kubernetes: Helm & Kustomize
+
+Package and deploy the bonkey app two ways: fix a broken Helm chart and install
+it with a values override, then complete a Kustomize overlay — and validate both.
+[Start Exercise 13 →](./exercise13/README.md)
