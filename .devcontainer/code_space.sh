@@ -110,7 +110,7 @@ echo "Done installing Ansible Galaxy collections"
 echo "========================="
 
 echo "Install ACT"
-cd /workspaces/BonkeyWonkers/exercise7
+cd "$REPO_ROOT/exercise7"
 
 act --version
 echo "Done installing ACT"
@@ -135,4 +135,4 @@ echo "    exercise10: cd exercise10 && ./start.sh"
 echo "============================================================"
 echo ""
 
-echo "cd /workspaces/BonkeyWonkers"
+echo "cd $REPO_ROOT"
