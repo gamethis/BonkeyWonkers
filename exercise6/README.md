@@ -2,6 +2,8 @@
 
 Back to [Main](../README.md)
 
+**Time limit:** 25 minutes
+
 ## Overview
 
 This exercise tests your ability to:
@@ -94,7 +96,9 @@ Update module configuration files as needed
 
 ### 2.5 Provide List Data
 
-Update the root configuration to include your favorite things:
+Update the root configuration to include your favorite things. You may also
+change the `user` value from `NONAME` to your own name (the expected output
+below uses `GameThis` as an example):
 
 ```bash
 Modify the root module to pass actual list data
@@ -160,4 +164,4 @@ By completing this exercise, you will demonstrate:
 
 ## Exercise 6 Complete
 
-Once all validation steps pass successfully, proceed to [Exercise 7](../exercise7/README.md).
+Proceed to [Exercise 7](../exercise7/README.md).

@@ -1,6 +1,8 @@
-# Exercise 7
+# Exercise 7 - GitHub Actions: Scheduled Workflow
 
 Back to [Main](../README.md)
+
+**Time limit:** 20 minutes
 
 This exercise will test your basic skillset with GitHub Actions and Workflows,
 and scripting abilities.
@@ -17,22 +19,21 @@ exits successfully if the [Bonkey Containers File](./BonkeyContainers.yaml) is p
   Leverage act to test your file locally.
   </summary>
 
-  ```code
-    Create your file in the .github folder
+  ```text
+    Create your file in the .github/workflows folder
     cd /workspaces/BonkeyWonkers
     act -l
     act -j name_of_job
  ```
 
  </details>
-  </p>
 
 <details>
   <summary>
   Add dependencies in to act container if needed
   </summary>
 
-  ```code
+  ```text
     cd /workspaces/BonkeyWonkers/exercise7
     docker build -t act-local:latest .
     docker tag act-local:latest localhost:5000/act-local:latest
@@ -41,7 +42,6 @@ exits successfully if the [Bonkey Containers File](./BonkeyContainers.yaml) is p
  ```
 
  </details>
-  </p>
 
 ## Step 2
 
@@ -53,6 +53,6 @@ Update your workflow to:
   referenced in [Bonkey Containers File](./BonkeyContainers.yaml).
 - Print the version to terminal.
 
-## Exercise 7 complete
+## Exercise 7 Complete
 
-Proceed to [Exercise 8](../exercise8/README.md)
+Proceed to [Exercise 8](../exercise8/README.md).

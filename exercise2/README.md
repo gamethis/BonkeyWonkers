@@ -2,6 +2,8 @@
 
 Back to [Main](../README.md)
 
+**Time limit:** 15 minutes
+
 ## Overview
 
 This exercise tests your ability to:
@@ -50,7 +52,7 @@ Use the docker Command-Line Interface (CLI)
 **Expected Result**: You should see a prompt similar to:
 
 ```shell
-bonkey@c0700134dc42:/exercises#
+bonkey@c0700134dc42:/exercises$
 ```
 
 ### 1.4 Create and Test Script Inside Container
@@ -148,4 +150,4 @@ By completing this exercise, you will demonstrate:
 
 ## Exercise 2 Complete
 
-Once both steps are successfully completed, proceed to [Exercise 3](../exercise3/README.md).
+Proceed to [Exercise 3](../exercise3/README.md).

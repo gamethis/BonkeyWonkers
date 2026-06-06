@@ -2,8 +2,15 @@
 
 DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq
+sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq bc
 DEBIAN_FRONTEND=dialog
+
+# Install the assessment branch-guard hook (returns candidates to `main`).
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || echo /workspaces/BonkeyWonkers)"
+if [ -f "$REPO_ROOT/.devcontainer/git-hooks/post-checkout" ] && [ -d "$REPO_ROOT/.git/hooks" ]; then
+  echo "Installing assessment branch-guard git hook"
+  install -m 0755 "$REPO_ROOT/.devcontainer/git-hooks/post-checkout" "$REPO_ROOT/.git/hooks/post-checkout"
+fi
 
 function getLatestVersion() {
 
@@ -41,6 +48,11 @@ function getLatestRepoVersion() {
 echo "Installing tools and dependencies"
 echo "========================="
 
+echo "Set execute permissions on exercise start scripts"
+chmod +x "$REPO_ROOT"/exercise{4,5,10}/start.sh
+echo "Done."
+echo "========================="
+
 echo "install pre-commit"
 pip install pre-commit
 pre-commit install
@@ -62,50 +74,36 @@ sudo unzip -o  $filename -d "${INSTALL_PATH}"
 echo "Done installing tflint"
 echo "========================="
 
-echo "install trivy"
-TRIVY_VERSION="0.49.0"
-curl --retry 3 --retry-delay 5 -sSL "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" | sudo tar xz -C /usr/local/bin --overwrite
-trivy server --download-db-only
-echo "Done install trivy"
-echo "========================="
-
 echo "run pre-commit"
 pre-commit run --all-files
 echo "Done running pre-commit"
 echo "========================="
 
-echo "Setup Grafana"
-cd /workspaces/BonkeyWonkers/exercise4
-result=1
-while [ $result -le 1 ];
-do
-  echo "starting docker compose"
-  docker-compose up -d
-  result=$(docker container ls | wc -l)
-done
-
-cd /workspaces/BonkeyWonkers
-echo "============"
-
-echo "Get test container"
+echo "Pull common Docker base images"
 docker pull dahicks/sample:latest
-
-echo "Get stress test"
 docker pull j0hnewhitley/docker-stress:v0.0.1
+echo "Done pulling Docker images"
+echo "========================="
 
-echo "============"
+echo "Install hvac (Vault Python client for exercise 5)"
+pip install hvac
+echo "Done installing hvac"
+echo "========================="
 
-echo "Setting up Vault"
-echo "============"
 
 echo "Install tfupdate"
 sudo go install github.com/minamijoyo/tfupdate@latest
 tfupdate --version
 echo "Done installing tfupdate"
-echo "============"
+echo "========================="
+
+echo "Install Ansible Galaxy collections"
+ansible-galaxy collection install -r "$REPO_ROOT/requirements.yaml"
+echo "Done installing Ansible Galaxy collections"
+echo "========================="
 
 echo "Install ACT"
-cd /workspaces/BonkeyWonkers/exercise7
+cd "$REPO_ROOT/exercise7"
 
 act --version
 echo "Done installing ACT"
@@ -120,8 +118,14 @@ echo "Minikube Started"
 minikube dashboard &
 echo "==========="
 
-# pip install ansible
+echo ""
+echo "============================================================"
+echo "  Codespace setup complete."
+echo "  Common tools installed. To start a specific exercise:"
+echo "    exercise4:  cd exercise4  && ./start.sh"
+echo "    exercise5:  cd exercise5  && ./start.sh"
+echo "    exercise10: cd exercise10 && ./start.sh"
+echo "============================================================"
+echo ""
 
-echo "Completed Setup run following command:"
-
-echo "cd /workspaces/BonkeyWonkers"
+echo "cd $REPO_ROOT"

@@ -1,5 +1,9 @@
 # Exercise 4 - Grafana Monitoring Setup
 
+Back to [Main](../README.md)
+
+**Time limit:** 30 minutes
+
 ## Overview
 
 This exercise tests your ability to:
@@ -20,17 +24,17 @@ This exercise tests your ability to:
 
 ### 1.1 Deploy Monitoring Stack
 
-Skip this step if in Code Spaces.
-
-If on a personal computer run:
+Start the stack from the exercise directory. Run this in Codespaces too — the
+devcontainer does not start it for you:
 
 ```shell
 cd exercise4
-docker-compose up -d
+./start.sh
 ```
 
-**Expected Result**: All monitoring services (Prometheus, Grafana, Node Exporter,
-cAdvisor) start successfully.
+**Expected Result**: The stack starts successfully. `docker compose ps` shows
+prometheus, grafana, node-exporter, cadvisor, redis, vault, wireshark, and a
+local registry running.
 
 ## Step 2: Access Grafana Interface
 
@@ -44,7 +48,12 @@ If on codespaces:
 
 1. click ports
 1. hover over `forwarded address` for the port Labeled Grafana (3000)
-1. click middle icon
+1. click the "Open in Browser" icon (the globe)
+
+### Grafana login
+
+Username: `admin`
+Password: `admin`
 
 **Expected Result**: Grafana login page accessible with default credentials (admin/admin).
 
@@ -147,4 +156,4 @@ By completing this exercise, you will demonstrate:
 
 ## Exercise 4 Complete
 
-Proceed to [Exercise 5](../exercise5/README.md)
+Proceed to [Exercise 5](../exercise5/README.md).
