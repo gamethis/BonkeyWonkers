@@ -130,6 +130,31 @@ Use the kubectl Command-Line Interface (CLI)
 **Expected Result**: A request to the Service's in-cluster DNS name returns the
 `/hello` response.
 
+## Bonus: Pod-to-Pod Connectivity
+
+### B.1 Exec Into a Pod
+
+Open an interactive shell inside one of the running `bonkey` pods.
+
+```bash
+Use the kubectl Command-Line Interface (CLI)
+```
+
+**Expected Result**: You get a shell prompt inside the container.
+
+### B.2 Reach Another Pod From Inside
+
+From within that pod, run a command that connects to a **different** pod and
+retrieves its `/hello` response. The container image is minimal — use the
+tooling it actually ships with.
+
+```bash
+Use the tools available inside the container
+```
+
+**Expected Result**: You receive the `/hello` JSON from another pod,
+demonstrating pod-to-pod connectivity from inside the cluster.
+
 ## Cleanup
 
 Delete all resources you created during this exercise.
