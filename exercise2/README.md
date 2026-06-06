@@ -50,7 +50,7 @@ Use the docker Command-Line Interface (CLI)
 **Expected Result**: You should see a prompt similar to:
 
 ```shell
-bonkey@c0700134dc42:/exercises#
+bonkey@c0700134dc42:/exercises$
 ```
 
 ### 1.4 Create and Test Script Inside Container
