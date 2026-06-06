@@ -1,4 +1,4 @@
-# Exercise 14 - Modern Auth: Token Validation, Signed Identity & Envoy ext_authz
+# Exercise 14 - Modern Auth: JWT, Signed Identity & ext_authz
 
 Back to [Main](../README.md)
 

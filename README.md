@@ -90,3 +90,10 @@ next, the way real pipelines hand off state.
 Put it all together with Ansible: run a playbook, render a Dockerfile from a
 template, fix a compose stack, and loop a role over a list of images.
 [Start Exercise 10 →](./exercise10/README.md)
+
+## Exercise 14 - Modern Auth: JWT, Signed Identity & ext_authz
+
+An auth-proxy path like the Grid Migration Proxy: validate a JWT against the
+IdP's JWKS, hand the upstream a signed identity, and fix Envoy's ext_authz
+wiring so the path is secure end to end.
+[Start Exercise 14 →](./exercise14/README.md)
