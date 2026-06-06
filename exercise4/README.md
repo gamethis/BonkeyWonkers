@@ -48,7 +48,7 @@ If on codespaces:
 
 1. click ports
 1. hover over `forwarded address` for the port Labeled Grafana (3000)
-1. click middle icon
+1. click the "Open in Browser" icon (the globe)
 
 ### Grafana login
 

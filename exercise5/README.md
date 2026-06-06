@@ -32,7 +32,7 @@ If on codespaces:
 
 1. click ports
 1. hover over `forwarded address` for the port Labeled Vault (8200)
-1. click middle icon
+1. click the "Open in Browser" icon (the globe)
 
 ## Login to Vault
 
@@ -52,9 +52,9 @@ path "secret/*" {
 
 ## Use the vault CLI to create a new token
 
-**Note:** Use the policy created above (to used in a later step)
+**Note:** Use the policy created above (to be used in a later step).
 
-**Note** You'll need to use the http address and NOT https
+**Note:** You'll need to use the http address and NOT https.
 
 ## Demonstrate reading the secret by using the python app (getSecret.py)
 

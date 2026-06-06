@@ -8,16 +8,16 @@ This exercise will test your basic understanding of ansible and ansible templati
 
 ## Start Bonkey App
 
-### Bonkey App Task 1
+### Task 1
 
 Execute Ansible `bonkey_playbook.yaml` to setup bonkey_app,
 
 <details>
   <summary>
-  Confirm that bonkey_app/DockerFile is created and looks as follows
+  Confirm that bonkey_app/Dockerfile is created and looks as follows
   </summary>
 
-  ```code
+  ```dockerfile
 FROM dahicks/sample:latest AS build
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN useradd --no-log-init -m -r -g root bonkey
@@ -36,13 +36,12 @@ USER bonkey
  ```
 
  </details>
-  </p>
 
-### Bonkey App Task 2
+### Task 2
 
-+ Run docker compose and fix any errors you encounter.
-+ Curl the `/hello` endpoint on both containers.
-  + output should look like follows
+- Run docker compose and fix any errors you encounter.
+- Curl the `/hello` endpoint on both containers.
+  - output should look like follows
 
     ```shell
     {
@@ -50,9 +49,9 @@ USER bonkey
     }
     ```
 
-## Pull More images
+## Pull More Images
 
-### Bonkey Images Task 3
+### Task 3
 
 Update the Ansible role `bonkey` to iterate through and pull all containers found
 in [BonkeyContainers](./vars/BonkeyContainers.yaml) vars file.

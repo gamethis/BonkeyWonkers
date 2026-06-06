@@ -27,22 +27,21 @@ to `update` job.
   Leverage act to test your file locally.
   </summary>
 
-  ```code
-    Create your file in the .github folder
+  ```text
+    Create your file in the .github/workflows folder
     cd /workspaces/BonkeyWonkers
     act -l
     act -j name_of_job
  ```
 
  </details>
-  </p>
 
 <details>
   <summary>
   Add dependencies in to act container if needed
   </summary>
 
-  ```code
+  ```text
     cd /workspaces/BonkeyWonkers/exercise9
     docker build -t act-local:latest .
     docker tag act-local:latest localhost:5000/act-local:latest
@@ -51,7 +50,6 @@ to `update` job.
  ```
 
  </details>
-  </p>
 
 ### Step 2
 
