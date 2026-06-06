@@ -1,0 +1,76 @@
+---
+# Envoy front proxy for Exercise 14 — YOU edit this file (Part C).
+# Client -> Envoy (:8080) --ext_authz--> proxy (:9000); on allow, Envoy forwards
+# to the upstream (:9090) with the identity header the proxy returned.
+admin:
+  address:
+    socket_address: {address: 127.0.0.1, port_value: 9901}
+
+static_resources:
+  listeners:
+    - name: ingress
+      address:
+        socket_address: {address: 0.0.0.0, port_value: 8080}
+      filter_chains:
+        - filters:
+            - name: envoy.filters.network.http_connection_manager
+              typed_config:
+                "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+                stat_prefix: ingress
+                route_config:
+                  name: local
+                  virtual_hosts:
+                    - name: app
+                      domains: ["*"]
+                      routes:
+                        - match: {prefix: "/"}
+                          route: {cluster: upstream}
+                http_filters:
+                  - name: envoy.filters.http.ext_authz
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.filters.http.ext_authz.v3.ExtAuthz
+                      transport_api_version: V3
+                      # TODO (#3a): when true, requests are allowed through even
+                      # if the authz service errors or times out (fail-OPEN).
+                      # Decide what the secure value is.
+                      failure_mode_allow: true
+                      http_service:
+                        server_uri:
+                          uri: http://127.0.0.1:9000
+                          cluster: ext_authz
+                          timeout: 2s
+                        authorization_request:
+                          allowed_headers:
+                            patterns:
+                              - exact: "authorization"
+                        authorization_response:
+                          # TODO (#3b): on success the authz service returns the
+                          # signed `x-bonkey-identity` header, but it is not
+                          # listed here — so Envoy drops it and the upstream
+                          # never receives an identity. Allow it through.
+                          allowed_upstream_headers:
+                            patterns: []
+                  - name: envoy.filters.http.router
+                    typed_config:
+                      "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+  clusters:
+    - name: upstream
+      type: STATIC
+      connect_timeout: 1s
+      load_assignment:
+        cluster_name: upstream
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address: {address: 127.0.0.1, port_value: 9090}
+    - name: ext_authz
+      type: STATIC
+      connect_timeout: 1s
+      load_assignment:
+        cluster_name: ext_authz
+        endpoints:
+          - lb_endpoints:
+              - endpoint:
+                  address:
+                    socket_address: {address: 127.0.0.1, port_value: 9000}
