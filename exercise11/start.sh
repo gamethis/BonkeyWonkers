@@ -18,5 +18,5 @@ echo "Image available in-cluster:"
 minikube image ls | grep bonkey-k8s || true
 
 echo ""
-echo "Setup complete. Begin with the manifests in this directory, e.g.:"
-echo "  kubectl apply -f bonkey-namespace.yaml"
+echo ""
+echo "Setup complete. Begin with the manifests in this directory (start with bonkey-namespace.yaml)."
