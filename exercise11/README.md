@@ -2,7 +2,7 @@
 
 Back to [Main](../README.md)
 
-**Time limit:** 45 minutes
+**Time limit:** 30 minutes
 
 ## Overview
 
@@ -145,15 +145,16 @@ Use the kubectl Command-Line Interface (CLI)
 ### B.2 Reach Another Pod From Inside
 
 From within that pod, connect to a **different** pod and confirm you can reach
-it. The container has `curl` and `nc` available — use either.
+it. Both layer 4 (transport) and layer 7 (application) connectivity tools are
+available inside the container.
 
 ```bash
-Use curl or nc from inside the container
+Use the connectivity tools available inside the container
 ```
 
-**Expected Result**: `curl` returns the `/hello` JSON from another pod, or `nc`
-confirms that pod's port 5000 is open — demonstrating pod-to-pod connectivity
-from inside the cluster.
+**Expected Result**: You demonstrate pod-to-pod connectivity from inside the
+cluster — an application-layer request returns another pod's `/hello` response,
+or a transport-layer check shows its port open.
 
 ## Cleanup
 
