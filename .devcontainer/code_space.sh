@@ -2,7 +2,7 @@
 
 DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq
+sudo apt-get install -y --no-install-recommends apt-utils dialog dnsutils httpie wget unzip curl jq bc
 DEBIAN_FRONTEND=dialog
 
 # Install the assessment branch-guard hook (returns candidates to `main`).

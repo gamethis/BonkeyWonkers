@@ -39,7 +39,7 @@ root@6209920d39aa:/exercises# ./pythagorean.sh 45 10
 Python execution:
 
 ```shell
-root@6209920d39aa:/exercises# python pythagorean.py 45 10
+root@6209920d39aa:/exercises# python3 pythagorean.py 45 10
 46.09772228646444
 ```
 
