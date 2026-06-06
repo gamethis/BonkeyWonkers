@@ -144,16 +144,16 @@ Use the kubectl Command-Line Interface (CLI)
 
 ### B.2 Reach Another Pod From Inside
 
-From within that pod, run a command that connects to a **different** pod and
-retrieves its `/hello` response. The container image is minimal — use the
-tooling it actually ships with.
+From within that pod, connect to a **different** pod and confirm you can reach
+it. The container has `curl` and `nc` available — use either.
 
 ```bash
-Use the tools available inside the container
+Use curl or nc from inside the container
 ```
 
-**Expected Result**: You receive the `/hello` JSON from another pod,
-demonstrating pod-to-pod connectivity from inside the cluster.
+**Expected Result**: `curl` returns the `/hello` JSON from another pod, or `nc`
+confirms that pod's port 5000 is open — demonstrating pod-to-pod connectivity
+from inside the cluster.
 
 ## Cleanup
 
