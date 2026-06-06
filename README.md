@@ -11,7 +11,7 @@ https://github.com/gamethis/BonkeyWonkers/actions/workflows/pre-commit.yaml)
 
 Welcome! This is a **proctored, hands-on technical screening**.
 
-**How to participate**
+### How to participate
 
 - Launch a **GitHub Codespace on the `main` branch** (Code &rsaquo; Codespaces
   &rsaquo; Create codespace on `main`). Every tool you need is pre-installed on
@@ -20,7 +20,7 @@ Welcome! This is a **proctored, hands-on technical screening**.
   need to commit, push, or open a pull request — your work is reviewed live.
 - All you need to participate is repository access and a web browser.
 
-**Rules**
+### Rules
 
 - **No AI assistants.** Copilot, ChatGPT, Claude, Cursor, and similar tools are
   **not allowed**. The Codespace's AI tooling is configured to decline while you
