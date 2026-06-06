@@ -2,6 +2,8 @@
 
 Back to [Main](../README.md)
 
+**Time limit:** 15 minutes
+
 **Objective:** Master Python and Bash scripting through mathematical
 calculations and text processing challenges that demonstrate real-world
 automation capabilities.
@@ -86,7 +88,7 @@ placeholder variables and save the result to `config.json`.
 All the tools, commands, and libraries are present to complete the exercises
 using `Python` or `bash` or another programming language of your choice.
 
-You have 15 minutes to complete both of the following exercises:
+Complete both of the following exercises:
 
 1. Complete scripting exercise 1 (Pythagorean Calculator)
 2. Complete scripting exercise 2 (Configuration Template Processor)

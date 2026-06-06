@@ -2,6 +2,8 @@
 
 Back to [Main](../README.md)
 
+**Time limit:** 15 minutes
+
 This exercise will test your basic skillset with GitHub Actions and Workflows.
 The focus of this exercise is working with a file and the local GitHub Repo.
 

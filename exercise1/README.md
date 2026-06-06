@@ -2,6 +2,8 @@
 
 Back to [Main](../README.md)
 
+**Time limit:** 20 minutes
+
 ## Overview
 
 This exercise tests your ability to:

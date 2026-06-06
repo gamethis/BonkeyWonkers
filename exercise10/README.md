@@ -2,6 +2,8 @@
 
 Back to [Main](../README.md)
 
+**Time limit:** 25 minutes
+
 This exercise will test your basic understanding of ansible and ansible templating.
 
 ## Start Bonkey App

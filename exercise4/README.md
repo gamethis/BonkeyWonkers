@@ -1,5 +1,7 @@
 # Exercise 4 - Grafana Monitoring Setup
 
+**Time limit:** 30 minutes
+
 ## Overview
 
 This exercise tests your ability to:
