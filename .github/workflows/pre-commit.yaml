@@ -81,23 +81,6 @@ jobs:
         cd ..
         rm -rf ./tflint
         tflint --version
-
-    - name: Install Trivy
-      env:
-       TRIVY_VERSION: 0.53.0
-       INSTALL_PATH: /usr/local/bin
-      run: |
-        mkdir -p ./trivy
-        cd ./trivy
-        set -euo pipefail
-        wget --no-check-certificate "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz"
-        ls -la trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
-        tar -xvf trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz
-        mv ./trivy ${INSTALL_PATH}/trivy
-        cd ..
-        rm -rf ./trivy
-        trivy --version
-        trivy server --download-db-only
     - name: Install tfupdate
       env:
         TFUPDATE_VERSION: 0.8.2
