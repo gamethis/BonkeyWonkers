@@ -105,33 +105,9 @@ Confirm that `file2.txt` is now managed by module2:
 Use the terraform Command-Line Interface (CLI)
 ```
 
-**Expected Output**:
-
-**Expected Result**: Terraform initializes successfully and downloads required providers.
-
-### 1.2 Plan Initial Infrastructure
-
-Review the planned infrastructure changes:
-
-```bash
-Use the terraform Command-Line Interface (CLI)
-```
-
-**Expected Result**: Plan shows 3 local_file resources to be created.
-
-### 1.3 Apply Initial Configuration
-
-Deploy the infrastructure:
-
-```bash
-Use the terraform Command-Line Interface (CLI)
-```
-
-**Expected Result**: Three text files are created in the current directory:
-
-- `file1.txt` - Created by module1
-- `file2.txt` - Created by module1
-- `file3.txt` - Created by module2
+**Expected Result**: `file2` now appears under module2 (e.g.
+`module.m2.local_file.file2`) in the Terraform state and is no longer listed
+under module1.
 
 ### 3.3 File Integrity Check
 

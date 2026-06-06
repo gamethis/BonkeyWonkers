@@ -6,8 +6,8 @@ This exercise will test your basic skillset with GitHub Actions and Workflows.
 The focus of this exercise is to tie workflow jobs together and pass variables
 from one job to another.
 This exercise will update the work done in
-[Exercise 7](../exercise6/README.md) and
-[Exercise 8](../exercise7/README.md)
+[Exercise 7](../exercise7/README.md) and
+[Exercise 8](../exercise8/README.md)
 
 ## Create GitHub Action/Workflow
 
@@ -42,7 +42,7 @@ to `update` job.
 
   ```code
     cd /workspaces/BonkeyWonkers/exercise9
-    docker build -t act-local:Latest .
+    docker build -t act-local:latest .
     docker tag act-local:latest localhost:5000/act-local:latest
     docker image push localhost:5000/act-local:latest
     cd /workspaces/BonkeyWonkers

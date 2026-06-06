@@ -20,17 +20,17 @@ This exercise tests your ability to:
 
 ### 1.1 Deploy Monitoring Stack
 
-Skip this step if in Code Spaces.
-
-If on a personal computer run:
+Start the stack from the exercise directory. Run this in Codespaces too — the
+devcontainer does not start it for you:
 
 ```shell
 cd exercise4
 ./start.sh
 ```
 
-**Expected Result**: All monitoring services (Prometheus, Grafana, Node Exporter,
-cAdvisor) start successfully.
+**Expected Result**: The stack starts successfully. `docker compose ps` shows
+prometheus, grafana, node-exporter, cadvisor, redis, vault, wireshark, and a
+local registry running.
 
 ## Step 2: Access Grafana Interface
 
