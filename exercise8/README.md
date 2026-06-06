@@ -1,4 +1,4 @@
-# Exercise 8
+# Exercise 8 - GitHub Actions: File Updates
 
 Back to [Main](../README.md)
 
@@ -48,6 +48,6 @@ Cat the file to demonstrate the change
  </details>
   </p>
 
-## Exercise 8 complete
+## Exercise 8 Complete
 
-Proceed to [Exercise 9](../exercise9/README.md)
+Proceed to [Exercise 9](../exercise9/README.md).

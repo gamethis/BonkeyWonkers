@@ -1,4 +1,4 @@
-# Exercise 10
+# Exercise 10 - Ansible & Templating
 
 Back to [Main](../README.md)
 
@@ -57,6 +57,6 @@ USER bonkey
 Update the Ansible role `bonkey` to iterate through and pull all containers found
 in [BonkeyContainers](./vars/BonkeyContainers.yaml) vars file.
 
-## Exercise 10 complete
+## Exercise 10 Complete
 
-Proceed to [Main](../README.md)
+Proceed to [Main](../README.md).

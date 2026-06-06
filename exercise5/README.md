@@ -1,4 +1,4 @@
-# Exercise 5
+# Exercise 5 - Vault Secrets & Policies
 
 Back to [Main](../README.md)
 
@@ -60,6 +60,6 @@ path "secret/*" {
 
 ## Can you explain how this could be more secure?
 
-## Exercise 5 complete
+## Exercise 5 Complete
 
-Proceed to [Exercise 6](../exercise6/README.md)
+Proceed to [Exercise 6](../exercise6/README.md).

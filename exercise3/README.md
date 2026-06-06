@@ -1,4 +1,4 @@
-# Exercise 3: Scripting Challenge 🐍
+# Exercise 3 - Scripting Challenge
 
 Back to [Main](../README.md)
 
@@ -116,4 +116,4 @@ variables, and writes the result to `config.json`.
 
 ## Exercise 3 Complete
 
-Proceed to [Exercise 4](../exercise4/README.md)
+Proceed to [Exercise 4](../exercise4/README.md).

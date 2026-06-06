@@ -162,4 +162,4 @@ By completing this exercise, you will demonstrate:
 
 ## Exercise 6 Complete
 
-Once all validation steps pass successfully, proceed to [Exercise 7](../exercise7/README.md).
+Proceed to [Exercise 7](../exercise7/README.md).

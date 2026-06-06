@@ -131,4 +131,4 @@ By completing this exercise, you will demonstrate:
 
 ## Exercise 1 Complete
 
-Once all validation steps pass successfully, proceed to [Exercise 2](../exercise2/README.md).
+Proceed to [Exercise 2](../exercise2/README.md).

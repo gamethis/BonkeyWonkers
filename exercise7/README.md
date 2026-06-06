@@ -1,4 +1,4 @@
-# Exercise 7
+# Exercise 7 - GitHub Actions: Scheduled Workflow
 
 Back to [Main](../README.md)
 
@@ -55,6 +55,6 @@ Update your workflow to:
   referenced in [Bonkey Containers File](./BonkeyContainers.yaml).
 - Print the version to terminal.
 
-## Exercise 7 complete
+## Exercise 7 Complete
 
-Proceed to [Exercise 8](../exercise8/README.md)
+Proceed to [Exercise 8](../exercise8/README.md).

@@ -150,4 +150,4 @@ By completing this exercise, you will demonstrate:
 
 ## Exercise 2 Complete
 
-Once both steps are successfully completed, proceed to [Exercise 3](../exercise3/README.md).
+Proceed to [Exercise 3](../exercise3/README.md).

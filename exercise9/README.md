@@ -1,4 +1,4 @@
-# Exercise 9
+# Exercise 9 - GitHub Actions: Job Outputs
 
 Back to [Main](../README.md)
 
@@ -57,6 +57,6 @@ to `update` job.
 
 demonstrate that the `version` from `check` is used in `update`
 
-## Exercise 9 complete
+## Exercise 9 Complete
 
-Proceed to [Exercise 10](../exercise10/README.md)
+Proceed to [Exercise 10](../exercise10/README.md).

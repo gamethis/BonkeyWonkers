@@ -1,5 +1,7 @@
 # Exercise 4 - Grafana Monitoring Setup
 
+Back to [Main](../README.md)
+
 **Time limit:** 30 minutes
 
 ## Overview
@@ -154,4 +156,4 @@ By completing this exercise, you will demonstrate:
 
 ## Exercise 4 Complete
 
-Proceed to [Exercise 5](../exercise5/README.md)
+Proceed to [Exercise 5](../exercise5/README.md).
