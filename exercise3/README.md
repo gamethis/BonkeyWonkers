@@ -91,20 +91,26 @@ You have 15 minutes to complete both of the following exercises:
 1. Complete scripting exercise 1 (Pythagorean Calculator)
 2. Complete scripting exercise 2 (Configuration Template Processor)
 
-### Implementation: Pythagorean Theorem Calculator
+### Deliverable: Pythagorean Theorem Calculator
 
-- **`pythagorean.py`** - Python implementation with math library
-- **`pythagorean.sh`** - Bash implementation using bc for precision
-- **Usage:** `python3 pythagorean.py <side1> <side2>` or
+Write the calculator in the language of your choice. Using the suggested
+filenames, it should run like this:
+
+- **Python** — e.g. `pythagorean.py`, using the `math` library:
+  `python3 pythagorean.py <side1> <side2>`
+- **Bash** — e.g. `pythagorean.sh`, using `bc` for precision:
   `./pythagorean.sh <side1> <side2>`
-- **Test:** Both versions calculate hypotenuse for sides 3,4 → 5.0
+- **Check:** sides `3 4` should produce `5` (e.g. `5.0`).
 
-### Implementation: Configuration Template Processor
+### Deliverable: Configuration Template Processor
 
-- **`config_processor.py`** - Python template processor with file I/O
-- **`config_processor.sh`** - Bash implementation using sed substitution
-- **Usage:** Run scripts in exercise3 directory to process `config.json.tmpl` → `config.json`
-- **Result:** Generates valid JSON with all placeholder variables substituted
+Write a processor that reads `config.json.tmpl`, substitutes the placeholder
+variables, and writes the result to `config.json`.
+
+- **Python** — e.g. `config_processor.py` (file I/O + string replacement)
+- **Bash** — e.g. `config_processor.sh` (e.g. `sed` substitution)
+- **Result:** a valid `config.json` with every placeholder replaced (matching the
+  expected output shown above).
 
 ## Exercise 3 Complete
 
