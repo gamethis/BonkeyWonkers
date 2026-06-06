@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bonkey
+  labels:
+    app: bonkey
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bonkey
+  template:
+    metadata:
+      labels:
+        app: bonkey
+    spec:
+      containers:
+        - name: bonkey
+          image: bonkey-k8s:v1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          env:
+            - name: GREETING
+              valueFrom:
+                configMapKeyRef:
+                  name: bonkey-config
+                  key: greeting
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10

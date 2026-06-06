@@ -4,6 +4,9 @@ repos:
     rev: v5.0.0
     hooks:
       - id: check-yaml
+        # Helm chart templates contain Go templating ({{ }}) and are not valid
+        # standalone YAML; check-yaml cannot parse them.
+        exclude: "chart/templates/.*"
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: check-added-large-files

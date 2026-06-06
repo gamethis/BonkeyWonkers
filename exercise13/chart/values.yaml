@@ -1,0 +1,14 @@
+replicaCount: 2
+
+image:
+  repository: bonkey-k8s
+  tag: v1.0
+  pullPolicy: IfNotPresent
+
+# Greeting served at /hello. Override this at install time;
+# do not edit this default value.
+greeting: "Hello from the chart default"
+
+service:
+  port: 80
+  targetPort: 5000
