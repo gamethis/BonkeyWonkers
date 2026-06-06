@@ -13,9 +13,9 @@ entirely correct**:
 - Some required fields are missing and marked with `# TODO` — you must write them.
 - Other values are present but wrong — you must find and fix them.
 
-Your job is to deploy the manifests, observe what goes wrong, diagnose and fix
-the problems, redeploy, and validate. You are expected to work from the symptoms
-without step-by-step guidance.
+Deploy the manifests, observe what goes wrong, diagnose and fix the problems,
+redeploy, and validate. You are expected to work from the symptoms without
+step-by-step guidance.
 
 All resources belong to the `bonkey-app` namespace.
 
@@ -46,44 +46,97 @@ It starts Minikube and builds the `bonkey-k8s:v1.0` image into the cluster.
 
 ## Step 1: Deploy the Application
 
-Apply the manifests in an order that satisfies Kubernetes dependencies. Expect
-the application **not** to come up cleanly — that is intended.
+### 1.1 Apply the Manifests
+
+Apply the provided manifests in an order that satisfies Kubernetes
+dependencies.
+
+```bash
+Use the kubectl Command-Line Interface (CLI)
+```
+
+**Expected Result**: Resources are created in the `bonkey-app` namespace, but
+the application does **not** come up cleanly. This is intended.
 
 ## Step 2: Diagnose and Fix
 
-Investigate why the application is not healthy and resolve every problem. Useful
-starting points:
+### 2.1 Investigate
 
-```shell
-kubectl get pods -n bonkey-app
-kubectl describe pod <pod> -n bonkey-app
-kubectl logs <pod> -n bonkey-app
-kubectl get endpoints bonkey -n bonkey-app
+Inspect the failing resources and determine why the application is not healthy.
+
+```bash
+Use the kubectl Command-Line Interface (CLI)
 ```
 
-Both the missing (`# TODO`) fields and the incorrect values must be addressed.
+**Expected Result**: You identify each problem from its symptoms — for example
+pods that will not start, pods that never become Ready, or a Service with no
+endpoints.
+
+### 2.2 Correct the Manifests
+
+Fix the incorrect values and complete the fields marked `# TODO`.
+
+```bash
+Edit the appropriate manifest files
+```
+
+**Requirement**: Address both the incorrect values and the missing (`# TODO`)
+fields.
 
 ## Step 3: Redeploy
 
-Re-apply your corrected manifests and watch the rollout complete.
+### 3.1 Re-apply and Watch the Rollout
 
-```shell
-kubectl rollout status deployment/bonkey -n bonkey-app
+Apply your corrected manifests and watch the Deployment roll out.
+
+```bash
+Use the kubectl Command-Line Interface (CLI)
 ```
+
+**Expected Result**: The rollout completes and all pods become Ready.
 
 ## Step 4: Validate
 
-Demonstrate all of the following:
+### 4.1 Verify Pods and Endpoints
 
-- All pods are **Running and Ready**.
-- `/hello` returns JSON, and the greeting comes from the ConfigMap (not the
-  hardcoded default).
-- The `bonkey` Service is reachable **from inside the cluster** by its DNS name
-  (`bonkey.bonkey-app.svc.cluster.local`) — show the `/hello` response.
+Confirm the workload is healthy.
+
+```bash
+Use the kubectl Command-Line Interface (CLI)
+```
+
+**Expected Result**: All pods are Running and Ready, and the Service has
+endpoints.
+
+### 4.2 Verify the Application Response
+
+Confirm the application returns the greeting from the ConfigMap.
+
+```bash
+Use the kubectl Command-Line Interface (CLI)
+```
+
+**Expected Result**: `/hello` returns JSON whose greeting comes from the
+ConfigMap, not the hardcoded default.
+
+### 4.3 Verify In-Cluster Reachability
+
+Confirm the Service is reachable from inside the cluster by its DNS name.
+
+```bash
+Use the kubectl Command-Line Interface (CLI)
+```
+
+**Expected Result**: A request to the Service's in-cluster DNS name returns the
+`/hello` response.
 
 ## Cleanup
 
 Delete all resources you created during this exercise.
+
+```bash
+Use the kubectl Command-Line Interface (CLI)
+```
 
 ## Exercise 11 Complete
 
