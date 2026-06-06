@@ -1,4 +1,4 @@
-# Exercise 11 - Kubernetes Fundamentals
+# Exercise 11 - Kubernetes: Deploy & Troubleshoot
 
 Back to [Main](../README.md)
 
