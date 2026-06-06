@@ -1,3 +1,4 @@
+---
 apiVersion: v2
 name: bonkey
 description: A minimal Helm chart for the bonkey app
