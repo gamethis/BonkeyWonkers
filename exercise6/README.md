@@ -2,7 +2,7 @@
 
 Back to [Main](../README.md)
 
-**Time limit:** 25 minutes
+**Time limit:** 18 minutes
 
 ## Overview
 

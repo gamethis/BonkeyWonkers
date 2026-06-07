@@ -91,6 +91,13 @@ Put it all together with Ansible: run a playbook, render a Dockerfile from a
 template, fix a compose stack, and loop a role over a list of images.
 [Start Exercise 10 →](./exercise10/README.md)
 
+## Exercise 11 - Kubernetes: Deploy & Troubleshoot
+
+Deploy a Flask app to Kubernetes (Minikube), then diagnose and fix what keeps it
+from coming up — image pull policy, probes, Service wiring — and validate it
+in-cluster.
+[Start Exercise 11 →](./exercise11/README.md)
+
 ## Exercise 12 - Go Reverse Proxy: Diagnose, Fix & Extend
 
 Read an unfamiliar Go reverse proxy and make it behave: diagnose three runtime
@@ -98,3 +105,5 @@ defects from their symptoms — a routing 404, a data race, and a connection
 leak — then extend it with safe identity-header injection and proper request
 context propagation.
 [Start Exercise 12 →](./exercise12/README.md)
+
+

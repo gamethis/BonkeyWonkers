@@ -2,7 +2,7 @@
 
 Back to [Main](../README.md)
 
-**Time limit:** 15 minutes
+**Time limit:** 10 minutes
 
 **Objective:** Demonstrate Python and Bash scripting through a math calculation
 and a config-templating task — the everyday automation skills behind DevOps and

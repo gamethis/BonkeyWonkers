@@ -2,7 +2,7 @@
 
 Back to [Main](../README.md)
 
-**Time limit:** 20 minutes
+**Time limit:** 14 minutes
 
 This exercise will test your basic skillset with Vault
 
