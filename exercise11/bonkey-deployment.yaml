@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bonkey
+  namespace: bonkey-app
+  labels:
+    app: bonkey
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bonkey
+  template:
+    metadata:
+      labels:
+        app: bonkey
+    spec:
+      containers:
+        - name: bonkey
+          image: bonkey-k8s:v1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          # TODO: inject the greeting from the bonkey-config ConfigMap as an
+          #       environment variable named GREETING (it must not be hardcoded).
+          #
+          # TODO: set resource requests AND limits for cpu and memory.

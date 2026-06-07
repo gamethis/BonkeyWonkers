@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bonkey
+  namespace: bonkey-app
+spec:
+  type: ClusterIP
+  selector:
+    app: bonkey-app
+  ports:
+    - name: http
+      port: 80
+      targetPort: 5000
