@@ -12,12 +12,11 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"log"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
 	"time"
-
-	"log"
 )
 
 const (
