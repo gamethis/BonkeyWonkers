@@ -9,16 +9,20 @@ Back to [Main](../README.md)
 This exercise tests your ability to:
 
 - Read an unfamiliar Go HTTP reverse-proxy codebase and reason about it
-- Diagnose runtime defects from **symptoms only** (routing, concurrency, resource handling)
+- Diagnose runtime defects from **symptoms only** (routing, concurrency,
+  resource handling)
 - Apply correct, idiomatic fixes
 - Extend the proxy with a request-header transform and proper context propagation
 - Validate behavior under load
 
-You are given a small but realistic reverse proxy. It **builds and runs as-is**, but it does **not** behave correctly. Three defects are planted (no hints about cause or count); two further items are explicitly marked for you to implement.
+You are given a small but realistic reverse proxy. It **builds and runs
+as-is**, but it does **not** behave correctly. Three defects are planted (no
+hints about cause or count); two further items are explicitly marked for you to
+implement.
 
 ## The system
 
-```
+```text
 client ──▶ proxy (:8080) ──▶ upstream app (:9090, vhost "app.bonkey.internal")
                   │
                   └─▶ token introspection (:9091)
@@ -37,9 +41,9 @@ client ──▶ proxy (:8080) ──▶ upstream app (:9090, vhost "app.bonkey.
 | File | Edit? | Purpose |
 |------|-------|---------|
 | `main.go` | **Yes** | The reverse proxy. Your work goes here. |
-| `backend/main.go` | No | Upstream app (`:9090`) + introspection (`:9091`). Do not edit. |
+| `backend/main.go` | No | Upstream + introspection backend (do not edit) |
 | `loadgen/main.go` | No | Concurrent load generator. Do not edit. |
-| `start.sh` | No | Builds & runs backend + proxy (proxy built with the race detector). |
+| `start.sh` | No | Builds & runs backend + proxy (race detector on) |
 | `load.sh` | No | Drives traffic: `seq` (sequential) or `par` (concurrent). |
 
 ## Environment Setup
