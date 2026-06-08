@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: bonkey
-          image: bonkey-k8s:v1.0
+          image: bonkey-k8s:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
