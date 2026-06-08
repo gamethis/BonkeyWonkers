@@ -16,11 +16,16 @@ Helm resources go in the `bonkey-helm` namespace; Kustomize resources go in
 
 ## Environment Setup
 
-~~~shell
-Use the shell Command-Line Interface (CLI)
-~~~
+Run the provided setup script from the exercise directory before you start:
 
-**Expected Result**: Minikube is running and the `bonkey-k8s:v1.0` image is built. `helm` and `kubectl` (with built-in Kustomize) are available.
+```shell
+cd exercise13
+./start.sh
+```
+
+It starts Minikube and builds the `bonkey-k8s:v1.0` image. `helm` and `kubectl`
+(with built-in Kustomize) are available.
+
 **Do not modify `start.sh`, `helloworld.py`, or `Dockerfile`.**
 
 ## Provided Files
