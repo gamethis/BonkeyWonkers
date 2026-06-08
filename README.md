@@ -105,5 +105,3 @@ defects from their symptoms — a routing 404, a data race, and a connection
 leak — then extend it with safe identity-header injection and proper request
 context propagation.
 [Start Exercise 12 →](./exercise12/README.md)
-
-
