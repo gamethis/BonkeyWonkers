@@ -8,7 +8,6 @@
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
     "ghcr.io/devcontainers-extra/features/act:1": {},
     "ghcr.io/roul/devcontainer-features/vault:1": {},
-    "ghcr.io/itsmechlark/features/trivy:1": {},
     "ghcr.io/devcontainers-extra/features/terraform-docs:1": {}
   },
   "hostRequirements": {
