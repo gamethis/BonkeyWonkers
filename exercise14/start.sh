@@ -24,7 +24,7 @@ sleep 1
 
 echo "validating envoy.yaml..."
 docker run --rm -v "$PWD/envoy.yaml:/etc/envoy/envoy.yaml:ro" \
-  envoyproxy/envoy:v1.29-latest --mode validate -c /etc/envoy/envoy.yaml
+  envoyproxy/envoy:v1.26.6 --mode validate -c /etc/envoy/envoy.yaml
 
 echo "starting envoy on :8080 (Ctrl-C to stop)..."
 exec docker run --rm --name bonkey-envoy --network host \
