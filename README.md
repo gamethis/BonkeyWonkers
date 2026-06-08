@@ -105,3 +105,9 @@ defects from their symptoms — a routing 404, a data race, and a connection
 leak — then extend it with safe identity-header injection and proper request
 context propagation.
 [Start Exercise 12 →](./exercise12/README.md)
+
+## Exercise 13 - Kubernetes: Helm & Kustomize
+
+Package and deploy the bonkey app two ways: fix a broken Helm chart and install
+it with a values override, then complete a Kustomize overlay — and validate both.
+[Start Exercise 13 →](./exercise13/README.md)

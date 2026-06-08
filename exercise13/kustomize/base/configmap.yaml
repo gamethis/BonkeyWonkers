@@ -1,0 +1,7 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bonkey-config
+data:
+  greeting: "Hello from Kustomize base"
