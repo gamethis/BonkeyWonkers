@@ -1,0 +1,15 @@
+docker build -t hello .
+
+docker run -d hello --name hello
+
+docker exec -it <container id> /bin/bash
+
+docker kill <container id>
+
+==========
+
+Step 2:
+
+docker compose up
+
+curl localhost:80/hello

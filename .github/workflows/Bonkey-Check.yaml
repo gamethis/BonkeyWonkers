@@ -1,0 +1,17 @@
+name: fileChecker
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkFileExists?
+        run: |
+          if [ -f "./exercise7/BonkeyContainers.yaml" ]; then
+            exit 0
+          else
+            exit 1
+          fi

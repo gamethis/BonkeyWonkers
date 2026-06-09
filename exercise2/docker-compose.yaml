@@ -1,4 +1,4 @@
-version: "3.7"
+#version: "3.7"
 services:
   app1:
     container_name: app1
@@ -10,4 +10,4 @@ services:
     container_name: app2
     build: .
     ports:
-      - "80:80"
+      - "80:81"

@@ -1,0 +1,13 @@
+name: fileChecker
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkFileExists?
+        if: ${{ hashFiles('BonkkeyContainers.yaml') != '' }}
+        run: exit 1
